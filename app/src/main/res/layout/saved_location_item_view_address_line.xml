@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="16.0dip"
+    android:layout_marginBottom="12.0dip"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/saved_location_location_tag_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:textColor="@color/saved_location_home_tag_background"
+        android:textSize="12.0sp" />
+
+    <TextView
+        android:id="@+id/saved_location_address_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4.0dip"
+        android:minLines="3"
+        android:singleLine="false"
+        android:textColor="#80000000"
+        android:textSize="12.0sp" />
+</LinearLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/search_layout"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:layout_marginLeft="@dimen/_10sdp"
+    android:layout_marginRight="@dimen/_10sdp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/_5sdp"
+    android:paddingRight="@dimen/_5sdp"
+    android:background="@drawable/login_button"
+    android:backgroundTint="@color/colorWhite">
+
+    <TextView
+        android:id="@+id/tvSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_5sdp"
+        android:drawableLeft="@drawable/ic_search"
+        android:drawableTint="@color/colorGrey1"
+        android:hint="@string/search_hint"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/_14ssp"
+        android:background="@drawable/login_button"
+        android:backgroundTint="@color/colorWhite"
+        android:drawablePadding="@dimen/_10sdp"/>
+
+    <!--View
+        android:id="@+id/divider"
+        android:layout_toStartOf="@id/imgFilter"
+        android:layout_width="@dimen/_1sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/_2sdp"
+        android:layout_marginRight="@dimen/_2sdp"
+        android:background="@color/colorGrey1"/>
+
+    <ImageView
+        android:id="@+id/imgFilter"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:src="@drawable/ic_filter"
+        android:rotation="90"
+        android:layout_centerVertical="true"
+        android:tint="@color/colorPink"
+        android:layout_alignParentEnd="true"
+        android:padding="@dimen/_5sdp"/-->
+
+</RelativeLayout>

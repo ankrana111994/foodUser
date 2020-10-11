@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group >
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/home" />
+
+        <!--<item
+            android:id="@+id/restaurant"
+            android:icon="@drawable/ic_fork"
+            android:title="@string/hotel" />-->
+
+        <item
+            android:id="@+id/myorder"
+            android:icon="@drawable/ic_order"
+            android:title="@string/myorders" />
+
+        <item
+            android:id="@+id/profile"
+            android:icon="@drawable/ic_profile"
+            android:title="@string/profile" />
+
+        <item
+            android:id="@+id/contact_us"
+            android:icon="@drawable/ic_contact"
+            android:title="@string/contact_us" />
+        <item
+            android:id="@+id/rate_app"
+            android:icon="@drawable/ic_rate"
+            android:title="@string/rate_app" />
+        <!--<item
+            android:id="@+id/more_app"
+            android:icon="@drawable/ic_more"
+            android:title="@string/more_app" />-->
+        <item
+            android:id="@+id/share_app"
+            android:icon="@drawable/ic_share"
+            android:title="@string/share_app" />
+        <item
+            android:id="@+id/about"
+            android:icon="@drawable/ic_about"
+            android:title="@string/about_us" />
+        <item
+            android:id="@+id/privacy_policy"
+            android:icon="@drawable/ic_privacy"
+            android:title="@string/privacy_policy" />
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/logout" />
+    </group>
+
+</menu>

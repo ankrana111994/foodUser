@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_10sdp">
+
+    <TextView
+        android:id="@+id/tvCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Menu Item"
+        android:layout_toStartOf="@id/viewall"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:textColor="@color/colorBlack"/>
+
+    <TextView
+        android:id="@+id/viewall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View All"
+        android:layout_alignParentEnd="true"
+        android:textSize="@dimen/_10ssp"
+        android:textColor="@color/colorGreyDark"
+        android:drawablePadding="@dimen/_5sdp"
+        android:drawableRight="@drawable/ic_next"
+        android:layout_marginEnd="@dimen/_15sdp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/tvCategory"
+        android:id="@+id/recycler_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingLeft="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_5sdp"/>
+
+</RelativeLayout>

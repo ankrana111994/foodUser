@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_search"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:background="@color/colorWhite"
+            app:titleTextColor="@color/colorBlack"
+            app:title="@string/search">
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorGrey"
+            android:orientation="vertical"
+            android:layout_below="@id/toolbar_search"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+            <TextView
+                android:id="@+id/tv_empty_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:padding="20dp"
+                android:layout_below="@id/empty_icon"
+                android:text="@string/type_search"
+                android:textColor="@color/colorAccent"
+                android:visibility="gone"/>=
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/loader"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                app:lottie_autoPlay="true"
+                android:layout_centerInParent="true"
+                app:lottie_fileName="loading_app.json"
+                app:lottie_loop="true"
+                app:lottie_scale="0.5" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/empty_icon"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                app:lottie_autoPlay="true"
+                android:layout_centerInParent="true"
+                app:lottie_fileName="empty.json"
+                app:lottie_loop="true"
+                app:lottie_scale="0.5" />
+
+        </RelativeLayout>
+
+</RelativeLayout>

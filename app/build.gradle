@@ -1,0 +1,100 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.rndtechnosoft.fooddaily"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    android {
+        lintOptions {
+            checkReleaseBuilds false
+            // Or, if you prefer, you can continue to check for errors in release builds,
+            // but continue the build even when errors are found:
+            abortOnError false
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.navigation:navigation-fragment:2.0.0'
+    implementation 'androidx.navigation:navigation-ui:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.google.android.material:material:1.0.0'
+
+    //Dimension dependency
+    implementation 'com.intuit.ssp:ssp-android:1.0.5'
+    implementation 'com.intuit.sdp:sdp-android:1.0.5'
+
+    //Image set Glide dependency
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+
+    //Api call volley dependency
+    implementation 'com.android.volley:volley:1.1.1'
+
+    //Circular image dependency
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //Loader dependency
+    implementation 'com.wang.avi:library:2.1.3'
+
+    //Firebase dependency
+    implementation 'com.google.firebase:firebase-messaging:18.0.0'
+    implementation 'com.google.firebase:firebase-core:16.0.9'
+    implementation 'com.google.firebase:firebase-crash:16.2.1'
+    implementation 'com.google.firebase:firebase-auth:17.0.0'
+    implementation 'com.google.firebase:firebase-config:16.5.0'
+//    implementation 'com.google.android.libraries.places:places:1.1.0'
+
+    // Crashlytics dependency
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+
+    //Webview dependency
+    implementation 'com.github.delight-im:Android-AdvancedWebView:v3.0.0'
+
+    //Search
+    implementation 'com.github.jumadeveloper:networkmanager:0.0.2'
+
+    //ReadmoreTextView
+    implementation 'at.blogc:expandabletextview:1.0.5'
+
+    //Razorpay
+    implementation 'com.razorpay:checkout:1.5.4'
+
+    //Indicator
+    implementation 'com.merhold.extensiblepageindicator:extensiblepageindicator:1.0.1'
+
+    //Lottie Animation
+    implementation 'com.airbnb.android:lottie:3.4.0'
+
+    //Readmore textview
+    implementation 'com.borjabravo:readmoretextview:2.1.0'
+
+    //Country Code Picker
+    implementation 'com.hbb20:ccp:1.7.1'
+}
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'io.fabric'

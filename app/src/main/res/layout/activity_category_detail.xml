@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.CategoryDetailActivity">
+
+    <include
+        android:id="@+id/toolbar_lay"
+        layout="@layout/toolbar_layout"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_below="@+id/toolbar_lay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        app:tabGravity="fill"
+        android:background="@color/colorWhite"
+        android:layout_centerHorizontal="true"
+        app:tabIndicatorColor="@color/colorAccent"
+        app:tabIndicatorHeight="1dp"
+        app:tabTextColor="@color/colorBlack"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/colorAccent"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_below="@id/tabs"
+        android:layout_above="@id/cart_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorGrey"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loader"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        app:lottie_autoPlay="true"
+        android:layout_centerInParent="true"
+        app:lottie_fileName="loading_app.json"
+        app:lottie_loop="true"
+        app:lottie_scale="0.5" />
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/progresbar_rest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        app:indicatorColor="@color/colorAccent"
+        app:indicatorName="BallSpinFadeLoaderIndicator"
+        android:visibility="visible"/>
+
+    <TextView
+        android:id="@+id/txtNoData"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="No Data Found!!"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_16sdp"
+        android:visibility="gone"
+        android:gravity="center_vertical|center_horizontal"/>
+
+    <RelativeLayout
+        android:id="@+id/cart_lay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorGreen">
+
+        <TextView
+            android:id="@+id/tvTotalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_16ssp"
+            android:layout_margin="@dimen/_5sdp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="@dimen/_12ssp"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@drawable/cart_btnbackground"
+            android:text="View Cart"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

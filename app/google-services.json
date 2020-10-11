@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "712444065315",
+    "firebase_url": "https://food-daily-app-rnd.firebaseio.com",
+    "project_id": "food-daily-app-rnd",
+    "storage_bucket": "food-daily-app-rnd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712444065315:android:fa900dc1f1d79e88de6396",
+        "android_client_info": {
+          "package_name": "com.rndtechnosoft.fooddaily"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "712444065315-m6f2j1lk8i0pn3r2ta7fasaldlc9fbbm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rndtechnosoft.fooddaily",
+            "certificate_hash": "015c907e52204ec9d087b9d0dd2141ec9cec6ee4"
+          }
+        },
+        {
+          "client_id": "712444065315-dbb55399c5p1fg8gn3asvbmovuv5gbs1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAOaAkQFJczBTIRUAfn-JJuoqe4kwNRoM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "712444065315-dbb55399c5p1fg8gn3asvbmovuv5gbs1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712444065315:android:c8b323b8d5c0ccf7de6396",
+        "android_client_info": {
+          "package_name": "com.rndtechnosoft.fooddaily.driverapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "712444065315-r3s3m486hv41197tcs1rjlmidujmbm0p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rndtechnosoft.fooddaily.driverapp",
+            "certificate_hash": "a67a071cba0fa3b39996e9d6e2609f564abf5350"
+          }
+        },
+        {
+          "client_id": "712444065315-dbb55399c5p1fg8gn3asvbmovuv5gbs1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAOaAkQFJczBTIRUAfn-JJuoqe4kwNRoM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "712444065315-dbb55399c5p1fg8gn3asvbmovuv5gbs1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

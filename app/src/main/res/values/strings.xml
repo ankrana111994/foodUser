@@ -1,0 +1,179 @@
+<resources>
+    <string name="app_name">Food Daily</string>
+    <!--<string name="RAZORPAY_API_KEY">rzp_test_fvNkk9n3KMg1dm</string>
+    <string name="google_maps_key">AIzaSyDKREnWf3lzfsUzZp-WoQIecZOY9vsfmSo</string>-->
+
+    <!-- currency icon -->
+    <string name="currency">$</string>
+    <string name="currencyText">Total Price : $150</string>
+
+    <string name="cannot_use_save_permission">Can not use location further</string>
+
+    <!--Login & Signup String-->
+    <string name="login_number">01733554441</string>
+    <string name="login_address">13-GENEVA STREET, PETERBOROUGH PE1 2RS</string>
+    <string name="loginwithemail">Or login with your email</string>
+    <string name="username">Enter Name</string>
+    <string name="mobileno">Enter Mobile No.</string>
+    <string name="password">Enter Password</string>
+    <string name="signup">Sign Up</string>
+    <string name="login">LogIn</string>
+    <string name="forgot_pwd">Forgot Password?</string>
+    <string name="gotomenu">GO TO MENU</string>
+    <string name="already_user">Already have account? Log in</string>
+
+    <!--Forgot Password-->
+    <string name="forgot_password">Forgot Password</string>
+    <string name="validate">Validate Mobile No.</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="please_enter_otp">Please enter OTP</string>
+
+    <!-- Change Password-->
+    <string name="change_pwd">Change Password</string>
+    <string name="enter_pwd">Enter Password</string>
+    <string name="enter_con_pwd">Enter Confirm Password</string>
+
+    <!--Main Activity String-->
+    <string name="home">Home</string>
+    <string name="myorders">My Orders</string>
+    <string name="profile">Profile</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="rate_app">Rate App</string>
+    <string name="share_app">Share App</string>
+    <string name="about_us">About Us</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="logout">Logout</string>
+    <string name="developed_by">Developed By</string>
+    <string name="app_sub_name">Order from app &amp; get 10% off</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="cart">Cart</string>
+    <string name="Let_me_recommend_you_this_application">Let me recommend you this application</string>
+
+    <!--Cart Activity-->
+    <string name="set_up_your_delivery_location">Set up your delivery location</string>
+    <string name="location">Location</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="notification">Notification</string>
+    <string name="search_hint">Search your favourite food</string>
+    <string name="isRTL">false</string>
+    <string name="internet_connection">Internet connection not available</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="error_field_empty">Required Field is Empty</string>
+    <string name="wrong_format">Invalid Mobile Number</string>
+    <string name="internet_connection_message">Internet connection not available check your internet connection</string>
+    <string name="exit">Exit</string>
+    <string name="no_order">No orders found</string>
+    <string name="category">Category</string>
+
+    <!--<Address Validation string>-->
+    <string name="manage_address">Manage Address</string>
+    <string name="newadd">New Address</string>
+    <string name="editadd">Edit Address</string>
+    <string name="add">Add New Address</string>
+    <string name="tips">Partners are less likely to call you if they know how to reach your location swiftly.</string>
+    <string name="name">Name</string>
+    <string name="mobile_no">Mobile No</string>
+    <string name="email">Email</string>
+    <string name="flat">Flat No/Building No/Shop No</string>
+    <string name="building">Building Name/Apartment Name</string>
+    <string name="landmark">Landmark</string>
+    <string name="city">City</string>
+    <string name="pincode">Pincode</string>
+    <!--<Address Validation string>-->
+
+    <!--<ContactUs string>-->
+    <string name="contactUs_name">Name</string>
+    <string name="contactUs_dob">Email</string>
+    <string name="contactUs_description">Description</string>
+    <string name="contactUs_subject">Subject</string>
+    <string name="contactUs_phoneNo">Phone No</string>
+    <string name="contactUs_email">Email</string>
+    <string name="Button_Submit_ContactUs">Submit</string>
+    <!--<ContactUs string>-->
+
+    <!--<ContactUs Validation string>-->
+    <string name="name_ContactUs">enter name</string>
+    <string name="email_ContactUs">enter valid email address</string>
+    <string name="phoneNumber_contactUs">enter phone number</string>
+    <string name="subject_ContactUs">enter subject</string>
+    <string name="description_ContactUs">enter description</string>
+    <!--<ContactUs Validation string>-->
+
+    <!--About Us string-->
+    <string name="app_name_about_us">@string/app_name</string>
+    <string name="about_us_version">Version</string>
+    <string name="about_us_version_text">1.0</string>
+    <string name="about_us_author">Author</string>
+    <string name="about_us_Company">Company</string>
+    <string name="about_us_company_name">RnD Technosoft</string>
+    <string name="about_us_email">Email</string>
+    <string name="about_us_email_text">hello@rndtechnosoft.com</string>
+    <string name="about_us_website">Website</string>
+    <string name="about_us_website_text">www.rndtechnosoft.com</string>
+    <string name="about_us_contact">Contact</string>
+    <string name="about_us_contact_text">+91 7304945823</string>
+    <string name="about_us_about">About</string>
+
+    <!--Profile-->
+    <string name="enter_email">Enter email</string>
+    <string name="enter_gender">Enter gender</string>
+    <string name="enter_dob">Enter date of birth</string>
+    <string name="enter_doa">Enter date of anniversary</string>
+    <string name="submit">Submit</string>
+    <string name="action_gallery">Choose from gallery</string>
+    <string name="action_camera">Camera</string>
+    <string name="label_select_img">Select Image</string>
+    <string name="select_extra_topping">Select Extra Toppings</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="my_cart">My Cart</string>
+    <string name="delivery">Delivery</string>
+    <string name="total">Total</string>
+    <string name="extra_topping">Extra Topping</string>
+    <string name="remove">Remove</string>
+    <string name="continue_shopping">Continue Shopping</string>
+    <string name="checkout">Checkout</string>
+    <string name="terms_cart">By clicking the checkout button you are agreeing to our terms and conditions. Once the order is received we will notify the customer about the time of delivery via sms or email. Order will only be provided once the payment is done in full...</string>
+    <string name="confirm">Confirm</string>
+    <string name="clear_all_order">Do you want to clear your all orders?</string>
+    <string name="no_items_cart">No items in Cart</string>
+    <string name="deliver_to">Deliver To</string>
+    <string name="applycoupon">Apply Coupon</string>
+    <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
+    <string name="title_coupon">Apply Coupon</string>
+    <string name="view_order">View Order</string>
+    <string name="order_placed">Order Placed</string>
+    <string name="discount">Discount</string>
+    <string name="powered_by">Powered by</string>
+    <string name="home_text">We\'re currently not accepting online orders.\n We\'ll be back soon</string>
+    <string name="search">Search</string>
+    <string name="type_search">Type to Search</string>
+    <string name="payment">Payment</string>
+    <string name="select_payment">Select Payment</string>
+    <string name="method">Method</string>
+    <string name="cod">COD (Cash on Delivery)</string>
+    <string name="pick_up">Pickup myself</string>
+    <string name="payment_online">Pay with Credit/Debit Card</string>
+    <string name="continue_btn">Continue</string>
+    <string name="wallet">Wallet</string>
+    <string name="sub_price">Sub Price</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="details">Details</string>
+    <string name="menu">Menu</string>
+    <string name="total_price">Total Price :</string>
+    <string name="select_your_location">Select Location</string>
+    <string name="enter_location">Enter Location</string>
+    <string name="next">Next</string>
+    <string name="dont_have_account">Don\'t have an account? Sign Up</string>
+    <string name="description">Description</string>
+    <string name="set_as_primary">Save as Primary</string>
+    <string name="coupon_code">Coupon Code</string>
+    <string name="others">Others</string>
+    <string name="office">Office</string>
+    <string name="enter_your_name">Enter your name</string>
+
+</resources>

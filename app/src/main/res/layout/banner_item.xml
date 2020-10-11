@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_230sdp"
+    android:layout_height="@dimen/_160sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:layout_marginBottom="@dimen/_10sdp"
+    android:paddingEnd="@dimen/_10sdp"
+    android:id="@+id/rel_layout">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvBanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_10sdp">
+
+        <ImageView
+            android:id="@+id/imgBanner"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_130sdp"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cvBanner"
+        android:textSize="@dimen/_16ssp"
+        android:paddingLeft="@dimen/_10sdp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:text="Banner"/>
+
+</RelativeLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/slider_Card"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_160sdp"
+    android:elevation="0dp"
+    app:cardCornerRadius="10dp">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/_10sdp"
+        android:clipToPadding="false"/>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/progress_banner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        app:indicatorColor="@color/colorAccent"
+        app:indicatorName="BallSpinFadeLoaderIndicator"
+        android:visibility="visible"/>
+
+</androidx.cardview.widget.CardView>

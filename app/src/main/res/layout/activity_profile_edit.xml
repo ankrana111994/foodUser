@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGrey"
+    tools:context=".Activity.ProfileEditActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorToolbar"
+        android:textStyle="bold"/>
+
+    <RelativeLayout
+        android:layout_below="@id/toolbar_profile"
+        android:id="@+id/image_layout"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="@dimen/_120sdp">
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:paddingBottom="20dp"
+            android:src="@drawable/ic_user"
+            app:civ_border_color="@color/colorRed"
+            app:civ_border_width="2dp"
+            app:civ_circle_background_color="@color/colorWhite"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/image"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:src="@color/colorWhite"
+                app:civ_border_color="@color/colorRed"
+                app:civ_border_width="2dp"
+                app:civ_circle_background_color="@color/colorWhite" />
+
+            <ImageView
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:padding="@dimen/_5sdp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_pencil"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+    <EditText
+        android:id="@+id/tvusername"
+        android:layout_below="@id/image_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:hint="@string/username"
+        android:inputType="text"
+        android:drawablePadding="@dimen/_10sdp"
+        android:drawableLeft="@drawable/ic_user"
+        android:background="@drawable/login_edittext_background"
+        android:padding="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_2sdp"/>
+
+    <EditText
+        android:id="@+id/tvemail"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:hint="@string/enter_email"
+        android:inputType="textEmailAddress"
+        android:layout_below="@id/tvusername"
+        android:drawablePadding="@dimen/_10sdp"
+        android:drawableLeft="@drawable/ic_profile_email"
+        android:background="@drawable/login_edittext_background"
+        android:padding="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_2sdp"/>
+
+    <RelativeLayout
+        android:id="@+id/rel_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvemail"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_2sdp">
+
+        <Spinner
+            android:id="@+id/spingender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/tvgender"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:hint="@string/enter_gender"
+            android:inputType="text"
+            android:drawablePadding="@dimen/_10sdp"
+            android:focusable="false"
+            android:drawableLeft="@drawable/ic_profile_gender"
+            android:background="@drawable/login_edittext_background"
+            android:padding="@dimen/_10sdp"/>
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/tvdob"
+        android:layout_below="@id/rel_gender"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:hint="@string/enter_dob"
+        android:inputType="text"
+        android:drawablePadding="@dimen/_10sdp"
+        android:drawableLeft="@drawable/ic_profile_birthday"
+        android:background="@drawable/login_edittext_background"
+        android:padding="@dimen/_10sdp"
+        android:focusable="false"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_2sdp"/>
+
+    <EditText
+        android:id="@+id/tvdoa"
+        android:layout_below="@id/tvdob"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:hint="@string/enter_doa"
+        android:inputType="text"
+        android:drawablePadding="@dimen/_10sdp"
+        android:drawableLeft="@drawable/ic_profile_marriage"
+        android:background="@drawable/login_edittext_background"
+        android:padding="@dimen/_10sdp"
+        android:focusable="false"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_2sdp"/>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_below="@id/tvdoa"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        android:paddingLeft="@dimen/_50sdp"
+        android:paddingRight="@dimen/_50sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:background="@drawable/login_button"
+        android:backgroundTint="@color/colorRedLight"/>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/progress_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="visible"
+        app:indicatorColor="@color/colorAccent"
+        app:indicatorName="BallSpinFadeLoaderIndicator"/>
+
+</RelativeLayout>

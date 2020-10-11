@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:layout_margin="@dimen/_5sdp">
+
+    <TextView
+        android:id="@+id/tvVariant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorGreyDark"
+        android:gravity="center"
+        android:textSize="@dimen/_12ssp"/>
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_below="@id/tvVariant"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="@dimen/_12ssp"/>
+
+    <TextView
+        android:layout_below="@id/tvPrice"
+        android:id="@+id/tvMinus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_14ssp"
+        android:gravity="center"
+        android:paddingLeft="@dimen/_10sdp"
+        android:paddingRight="@dimen/_10sdp"
+        android:background="@drawable/operator_button"
+        android:backgroundTint="@color/colorOperatorButton" />
+
+    <TextView
+        android:id="@+id/tvQty"
+        android:layout_below="@id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="0"
+        android:paddingTop="@dimen/_1sdp"
+        android:paddingBottom="@dimen/_1sdp"
+        android:textSize="@dimen/_14ssp"
+        android:textColor="@color/colorBlack"
+        android:layout_toEndOf="@id/tvMinus"
+        android:layout_toStartOf="@id/tvPlus"/>
+
+    <TextView
+        android:layout_below="@id/tvPrice"
+        android:id="@+id/tvPlus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_14ssp"
+        android:gravity="center"
+        android:layout_alignParentEnd="true"
+        android:paddingLeft="@dimen/_10sdp"
+        android:paddingRight="@dimen/_10sdp"
+        android:background="@drawable/operator_button"
+        android:backgroundTint="@color/colorOperatorButton"/>
+
+</RelativeLayout>

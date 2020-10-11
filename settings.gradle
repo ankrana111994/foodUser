@@ -1,0 +1,2 @@
+rootProject.name='Foodcart2020'
+include ':app'
