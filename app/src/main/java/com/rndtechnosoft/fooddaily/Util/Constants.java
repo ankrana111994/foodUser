@@ -33,7 +33,7 @@ public class Constants {
     public static boolean refresh_flag=true;
     public static String MY_PREFS_NAME= BuildConfig.APPLICATION_ID;
 
-    public static String Base_Url = "YOUR_DOMAIN_HERE";
+    public static String Base_Url = "http://3.6.141.131/";
     public static String url = Base_Url+"all_api.php?";
 
     //About us data

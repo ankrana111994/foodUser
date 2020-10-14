@@ -51,18 +51,18 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.ViewHolder
             public void onClick(View v) {
 
                 if (bannerList.get(position).getType().equalsIgnoreCase("Food")){
-                    Intent intent=new Intent(activity, MenuDetailActivity.class);
-                    intent.putExtra("menu_id",bannerList.get(position).getLink());
-                    intent.putExtra("menu_name",bannerList.get(position).getTitle());
-                    activity.startActivity(intent);
+//                    Intent intent=new Intent(activity, MenuDetailActivity.class);
+//                    intent.putExtra("menu_id",bannerList.get(position).getLink());
+//                    intent.putExtra("menu_name",bannerList.get(position).getTitle());
+//                    activity.startActivity(intent);
                 }else if (bannerList.get(position).getType().equalsIgnoreCase("Cart")){
-                    Intent intent=new Intent(activity, CartActivity.class);
-                    activity.startActivity(intent);
+//                    Intent intent=new Intent(activity, CartActivity.class);
+//                    activity.startActivity(intent);
                 }else if (bannerList.get(position).getType().equalsIgnoreCase("Link")){
-                    Intent intent=new Intent(activity, WebViewActivity.class);
-                    intent.putExtra("link", bannerList.get(position).getLink());
-                    intent.putExtra("title", bannerList.get(position).getTitle());
-                    activity.startActivity(intent);
+//                    Intent intent=new Intent(activity, WebViewActivity.class);
+//                    intent.putExtra("link", bannerList.get(position).getLink());
+//                    intent.putExtra("title", bannerList.get(position).getTitle());
+//                    activity.startActivity(intent);
                 }else if (bannerList.get(position).getType().equalsIgnoreCase("Orders")){
                     mainActivity.viewPager.setCurrentItem(1);
                 }else{

@@ -98,7 +98,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<RecyclerView.View
                     ((SearchViewHolder) holder).tvSearch.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            activity.startActivity(new Intent(activity, SearchActivity.class));
+                          //  activity.startActivity(new Intent(activity, SearchActivity.class));
                         }
                     });
                     break;
@@ -108,7 +108,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<RecyclerView.View
                     ((CategoryViewHolder) holder).viewall.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            activity.startActivity(new Intent(activity, CategoryDetailActivity.class));
+                            //activity.startActivity(new Intent(activity, CategoryDetailActivity.class));
                         }
                     });
                     if (object.getCat_list().equalsIgnoreCase("HORIZONTAL")){
@@ -128,10 +128,10 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<RecyclerView.View
                     ((MenuViewHolder) holder).viewall.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(activity, CategoryDetailActivity.class);
-                            intent.putExtra("position",position);
-                            intent.putExtra("cat_id",object.getLink());
-                            activity.startActivity(intent);
+//                            Intent intent = new Intent(activity, CategoryDetailActivity.class);
+//                            intent.putExtra("position",position);
+//                            intent.putExtra("cat_id",object.getLink());
+//                            activity.startActivity(intent);
                         }
                     });
                     break;
@@ -143,11 +143,11 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<RecyclerView.View
                         gd.setColor(Color.WHITE);
                         gd.setCornerRadius(50);
 //        gd.setStroke(2, Color.RED);
-                        gd.setStroke(4, Color.parseColor(object.getBorder_color()), 12, 16);
+                      //  gd.setStroke(4, Color.parseColor(object.getBorder_color()), 12, 16);
                     }else{
                         gd.setColor(Color.WHITE);
                         gd.setCornerRadius(50);
-                        gd.setStroke(4, Color.parseColor(object.getBorder_color()));
+                      //  gd.setStroke(4, Color.parseColor(object.getBorder_color()));
                     }
                     ((StripViewHolder) holder).rel_layout.setBackgroundDrawable(gd);
                     Glide.with(activity).load(object.getIcon()).thumbnail(Glide.with(activity).load(R.drawable.loading)).into(((StripViewHolder) holder).img_strip);
@@ -156,29 +156,29 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<RecyclerView.View
                         @Override
                         public void onClick(View v) {
                             MainActivity mainActivity = (MainActivity) activity;
-                            if (object.getLink().equalsIgnoreCase("Food")){
-                                Intent intent=new Intent(activity, MenuDetailActivity.class);
-                                intent.putExtra("menu_id",object.getStrip_link());
-                                intent.putExtra("menu_name",object.getTitle());
-                                activity.startActivity(intent);
-                            }else if (object.getLink().equalsIgnoreCase("Cart")){
-                                Intent intent=new Intent(activity, CartActivity.class);
-                                activity.startActivity(intent);
-                            }else if (object.getLink().equalsIgnoreCase("Link")){
-                                Intent intent=new Intent(activity, WebViewActivity.class);
-                                intent.putExtra("link", object.getStrip_link());
-                                intent.putExtra("title", object.getTitle());
-                                activity.startActivity(intent);
-                            }else if (object.getLink().equalsIgnoreCase("categories")){
-                                Intent intent=new Intent(activity, CategoryDetailActivity.class);
-                                intent.putExtra("position", position);
-                                intent.putExtra("cat_id", object.getStrip_link());
-                                activity.startActivity(intent);
-                            }else if (object.getLink().equalsIgnoreCase("Orders")){
-                                mainActivity.viewPager.setCurrentItem(1);
-                            }else{
-                                mainActivity.viewPager.setCurrentItem(0);
-                            }
+//                            if (object.getLink().equalsIgnoreCase("Food")){
+//                                Intent intent=new Intent(activity, MenuDetailActivity.class);
+//                                intent.putExtra("menu_id",object.getStrip_link());
+//                                intent.putExtra("menu_name",object.getTitle());
+//                                activity.startActivity(intent);
+//                            }else if (object.getLink().equalsIgnoreCase("Cart")){
+//                                Intent intent=new Intent(activity, CartActivity.class);
+//                                activity.startActivity(intent);
+//                            }else if (object.getLink().equalsIgnoreCase("Link")){
+//                                Intent intent=new Intent(activity, WebViewActivity.class);
+//                                intent.putExtra("link", object.getStrip_link());
+//                                intent.putExtra("title", object.getTitle());
+//                                activity.startActivity(intent);
+//                            }else if (object.getLink().equalsIgnoreCase("categories")){
+//                                Intent intent=new Intent(activity, CategoryDetailActivity.class);
+//                                intent.putExtra("position", position);
+//                                intent.putExtra("cat_id", object.getStrip_link());
+//                                activity.startActivity(intent);
+//                            }else if (object.getLink().equalsIgnoreCase("Orders")){
+//                                mainActivity.viewPager.setCurrentItem(1);
+//                            }else{
+//                                mainActivity.viewPager.setCurrentItem(0);
+//                            }
 
                         }
                     });
@@ -192,10 +192,10 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<RecyclerView.View
                     ((MenuViewHolder) holder).viewall.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(activity, CategoryDetailActivity.class);
-                            intent.putExtra("position",position);
-                            intent.putExtra("cat_id",object.getLink());
-                            activity.startActivity(intent);
+//                            Intent intent = new Intent(activity, CategoryDetailActivity.class);
+//                            intent.putExtra("position",position);
+//                            intent.putExtra("cat_id",object.getLink());
+//                            activity.startActivity(intent);
                         }
                     });
                     break;

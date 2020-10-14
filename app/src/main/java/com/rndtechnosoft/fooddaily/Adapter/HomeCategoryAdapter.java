@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -52,20 +53,20 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
             gd.setColor(Color.WHITE);
             gd.setCornerRadius(50);
 //        gd.setStroke(2, Color.RED);
-            gd.setStroke(4, Color.parseColor(homeCategoryLists.get(position).getColor_code()), 12, 16);
+          //  gd.setStroke(4, Color.parseColor(homeCategoryLists.get(position).getColor_code()), 12, 16);
         }else{
             gd.setColor(Color.WHITE);
             gd.setCornerRadius(50);
-            gd.setStroke(4, Color.parseColor(homeCategoryLists.get(position).getColor_code()));
+           // gd.setStroke(4, Color.parseColor(homeCategoryLists.get(position).getColor_code()));
         }
         holder.cat_lay.setBackground(gd);
         holder.cat_lay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, CategoryDetailActivity.class);
-                intent.putExtra("position",position);
-                intent.putExtra("cat_id",homeCategoryLists.get(position).getId());
-                activity.startActivity(intent);
+//                Intent intent = new Intent(activity, CategoryDetailActivity.class);
+//                intent.putExtra("position",position);
+//                intent.putExtra("cat_id",homeCategoryLists.get(position).getId());
+//                activity.startActivity(intent);
             }
         });
     }
@@ -79,14 +80,14 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
 
         ImageView imgCategory;
         TextView tvCategory;
-        RelativeLayout cat_lay;
+        CardView cat_lay;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             imgCategory = (ImageView) itemView.findViewById(R.id.imgCategory);
             tvCategory = (TextView) itemView.findViewById(R.id.tvCategory);
-            cat_lay = (RelativeLayout) itemView.findViewById(R.id.cat_lay);
+            cat_lay = (CardView) itemView.findViewById(R.id.cat_lay);
 
         }
     }

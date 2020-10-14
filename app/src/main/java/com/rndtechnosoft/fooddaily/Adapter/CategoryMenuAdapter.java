@@ -95,23 +95,23 @@ public class CategoryMenuAdapter extends RecyclerView.Adapter<CategoryMenuAdapte
         if (SharedPref.getDASHED(activity).equalsIgnoreCase("1")) {
             gd.setColor(activity.getResources().getColor(R.color.colorWhite));
             gd.setCornerRadius(25);
-            gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1), 12, 16);
+           // gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1), 12, 16);
         }else{
             gd.setColor(activity.getResources().getColor(R.color.colorWhite));
             gd.setCornerRadius(25);
-            gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1));
+          //  gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1));
         }
         holder.linearLayout.setBackground(gd);
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, MenuDetailActivity.class);
-                intent.putExtra("menu_image",menuLists.get(position).getImage());
-                intent.putExtra("menu_name",menuLists.get(position).getName());
-                intent.putExtra("menu_id",menuLists.get(position).getId());
-                intent.putExtra("cat_id",menuLists.get(position).getCat_id());
-                activity.startActivity(intent);
+//                Intent intent = new Intent(activity, MenuDetailActivity.class);
+//                intent.putExtra("menu_image",menuLists.get(position).getImage());
+//                intent.putExtra("menu_name",menuLists.get(position).getName());
+//                intent.putExtra("menu_id",menuLists.get(position).getId());
+//                intent.putExtra("cat_id",menuLists.get(position).getCat_id());
+//                activity.startActivity(intent);
             }
         });
 

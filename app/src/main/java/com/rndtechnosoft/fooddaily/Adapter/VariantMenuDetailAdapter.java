@@ -113,8 +113,8 @@ public class VariantMenuDetailAdapter extends RecyclerView.Adapter<VariantMenuDe
                             JSONObject jsonObject = new JSONObject(response);
                             JSONObject jsonObject1 = jsonObject.getJSONObject("MANAGE_CART");
                             String message = jsonObject1.getString("message");
-                            MenuDetailActivity detailActivity = (MenuDetailActivity) activity;
-                            detailActivity.cartcount();
+//                            MenuDetailActivity detailActivity = (MenuDetailActivity) activity;
+//                            detailActivity.cartcount();
                             Toast.makeText(activity, message, Toast.LENGTH_SHORT).show();
                         } catch (JSONException e) {
                             e.printStackTrace();

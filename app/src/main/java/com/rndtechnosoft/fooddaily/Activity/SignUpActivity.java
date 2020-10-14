@@ -123,8 +123,8 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mobile = tvmobile.getText().toString();
                 selected_country_code = ccp.getSelectedCountryCodeWithPlus();
-                String noWithCode = selected_country_code+mobile;
-//                String noWithCode = "+91"+mobile;
+                //String noWithCode = selected_country_code+mobile;
+                String noWithCode = "+91"+mobile;
                 startPhoneNumberVerification(noWithCode);
             }
         });

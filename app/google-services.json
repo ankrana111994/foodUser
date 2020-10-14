@@ -1,79 +1,42 @@
 {
   "project_info": {
-    "project_number": "712444065315",
-    "firebase_url": "https://food-daily-app-rnd.firebaseio.com",
-    "project_id": "food-daily-app-rnd",
-    "storage_bucket": "food-daily-app-rnd.appspot.com"
+    "project_number": "633220718542",
+    "firebase_url": "https://delivery-950df.firebaseio.com",
+    "project_id": "delivery-950df",
+    "storage_bucket": "delivery-950df.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:712444065315:android:fa900dc1f1d79e88de6396",
+        "mobilesdk_app_id": "1:633220718542:android:fb6bf2650d5aeceddbd59f",
         "android_client_info": {
           "package_name": "com.rndtechnosoft.fooddaily"
         }
       },
       "oauth_client": [
         {
-          "client_id": "712444065315-m6f2j1lk8i0pn3r2ta7fasaldlc9fbbm.apps.googleusercontent.com",
+          "client_id": "633220718542-7lvjd1lg51oce3jcnrgn3aaevum2au26.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.rndtechnosoft.fooddaily",
-            "certificate_hash": "015c907e52204ec9d087b9d0dd2141ec9cec6ee4"
+            "certificate_hash": "325fb1b32985a9abf045d6b90bf8a4be4c3befaf"
           }
         },
         {
-          "client_id": "712444065315-dbb55399c5p1fg8gn3asvbmovuv5gbs1.apps.googleusercontent.com",
+          "client_id": "633220718542-0dv0kgpbnikmievem7qju5h4n0of3a2i.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDAOaAkQFJczBTIRUAfn-JJuoqe4kwNRoM"
+          "current_key": "AIzaSyAyZ-clXP2zj1SyiOLT8VtUPUQgaCQpbOE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "712444065315-dbb55399c5p1fg8gn3asvbmovuv5gbs1.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:712444065315:android:c8b323b8d5c0ccf7de6396",
-        "android_client_info": {
-          "package_name": "com.rndtechnosoft.fooddaily.driverapp"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "712444065315-r3s3m486hv41197tcs1rjlmidujmbm0p.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.rndtechnosoft.fooddaily.driverapp",
-            "certificate_hash": "a67a071cba0fa3b39996e9d6e2609f564abf5350"
-          }
-        },
-        {
-          "client_id": "712444065315-dbb55399c5p1fg8gn3asvbmovuv5gbs1.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDAOaAkQFJczBTIRUAfn-JJuoqe4kwNRoM"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "712444065315-dbb55399c5p1fg8gn3asvbmovuv5gbs1.apps.googleusercontent.com",
+              "client_id": "633220718542-0dv0kgpbnikmievem7qju5h4n0of3a2i.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

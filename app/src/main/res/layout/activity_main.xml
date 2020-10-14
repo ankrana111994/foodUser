@@ -54,6 +54,7 @@
         </com.google.android.material.navigation.NavigationView>
 
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/ll_footer"
             android:background="@color/colorWhite"
             android:layout_alignParentBottom="true"
