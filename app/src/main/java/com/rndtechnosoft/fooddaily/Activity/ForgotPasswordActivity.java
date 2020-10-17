@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.text.Html;
@@ -85,7 +86,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         if (SharedPref.getDASHED(ForgotPasswordActivity.this).equalsIgnoreCase("1")) {
             gd.setColor(getResources().getColor(R.color.colorGrey));
             gd.setCornerRadius(25);
-       // gd.setStroke(2, Color.RED);
+
+        gd.setStroke(2, Color.RED);
             gd.setStroke(4, getResources().getColor(R.color.colorGrey1), 12, 16);
         }else{
             gd.setColor(getResources().getColor(R.color.colorGrey));

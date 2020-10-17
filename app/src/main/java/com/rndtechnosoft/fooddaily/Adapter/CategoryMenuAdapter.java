@@ -102,16 +102,15 @@ public class CategoryMenuAdapter extends RecyclerView.Adapter<CategoryMenuAdapte
           //  gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1));
         }
         holder.linearLayout.setBackground(gd);
-
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(activity, MenuDetailActivity.class);
-//                intent.putExtra("menu_image",menuLists.get(position).getImage());
-//                intent.putExtra("menu_name",menuLists.get(position).getName());
-//                intent.putExtra("menu_id",menuLists.get(position).getId());
-//                intent.putExtra("cat_id",menuLists.get(position).getCat_id());
-//                activity.startActivity(intent);
+                Intent intent = new Intent(activity, MenuDetailActivity.class);
+                intent.putExtra("menu_image",menuLists.get(position).getImage());
+                intent.putExtra("menu_name",menuLists.get(position).getName());
+                intent.putExtra("menu_id",menuLists.get(position).getId());
+                intent.putExtra("cat_id",menuLists.get(position).getCat_id());
+                activity.startActivity(intent);
             }
         });
 

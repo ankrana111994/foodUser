@@ -23,7 +23,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -224,17 +223,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         bottomNavigationMenu.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigationView.setNavigationItemSelectedListener(this);
         setupViewPager(viewPager);
-        viewPager.setOnTouchListener(new View.OnTouchListener()
-        {
-            @Override
-            public boolean onTouch(View v, MotionEvent event)
-            {
-                viewPager.setCurrentItem(viewPager.getCurrentItem());
-
-                return false;
-            }
-        });
-        //viewPager.onInterceptTouchEvent(new onT)
+        viewPager.setCurrentItem(0);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
@@ -283,14 +272,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         imgNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              //  startActivity(new Intent(MainActivity.this,NotificationActivity.class));
+                startActivity(new Intent(MainActivity.this,NotificationActivity.class));
             }
         });
 
         imgCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // startActivity(new Intent(MainActivity.this,CartActivity.class));
+                startActivity(new Intent(MainActivity.this,CartActivity.class));
             }
         });
 
@@ -471,7 +460,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void setupViewPager(ViewPager viewPager) {
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
         HomeFragment fragmentHome = new HomeFragment();
-         OrderFragment fragmentOrder = new OrderFragment();
+        OrderFragment fragmentOrder = new OrderFragment();
         ProfileFragment fragmentProfile = new ProfileFragment();
         LoginFragment fragmentLogin = new LoginFragment();
         adapter.addFragment(fragmentHome);
@@ -512,109 +501,109 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 return true;
 
             case R.id.myorder:
-             //   Your order listing
+                //Your order listing
                 refresh_flag=false;
                 viewPager.setCurrentItem(1);
                 return true;
 
             case R.id.contact_us:
                 //Contact the app owner
-//                refresh_flag=false;
-//                startActivity(new Intent(MainActivity.this, ContactActivity.class));
-//                return true;
+                refresh_flag=false;
+                startActivity(new Intent(MainActivity.this, ContactActivity.class));
+                return true;
 
             case R.id.rate_app:
                 //Rate app
-//                refresh_flag=false;
-//                Uri uri = Uri.parse("market://details?id=" + getApplication().getPackageName());
-//                Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
-//                // To count with Play market backstack, After pressing back button,
-//                // to taken back to our application, we need to add following flags to intent.
-//                goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
-//                        Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
-//                        Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-//                try {
-//                    startActivity(goToMarket);
-//                } catch (ActivityNotFoundException e) {
-//                    startActivity(new Intent(Intent.ACTION_VIEW,
-//                            Uri.parse("http://play.google.com/store/apps/details?id=" + getApplication().getPackageName())));
-//                }
-//                return true;
+                refresh_flag=false;
+                Uri uri = Uri.parse("market://details?id=" + getApplication().getPackageName());
+                Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+                // To count with Play market backstack, After pressing back button,
+                // to taken back to our application, we need to add following flags to intent.
+                goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+                        Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
+                        Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                try {
+                    startActivity(goToMarket);
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("http://play.google.com/store/apps/details?id=" + getApplication().getPackageName())));
+                }
+                return true;
 
             case R.id.share_app:
                 //Share app
-//                refresh_flag=false;
-//                try {
-//                    Intent i = new Intent(Intent.ACTION_SEND);
-//                    i.setType("text/plain");
-//                    i.putExtra(Intent.EXTRA_SUBJECT, "My application menu_name");
-//                    String sAux = "\n" + getResources().getString(R.string.Let_me_recommend_you_this_application) + "\n\n";
-//                    sAux = sAux + "https://play.google.com/store/apps/details?id=" + getApplication().getPackageName();
-//                    i.putExtra(Intent.EXTRA_TEXT, sAux);
-//                    startActivity(Intent.createChooser(i, "choose one"));
-//                } catch (Exception e) {
-//                    //e.toString();
-//                }
-//                return true;
+                refresh_flag=false;
+                try {
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.setType("text/plain");
+                    i.putExtra(Intent.EXTRA_SUBJECT, "My application menu_name");
+                    String sAux = "\n" + getResources().getString(R.string.Let_me_recommend_you_this_application) + "\n\n";
+                    sAux = sAux + "https://play.google.com/store/apps/details?id=" + getApplication().getPackageName();
+                    i.putExtra(Intent.EXTRA_TEXT, sAux);
+                    startActivity(Intent.createChooser(i, "choose one"));
+                } catch (Exception e) {
+                    //e.toString();
+                }
+                return true;
 
             case R.id.about:
                 //About the app
-//                refresh_flag=false;
-//                startActivity(new Intent(MainActivity.this, AboutusActivity.class));
-//                return true;
+                refresh_flag=false;
+                startActivity(new Intent(MainActivity.this, AboutusActivity.class));
+                return true;
 
             case R.id.privacy_policy:
                 //Privacy Policy of the app
-//                refresh_flag=false;
-//                startActivity(new Intent(MainActivity.this, PrivacyActivity.class));
-//                return true;
+                refresh_flag=false;
+                startActivity(new Intent(MainActivity.this, PrivacyActivity.class));
+                return true;
             case R.id.logout:
-//                //Logout Of the app
-//                SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-//                editor.putString(SharedPref.USER_MOBILE, "");
-//                editor.putString(SharedPref.USER_NAME, "");
-//                editor.apply();
-//                final String token = "0";
-//                Method.sendRegistrationToServer(MainActivity.this, token,Method.getAndroidID(MainActivity.this));
-//          //      SharedPref.clearAllPreferences(MainActivity.this);
-//
-//                StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.update_version_fcm,
-//                        new Response.Listener<String>() {
-//                            @Override
-//                            public void onResponse(String response) {
-//                                Log.e("token_reg",response);
-//                            }
-//                        },
-//                        new Response.ErrorListener() {
-//                            @Override
-//                            public void onErrorResponse(VolleyError error) {
-//                                //displaying the error in toast if occurrs
-//                            }
-//                        }) {
-//                    @Override
-//                    public Map<String, String> getParams() {
-//                        Map<String, String> params = new HashMap<String, String>();
-//                        params.put("user_id", SharedPref.getUserId(getApplicationContext()));
-//                        params.put("token", token);
-//                        params.put("mobileid", com.rndtechnosoft.fooddaily.Util.Method.getAndroidID(getApplicationContext()));
-//                        params.put("versioncode", Constants.VERSION);
-//                        return params;
-//                    }
-//
-//                };
-//                //creating a request queue
-//                RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-//                //adding the string request to request queue
-//                requestQueue.add(stringRequest);
-//
-//
-//                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |  Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//                startActivity(intent);
-//                finish();
-//                return true;
-           default:
-               return true;
+                //Logout Of the app
+                SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                editor.putString(SharedPref.USER_MOBILE, "");
+                editor.putString(SharedPref.USER_NAME, "");
+                editor.apply();
+                final String token = "0";
+                Method.sendRegistrationToServer(MainActivity.this, token,Method.getAndroidID(MainActivity.this));
+                //      SharedPref.clearAllPreferences(MainActivity.this);
+
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.update_version_fcm,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                Log.e("token_reg",response);
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                //displaying the error in toast if occurrs
+                            }
+                        }) {
+                    @Override
+                    public Map<String, String> getParams() {
+                        Map<String, String> params = new HashMap<String, String>();
+                        params.put("user_id", SharedPref.getUserId(getApplicationContext()));
+                        params.put("token", token);
+                        params.put("mobileid", com.rndtechnosoft.fooddaily.Util.Method.getAndroidID(getApplicationContext()));
+                        params.put("versioncode", Constants.VERSION);
+                        return params;
+                    }
+
+                };
+                //creating a request queue
+                RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+                //adding the string request to request queue
+                requestQueue.add(stringRequest);
+
+
+                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |  Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                finish();
+                return true;
+            default:
+                return true;
         }
 
     }

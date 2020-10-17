@@ -63,10 +63,10 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
         holder.cat_lay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(activity, CategoryDetailActivity.class);
-//                intent.putExtra("position",position);
-//                intent.putExtra("cat_id",homeCategoryLists.get(position).getId());
-//                activity.startActivity(intent);
+                Intent intent = new Intent(activity, CategoryDetailActivity.class);
+                intent.putExtra("position",position);
+                intent.putExtra("cat_id",homeCategoryLists.get(position).getId());
+                activity.startActivity(intent);
             }
         });
     }

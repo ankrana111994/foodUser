@@ -100,87 +100,87 @@ public class HomeMenuAdapter extends RecyclerView.Adapter<HomeMenuAdapter.ViewHo
         holder.cat_lay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(activity, MenuDetailActivity.class);
-//                intent.putExtra("menu_image",homeMenuLists.get(position).getImage());
-//                intent.putExtra("menu_name",homeMenuLists.get(position).getName());
-//                intent.putExtra("menu_id",homeMenuLists.get(position).getId());
-//                intent.putExtra("cat_id",cat_id);
-//                activity.startActivity(intent);
+                Intent intent = new Intent(activity, MenuDetailActivity.class);
+                intent.putExtra("menu_image",homeMenuLists.get(position).getImage());
+                intent.putExtra("menu_name",homeMenuLists.get(position).getName());
+                intent.putExtra("menu_id",homeMenuLists.get(position).getId());
+                intent.putExtra("cat_id",cat_id);
+                activity.startActivity(intent);
             }
         });
 
         holder.tvPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String start_time = homeMenuLists.get(position).getFood_opening_time();
-//                String end_time = homeMenuLists.get(position).getFood_closing_time();
-//                if (!start_time.equalsIgnoreCase("") && !start_time.equalsIgnoreCase("0") && start_time!=null) {
-//                    try {
-//                        Date time1 = new SimpleDateFormat("HH:mm").parse(start_time);
-//                        Calendar calendar1 = Calendar.getInstance();
-//                        calendar1.setTime(time1);
-//                        calendar1.add(Calendar.DATE, 1);
-//
-//                        Date time2 = new SimpleDateFormat("HH:mm").parse(end_time);
-//                        Calendar calendar2 = Calendar.getInstance();
-//                        calendar2.setTime(time2);
-//                        calendar2.add(Calendar.DATE, 1);
-//
-//                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-//                        String str = sdf.format(new Date());
-//                        Date d = new SimpleDateFormat("HH:mm").parse(str);
-//                        Calendar calendar3 = Calendar.getInstance();
-//                        calendar3.setTime(d);
-//                        calendar3.add(Calendar.DATE, 1);
-//
-//                        Log.d("string1->>", time1 + "");
-//                        Log.d("string2->>", time2 + "");
-//                        Log.d("date->>", d + "");
-//                        Date x = calendar3.getTime();
-//                        if (x.after(calendar1.getTime()) && x.before(calendar2.getTime())) {
-//                            //checkes whether the current time is between 14:49:00 and 20:11:13.
-//                            //Add to cart
-//                            addtocart(holder,cat_id,homeMenuLists.get(position).getId(),homeMenuLists.get(position).getName(),homeMenuLists.get(position).getImage(),homeMenuLists.get(position).getVariantLists().get(0).getId(),homeMenuLists.get(position).getVariantLists().get(0).getVolume(),homeMenuLists.get(position).getVariantLists().get(0).getPrice(),Constants.INCREMENT);
-//                        } else {
-//                            //Toast.makeText(activity, "Delivery not available", Toast.LENGTH_SHORT).show();
-//                            SimpleDateFormat _24HourSDF = new SimpleDateFormat("HH:mm");
-//                            SimpleDateFormat _12HourSDF = new SimpleDateFormat("hh:mm a");
-//                            Date _24HourStart = _24HourSDF.parse(homeMenuLists.get(position).getFood_opening_time());
-//                            Date _24HourEnd = _24HourSDF.parse(homeMenuLists.get(position).getFood_closing_time());
-//                            starttime=_12HourSDF.format(_24HourStart);
-//                            endtime=_12HourSDF.format(_24HourEnd);
-//                            String msg =  String.format(homeMenuLists.get(position).getFood_time_msg(), homeMenuLists.get(position).getName(), starttime+" - "+endtime);
-//                            AlertDialog dialog=new AlertDialog.Builder(activity).setTitle(R.string.app_name).setMessage(msg)
-//                                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-//                                        @Override
-//                                        public void onClick(DialogInterface dialogInterface, int i) {
-//
-//                                        }
-//                                    }).show();
-//                            TextView textView=dialog.findViewById(android.R.id.message);
-//                            Typeface face= null;
-//                            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-//                                face = activity.getResources()
-//                                        .getFont(R.font.calibri_regular);
-//                            }
-//                            textView.setTypeface(face);
-//                        }
-//                    } catch (ParseException e) {
-//                        e.printStackTrace();
-//                    }
-//                }else{
-//                    //Add to cart
-//                    addtocart(holder,cat_id,homeMenuLists.get(position).getId(),homeMenuLists.get(position).getName(),homeMenuLists.get(position).getImage(),homeMenuLists.get(position).getVariantLists().get(0).getId(),homeMenuLists.get(position).getVariantLists().get(0).getVolume(),homeMenuLists.get(position).getVariantLists().get(0).getPrice(),Constants.INCREMENT);
-//                }
-//
-//
-//            }
-//        });
-//
-//        holder.tvMinus.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                addtocart(holder,cat_id,homeMenuLists.get(position).getId(),homeMenuLists.get(position).getName(),homeMenuLists.get(position).getImage(),homeMenuLists.get(position).getVariantLists().get(0).getId(),homeMenuLists.get(position).getVariantLists().get(0).getVolume(),homeMenuLists.get(position).getVariantLists().get(0).getPrice(),Constants.DECREMENT);
+                String start_time = homeMenuLists.get(position).getFood_opening_time();
+                String end_time = homeMenuLists.get(position).getFood_closing_time();
+                if (!start_time.equalsIgnoreCase("") && !start_time.equalsIgnoreCase("0") && start_time!=null) {
+                    try {
+                        Date time1 = new SimpleDateFormat("HH:mm").parse(start_time);
+                        Calendar calendar1 = Calendar.getInstance();
+                        calendar1.setTime(time1);
+                        calendar1.add(Calendar.DATE, 1);
+
+                        Date time2 = new SimpleDateFormat("HH:mm").parse(end_time);
+                        Calendar calendar2 = Calendar.getInstance();
+                        calendar2.setTime(time2);
+                        calendar2.add(Calendar.DATE, 1);
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+                        String str = sdf.format(new Date());
+                        Date d = new SimpleDateFormat("HH:mm").parse(str);
+                        Calendar calendar3 = Calendar.getInstance();
+                        calendar3.setTime(d);
+                        calendar3.add(Calendar.DATE, 1);
+
+                        Log.d("string1->>", time1 + "");
+                        Log.d("string2->>", time2 + "");
+                        Log.d("date->>", d + "");
+                        Date x = calendar3.getTime();
+                        if (x.after(calendar1.getTime()) && x.before(calendar2.getTime())) {
+                            //checkes whether the current time is between 14:49:00 and 20:11:13.
+                            //Add to cart
+                            addtocart(holder,cat_id,homeMenuLists.get(position).getId(),homeMenuLists.get(position).getName(),homeMenuLists.get(position).getImage(),homeMenuLists.get(position).getVariantLists().get(0).getId(),homeMenuLists.get(position).getVariantLists().get(0).getVolume(),homeMenuLists.get(position).getVariantLists().get(0).getPrice(),Constants.INCREMENT);
+                        } else {
+                            //Toast.makeText(activity, "Delivery not available", Toast.LENGTH_SHORT).show();
+                            SimpleDateFormat _24HourSDF = new SimpleDateFormat("HH:mm");
+                            SimpleDateFormat _12HourSDF = new SimpleDateFormat("hh:mm a");
+                            Date _24HourStart = _24HourSDF.parse(homeMenuLists.get(position).getFood_opening_time());
+                            Date _24HourEnd = _24HourSDF.parse(homeMenuLists.get(position).getFood_closing_time());
+                            starttime=_12HourSDF.format(_24HourStart);
+                            endtime=_12HourSDF.format(_24HourEnd);
+                            String msg =  String.format(homeMenuLists.get(position).getFood_time_msg(), homeMenuLists.get(position).getName(), starttime+" - "+endtime);
+                            AlertDialog dialog=new AlertDialog.Builder(activity).setTitle(R.string.app_name).setMessage(msg)
+                                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                                        }
+                                    }).show();
+                            TextView textView=dialog.findViewById(android.R.id.message);
+                            Typeface face= null;
+                            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                                face = activity.getResources()
+                                        .getFont(R.font.calibri_regular);
+                            }
+                            textView.setTypeface(face);
+                        }
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    //Add to cart
+                    addtocart(holder,cat_id,homeMenuLists.get(position).getId(),homeMenuLists.get(position).getName(),homeMenuLists.get(position).getImage(),homeMenuLists.get(position).getVariantLists().get(0).getId(),homeMenuLists.get(position).getVariantLists().get(0).getVolume(),homeMenuLists.get(position).getVariantLists().get(0).getPrice(),Constants.INCREMENT);
+                }
+
+
+            }
+        });
+
+        holder.tvMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addtocart(holder,cat_id,homeMenuLists.get(position).getId(),homeMenuLists.get(position).getName(),homeMenuLists.get(position).getImage(),homeMenuLists.get(position).getVariantLists().get(0).getId(),homeMenuLists.get(position).getVariantLists().get(0).getVolume(),homeMenuLists.get(position).getVariantLists().get(0).getPrice(),Constants.DECREMENT);
             }
         });
 
