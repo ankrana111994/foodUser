@@ -149,7 +149,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<RecyclerView.View
                         gd.setCornerRadius(50);
                       //  gd.setStroke(4, Color.parseColor(object.getBorder_color()));
                     }
-                    ((StripViewHolder) holder).rel_layout.setBackgroundDrawable(gd);
+                   // ((StripViewHolder) holder).rel_layout.setBackgroundDrawable(gd);
                     Glide.with(activity).load(object.getIcon()).thumbnail(Glide.with(activity).load(R.drawable.loading)).into(((StripViewHolder) holder).img_strip);
 
                     ((StripViewHolder) holder).rel_layout.setOnClickListener(new View.OnClickListener() {

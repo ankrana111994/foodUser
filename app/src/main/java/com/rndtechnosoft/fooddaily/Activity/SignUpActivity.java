@@ -281,7 +281,7 @@ public class SignUpActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject=new JSONObject(response);
                             JSONObject jsonObject1=jsonObject.getJSONObject("USER_REGISTRATION");
-                            if (jsonObject1.has("error")){
+                            if (!jsonObject1.has("error")){
                                 String error = jsonObject1.getString("error");
                                 String id = jsonObject1.getString("id");
                                 String name = jsonObject1.getString("name");
@@ -307,6 +307,10 @@ public class SignUpActivity extends AppCompatActivity {
                                     finish();
                                 }else
                                     Toast.makeText(SignUpActivity.this, jsonObject1.getString("message"), Toast.LENGTH_SHORT).show();
+                            }
+                            else {
+                                Toast.makeText(SignUpActivity.this, jsonObject1.getString("message"), Toast.LENGTH_SHORT).show();
+
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
