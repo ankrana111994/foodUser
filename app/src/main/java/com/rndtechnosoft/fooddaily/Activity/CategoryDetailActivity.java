@@ -51,6 +51,8 @@ public class CategoryDetailActivity extends AppCompatActivity {
     private ImageView imgNotification,imgCart;
     private int selectPosition;
     private String cat_id;
+    private String res_id;
+
     RelativeLayout cart_lay;
     LottieAnimationView loader;
 
@@ -71,7 +73,7 @@ public class CategoryDetailActivity extends AppCompatActivity {
         Intent in = getIntent();
         selectPosition = in.getIntExtra("position", 0);
         cat_id = in.getStringExtra("cat_id");
-
+        res_id=in.getStringExtra("id");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -157,7 +159,7 @@ public class CategoryDetailActivity extends AppCompatActivity {
         txtNoData.setVisibility(View.GONE);
         loader.setVisibility(View.VISIBLE);
         final RequestQueue requestQueue = Volley.newRequestQueue(CategoryDetailActivity.this);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.category, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.category+"&restaurant_id="+res_id, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -171,7 +173,14 @@ public class CategoryDetailActivity extends AppCompatActivity {
                         String category_name = object.getString("category_name");
                         String category_image = object.getString("image");
                         String count = object.getString("count");
-                        categoryLists.add(new CategoryList(id,category_name,category_image,count));
+                        if (cat_id!=null) {
+                            if (cat_id.equalsIgnoreCase(id))
+                                categoryLists.add(new CategoryList(id, category_name, category_image, count));
+                        }
+                        else {
+                            categoryLists.add(new CategoryList(id, category_name, category_image, count));
+
+                        }
                     }
                     setTab();
                     progress.hide();
@@ -225,6 +234,8 @@ public class CategoryDetailActivity extends AppCompatActivity {
             CategoryFragment categoryFragment = new CategoryFragment();
             Bundle bundle = new Bundle();
             bundle.putString("id",categoryLists.get(i).getId());
+            bundle.putString("res_id",res_id);
+
             bundle.putString("category_name",categoryLists.get(i).getCategory_name());
             categoryFragment.setArguments(bundle);
             adapter.addFragment(categoryFragment, categoryLists.get(i).getCategory_name());

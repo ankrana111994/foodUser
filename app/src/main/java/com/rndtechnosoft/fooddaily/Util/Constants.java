@@ -46,6 +46,10 @@ public class Constants {
     //Category Listing
     public static String category = url + "category";
 
+    //restaurant Listing
+    public static String restaurants = url + "restaurants";
+
+
     //Menu Listing Category Wise
     public static String menu_cat_wise = url + "menu_list&cat_id=";
 

@@ -53,6 +53,9 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<RecyclerView.View
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
 
         switch (viewType){
+            case Model.HOME_SHOP:
+                view = layoutInflater.inflate(R.layout.shop_recycler, parent, false);
+                return new ShopViewHolder(view);
             case Model.HOME_BANNER:
                 view = layoutInflater.inflate(R.layout.banner_recycler, parent, false);
                 return new BannerViewHolder(view);
@@ -86,7 +89,14 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<RecyclerView.View
         final Model object =homeModel.get(position);
         if (object!=null){
             switch (object.type){
+                case Model.HOME_SHOP:
 
+                            ((ShopViewHolder) holder).tvTitle.setText(object.getTitle());
+
+                    ((ShopViewHolder) holder).recycler_shop.setLayoutManager(new LinearLayoutManager(activity,RecyclerView.HORIZONTAL,false));
+                    ((ShopViewHolder) holder).recycler_shop.setAdapter(new ShopAdapter(activity,object.getShops()));
+                    ((ShopViewHolder) holder).progress_shop.setVisibility(View.GONE);
+                    break;
                 case Model.HOME_BANNER:
                     ((BannerViewHolder) holder).recycler_banner.setLayoutManager(new LinearLayoutManager(activity,RecyclerView.HORIZONTAL,false));
                     ((BannerViewHolder) holder).recycler_banner.setAdapter(new BannerAdapter(activity,object.getBanners()));
@@ -104,11 +114,11 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<RecyclerView.View
                     break;
 
                 case Model.HOME_CATEGORY:
-                    ((CategoryViewHolder) holder).tvTitle.setText(object.getTitle());
+                 //   ((CategoryViewHolder) holder).tvTitle.setText(object.getTitle());
                     ((CategoryViewHolder) holder).viewall.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            activity.startActivity(new Intent(activity, CategoryDetailActivity.class));
+                         //   activity.startActivity(new Intent(activity, CategoryDetailActivity.class));
                         }
                     });
                     if (object.getCat_list().equalsIgnoreCase("HORIZONTAL")){
@@ -234,8 +244,25 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<RecyclerView.View
                 return Model.HOME_TRENDING;
             case 7:
                 return Model.HOME_STEPS;
+            case 8:
+                return Model.HOME_SHOP;
             default:
                 return -1;
+        }
+    }
+
+    private class ShopViewHolder extends RecyclerView.ViewHolder {
+
+        RecyclerView recycler_shop;
+        AVLoadingIndicatorView progress_shop;
+        TextView tvTitle;
+
+        public ShopViewHolder(View view) {
+            super(view);
+            recycler_shop = (RecyclerView) itemView.findViewById(R.id.recycler_shop);
+            tvTitle = (TextView) itemView.findViewById(R.id.tvCategory);
+
+            progress_shop = (AVLoadingIndicatorView) itemView.findViewById(R.id.progress_shop);
         }
     }
 

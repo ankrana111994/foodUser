@@ -37,7 +37,7 @@ import java.util.ArrayList;
 public class CategoryFragment extends Fragment {
 
     View view;
-    private String cat_id;
+    private String cat_id,res_id;
     ArrayList<MenuList> menuLists;
     RecyclerView recyclerView_menu;
     CategoryMenuAdapter adapter;
@@ -76,6 +76,8 @@ public class CategoryFragment extends Fragment {
         if(getArguments()!=null) {
             Bundle bundle = getArguments();
             cat_id = bundle.getString("id");
+            res_id = bundle.getString("res_id","");
+
             CategoryDetailActivity activity= (CategoryDetailActivity) getActivity();
         }
 
@@ -96,7 +98,7 @@ public class CategoryFragment extends Fragment {
         loader.setVisibility(View.GONE);
         loaderMain.setVisibility(View.VISIBLE);
         final RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.menu_cat_wise+ cat_id +"&user_id="+ SharedPref.getUserId(getActivity()), new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.menu_cat_wise+ cat_id +"&user_id="+ SharedPref.getUserId(getActivity())+"&restaurant_id="+res_id, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {

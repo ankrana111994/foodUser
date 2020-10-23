@@ -119,7 +119,7 @@ public class MenuDetailActivity extends AppCompatActivity {
         increase = (ImageView) findViewById(R.id.increase);
         button_toggle =(TextView) findViewById(R.id.button_toggle);
         tvDescr =(TextView) findViewById(R.id.tvDescr);
-        button_toggle.setVisibility(View.VISIBLE);
+      //  button_toggle.setVisibility(View.VISIBLE);
         scroll_lay.setVisibility(View.GONE);
 
         variantLists = new ArrayList<>();
@@ -295,23 +295,23 @@ public class MenuDetailActivity extends AppCompatActivity {
             }
         });
 
-        button_toggle.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(final View v)
-            {
-                if (tvDesc.isExpanded())
-                {
-                    tvDesc.collapse();
-                    button_toggle.setText("more..");
-                }
-                else
-                {
-                    tvDesc.expand();
-                    button_toggle.setText("less..");
-                }
-            }
-        });
+//        button_toggle.setOnClickListener(new View.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(final View v)
+//            {
+//                if (tvDesc.isExpanded())
+//                {
+//                    tvDesc.collapse();
+//                    button_toggle.setText("more..");
+//                }
+//                else
+//                {
+//                    tvDesc.expand();
+//                    button_toggle.setText("less..");
+//                }
+//            }
+//        });
 
         imgNotification.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -438,9 +438,12 @@ public class MenuDetailActivity extends AppCompatActivity {
 //                        recycler_item.setAdapter(new VariantMenuDetailAdapter(MenuDetailActivity.this, menuList, variantLists, sublayout, topping_recycler, "false"));
 //                    }
 
+
                     tvMenu.setText(name);
                     if (des!=null && !des.equals("")) {
                         tvDesc.setText(Html.fromHtml(des));
+                        tvDesc.expand();
+
                     }else{
                         tvDescr.setVisibility(View.GONE);
                         tvDesc.setVisibility(View.GONE);

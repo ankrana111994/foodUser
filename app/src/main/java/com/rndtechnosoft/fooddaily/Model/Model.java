@@ -6,7 +6,6 @@ public class Model {
 
     private String id,title,subtitle,link,bg_color, border_color, strip_link, icon, cat_list;
     public int type;
-
     public static final int HOME_BANNER = 1;
     public static final int HOME_SEARCH = 2;
     public static final int HOME_CATEGORY=3;
@@ -14,7 +13,10 @@ public class Model {
     public static final int HOME_STRIP=5;
     public static final int HOME_TRENDING=6;
     public static final int HOME_STEPS=7;
+    public static final int HOME_SHOP=8;
 
+
+    public static final String SHOPS = "Shops";
     public static final String BANNER = "Banner";
     public static final String SEARCH = "Search";
     public static final String CATEGORY = "Category";
@@ -23,6 +25,9 @@ public class Model {
     public static final String TRENDING = "Trending";
     public static final String STEPS = "Steps";
 
+
+
+    private ArrayList<Shops> shops;
     private ArrayList<Banner> banners;
     private ArrayList<HomeCategoryList> categoryLists;
     private ArrayList<HomeMenuList> menuLists;
@@ -107,7 +112,13 @@ public class Model {
     public void setCat_list(String cat_list) {
         this.cat_list = cat_list;
     }
+    public ArrayList<Shops> getShops() {
+        return shops;
+    }
 
+    public void setShops(ArrayList<Shops> shops) {
+        this.shops = shops;
+    }
     public ArrayList<Banner> getBanners() {
         return banners;
     }

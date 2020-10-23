@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.rndtechnosoft.fooddaily.Activity.CategoryDetailActivity;
+import com.rndtechnosoft.fooddaily.Activity.RestaurantActivity;
 import com.rndtechnosoft.fooddaily.Model.HomeCategoryList;
 import com.rndtechnosoft.fooddaily.R;
 import com.rndtechnosoft.fooddaily.Util.SharedPref;
@@ -63,7 +64,7 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
         holder.cat_lay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, CategoryDetailActivity.class);
+                Intent intent = new Intent(activity, RestaurantActivity.class);
                 intent.putExtra("position",position);
                 intent.putExtra("cat_id",homeCategoryLists.get(position).getId());
                 activity.startActivity(intent);

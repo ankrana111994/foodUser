@@ -30,6 +30,7 @@ import com.rndtechnosoft.fooddaily.Model.Banner;
 import com.rndtechnosoft.fooddaily.Model.HomeCategoryList;
 import com.rndtechnosoft.fooddaily.Model.HomeMenuList;
 import com.rndtechnosoft.fooddaily.Model.Model;
+import com.rndtechnosoft.fooddaily.Model.Shops;
 import com.rndtechnosoft.fooddaily.Model.Steps;
 import com.rndtechnosoft.fooddaily.Model.Strip;
 import com.rndtechnosoft.fooddaily.Model.SubMenuList;
@@ -133,6 +134,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                         String cat_list = jsonObjectCategory.getString("cat_list");
 
                         Model model = new Model();
+                        ArrayList<Shops> shops=new ArrayList<>();
                         ArrayList<Banner> banners=new ArrayList<>();
                         ArrayList<Strip> strips=new ArrayList<>();
                         ArrayList<HomeCategoryList> categoryLists=new ArrayList<>();
@@ -144,6 +146,22 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                             for (int j=0;j<jsonArrayCatList.length();j++) {
                                 JSONObject jsonObject1 = jsonArrayCatList.getJSONObject(j);
                                 switch (type) {
+                                    case Model.SHOPS:
+                                        String restaurant_id = jsonObject1.getString("id");
+                                        String restaurant_title = jsonObject1.getString("restaurant_title");
+//                                        String restaurant_image = jsonObject1.getString("restaurant_image");
+                                        String restaurant_image = "http://3.6.141.131//images/83470_download.jpeg";
+
+                                        String restaurant_address = jsonObject1.getString("restaurant_address");
+                                        String restaurant_description = jsonObject1.getString("restaurant_description");
+                                        String rating = jsonObject1.getString("rating");
+                                        String delivery_charges = jsonObject1.getString("delivery_charges");
+                                        String cost_for_two = jsonObject1.getString("cost_for_two");
+                                        String opening_time = jsonObject1.getString("opening_time");
+                                        String closing_time = jsonObject1.getString("closing_time");
+                                        shops.add(new Shops(restaurant_id,restaurant_title,restaurant_image,restaurant_address,
+                                                restaurant_description,rating,delivery_charges,cost_for_two,opening_time,closing_time));
+                                        break;
                                     case Model.BANNER:
                                         String banner_id = jsonObject1.getString("id");
                                         String banner_name = jsonObject1.getString("banner_name");
@@ -215,6 +233,14 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                                 }
                             }
                             switch (type) {
+                                case Model.SHOPS:
+                                    model.setId(id);
+                                    model.setTitle(title);
+                                    model.setLink(link);
+                                    model.setType(Model.HOME_SHOP);
+                                    model.setShops(shops);
+                                    randomModelList.add(model);
+                                    break;
                                 case Model.BANNER:
                                     model.setId(id);
                                     model.setTitle(title);
