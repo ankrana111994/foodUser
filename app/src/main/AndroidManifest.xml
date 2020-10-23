@@ -14,78 +14,79 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.InfoActivity"
-            android:screenOrientation="portrait"
-            ></activity>
-        <activity android:name=".Activity.NotificationDetailActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.WebViewActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.PayDetailsActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.MenuDetailActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.PayActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.BillActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.CouponActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.SearchActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.ChangePasswordActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.ForgotPasswordActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.ProfileEditActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.CartActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.NotificationActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.AboutusActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.CreateAddressActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.AddressActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.SignUpActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.CategoryDetailActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.PrivacyActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.ContactActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.MainActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.LoginActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".Activity.SplashActivity"
-            android:screenOrientation="portrait"
-            >
+        <activity android:name=".Activity.RestaurantActivity"></activity>
+        <activity
+            android:name=".Activity.InfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.NotificationDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.WebViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.PayDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.MenuDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.PayActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.BillActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.CouponActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.SearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.ChangePasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.ForgotPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.ProfileEditActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.CartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.NotificationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.AboutusActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.CreateAddressActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.AddressActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.SignUpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.CategoryDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.PrivacyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.ContactActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -98,10 +99,11 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
-        <!--meta-data
+        <!--
+meta-data
             android:name="com.razorpay.ApiKey"
-            android:value="@string/RAZORPAY_API_KEY" /-->
+            android:value="@string/RAZORPAY_API_KEY" /
+        -->
         <meta-data
             android:name="firebase_crash_collection_enabled"
             android:value="true" />

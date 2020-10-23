@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="@dimen/_10sdp">
+    <TextView
+        android:id="@+id/tvCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Menu Item"
+        android:layout_toStartOf="@id/viewall"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:textColor="@color/colorBlack"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/tvCategory"
+        android:id="@+id/recycler_shop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingLeft="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_5sdp"/>
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/recycler_shop"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingLeft="@dimen/_10sdp"-->
+<!--        android:clipToPadding="false"/>-->
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/progress_shop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        app:indicatorColor="@color/colorAccent"
+        app:indicatorName="BallSpinFadeLoaderIndicator"
+        android:visibility="visible"/>
+
+</RelativeLayout>
