@@ -3,9 +3,9 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/cat_lay"
-    android:layout_width="@dimen/_130sdp"
+
+    android:layout_width="@dimen/_145sdp"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="@dimen/_2sdp"
     android:layout_margin="@dimen/_3sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <RelativeLayout
@@ -20,10 +20,10 @@
 <!--        android:layout_margin="@dimen/_5sdp">-->
         <ImageView
             android:id="@+id/imgCategory"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_50sdp"
+            android:layout_width="@dimen/_145sdp"
+            android:layout_height="@dimen/_95sdp"
             android:layout_centerHorizontal="true"
-            android:layout_margin="@dimen/_10sdp"/>
+           />
 
     <TextView
         android:id="@+id/tvCategory"

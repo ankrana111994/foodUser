@@ -45,7 +45,13 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.ViewHolder
         holder.tvBanner.setVisibility(View.GONE);
 
         final MainActivity mainActivity= (MainActivity) activity;
+//        RelativeLayout Rl = holder.rel_layout;
+if (bannerList.size()==1) {
+    RelativeLayout.LayoutParams layout_description = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
+            (int) activity.getResources().getDimension(R.dimen._160sdp));
 
+    holder.rel_layout.setLayoutParams(layout_description);
+}
         holder.rel_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

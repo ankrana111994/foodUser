@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/slider_Card"
+    android:background="@color/transparent"
     android:layout_width="match_parent"
     android:layout_height="@dimen/_160sdp"
     android:elevation="0dp"
-    app:cardCornerRadius="10dp">
+    >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_banner"
@@ -24,4 +25,4 @@
         app:indicatorName="BallSpinFadeLoaderIndicator"
         android:visibility="visible"/>
 
-</androidx.cardview.widget.CardView>
+</RelativeLayout>

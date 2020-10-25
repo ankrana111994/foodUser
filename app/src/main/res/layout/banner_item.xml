@@ -10,15 +10,17 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvBanner"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/_10sdp">
+        app:cardCornerRadius="@dimen/_5sdp">
+
+
 
         <ImageView
             android:id="@+id/imgBanner"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
-            android:layout_width="@dimen/_230sdp"
+            android:layout_width="fill_parent"
             android:layout_height="@dimen/_130sdp"/>
 
     </androidx.cardview.widget.CardView>

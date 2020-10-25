@@ -514,36 +514,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.rate_app:
                 //Rate app
-                refresh_flag=false;
-                Uri uri = Uri.parse("market://details?id=" + getApplication().getPackageName());
-                Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
-                // To count with Play market backstack, After pressing back button,
-                // to taken back to our application, we need to add following flags to intent.
-                goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
-                        Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
-                        Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-                try {
-                    startActivity(goToMarket);
-                } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("http://play.google.com/store/apps/details?id=" + getApplication().getPackageName())));
-                }
+                showSoonToast();
+
+//                refresh_flag=false;
+//                Uri uri = Uri.parse("market://details?id=" + getApplication().getPackageName());
+//                Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+//                // To count with Play market backstack, After pressing back button,
+//                // to taken back to our application, we need to add following flags to intent.
+//                goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+//                        Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
+//                        Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+//                try {
+//                    startActivity(goToMarket);
+//                } catch (ActivityNotFoundException e) {
+//                    startActivity(new Intent(Intent.ACTION_VIEW,
+//                            Uri.parse("http://play.google.com/store/apps/details?id=" + getApplication().getPackageName())));
+//                }
                 return true;
 
             case R.id.share_app:
                 //Share app
-                refresh_flag=false;
-                try {
-                    Intent i = new Intent(Intent.ACTION_SEND);
-                    i.setType("text/plain");
-                    i.putExtra(Intent.EXTRA_SUBJECT, "My application menu_name");
-                    String sAux = "\n" + getResources().getString(R.string.Let_me_recommend_you_this_application) + "\n\n";
-                    sAux = sAux + "https://play.google.com/store/apps/details?id=" + getApplication().getPackageName();
-                    i.putExtra(Intent.EXTRA_TEXT, sAux);
-                    startActivity(Intent.createChooser(i, "choose one"));
-                } catch (Exception e) {
-                    //e.toString();
-                }
+                showSoonToast();
+//                refresh_flag=false;
+//                try {
+//                    Intent i = new Intent(Intent.ACTION_SEND);
+//                    i.setType("text/plain");
+//                    i.putExtra(Intent.EXTRA_SUBJECT, "My application menu_name");
+//                    String sAux = "\n" + getResources().getString(R.string.Let_me_recommend_you_this_application) + "\n\n";
+//                    sAux = sAux + "https://play.google.com/store/apps/details?id=" + getApplication().getPackageName();
+//                    i.putExtra(Intent.EXTRA_TEXT, sAux);
+//                    startActivity(Intent.createChooser(i, "choose one"));
+//                } catch (Exception e) {
+//                    //e.toString();
+//                }
                 return true;
 
             case R.id.about:
@@ -607,7 +610,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
     }
+void showSoonToast(){
+    Toast.makeText(MainActivity.this,"will be added once app launch",Toast.LENGTH_LONG).show();
 
+}
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 

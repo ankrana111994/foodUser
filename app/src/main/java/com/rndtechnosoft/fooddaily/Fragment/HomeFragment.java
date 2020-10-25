@@ -106,11 +106,11 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     }
 
     private void getHome() {
-        main_layout.setVisibility(View.GONE);
+       // main_layout.setVisibility(View.GONE);
         no_data.setVisibility(View.GONE);
         no_connection.setVisibility(View.GONE);
         progresbar_home.setVisibility(View.GONE);
-        loader.setVisibility(View.VISIBLE);
+      //    loader.setVisibility(View.VISIBLE);
         final RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.home_list+"&user_id="+ SharedPref.getUserId(getActivity()), new Response.Listener<String>() {
             @Override
@@ -149,8 +149,8 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                                     case Model.SHOPS:
                                         String restaurant_id = jsonObject1.getString("id");
                                         String restaurant_title = jsonObject1.getString("restaurant_title");
-//                                        String restaurant_image = jsonObject1.getString("restaurant_image");
-                                        String restaurant_image = "http://3.6.141.131//images/83470_download.jpeg";
+                                        String restaurant_image = jsonObject1.getString("restaurant_image");
+                                      //  String restaurant_image = "http://3.6.141.131/images/83470_download.jpeg";
 
                                         String restaurant_address = jsonObject1.getString("restaurant_address");
                                         String restaurant_description = jsonObject1.getString("restaurant_description");

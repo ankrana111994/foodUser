@@ -244,6 +244,7 @@
 
 
                     <LinearLayout
+                        android:visibility="gone"
                         android:id="@+id/linearwallet"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -319,7 +320,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:textSize="@dimen/_16ssp"
-                            android:textColor="@color/colorGreen"
+                            android:textColor="@color/colorGreyDark"
                             android:textStyle="bold"
                             android:gravity="end"/>
 
@@ -352,13 +353,14 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:textSize="@dimen/_16ssp"
-                            android:textColor="@color/colorGreen"
+                            android:textColor="@color/colorGreyDark"
                             android:textStyle="bold"
                             android:gravity="end"/>
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:visibility="gone"
                         android:id="@+id/wallet"
                         android:layout_below="@id/delivery_layout"
                         android:layout_width="match_parent"
@@ -384,7 +386,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:textSize="@dimen/_16ssp"
-                            android:textColor="@color/colorGreen"
+                            android:textColor="@color/colorGreyDark"
                             android:textStyle="bold"
                             android:gravity="end"/>
 
@@ -416,7 +418,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:textSize="@dimen/_16ssp"
-                            android:textColor="@color/colorGreen"
+                            android:textColor="@color/colorGreyDark"
                             android:textStyle="bold"
                             android:gravity="end"/>
 
@@ -457,7 +459,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1.2"
                             android:textSize="@dimen/_20ssp"
-                            android:textColor="@color/colorGreen"
+                            android:textColor="@color/colorGreyDark"
                             android:textStyle="bold"
                             android:gravity="end"/>
 
@@ -503,7 +505,7 @@
                     android:textStyle="bold"
                     android:textSize="@dimen/_12ssp"
                     android:background="@drawable/login_button"
-                    android:backgroundTint="@color/colorGreen"
+                    android:backgroundTint="@color/colorGreyDark"
                     android:layout_marginLeft="@dimen/_5sdp"/>
 
             </LinearLayout>

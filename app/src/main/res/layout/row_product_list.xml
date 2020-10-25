@@ -10,7 +10,6 @@
     android:clickable="true"
     android:focusable="true"
     app:cardBackgroundColor="@color/colorGrey"
-    app:cardCornerRadius="@dimen/_5sdp"
     app:cardElevation="0.0dip">
 
     <RelativeLayout
@@ -24,7 +23,6 @@
             android:id="@+id/image_card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="@dimen/_5sdp"
             android:layout_margin="@dimen/_3sdp"
             app:cardElevation="0.0dip">
 

@@ -108,13 +108,13 @@
     <string name="about_us_version_text">1.0</string>
     <string name="about_us_author">Author</string>
     <string name="about_us_Company">Company</string>
-    <string name="about_us_company_name">RnD Technosoft</string>
+    <string name="about_us_company_name">Company name</string>
     <string name="about_us_email">Email</string>
-    <string name="about_us_email_text">hello@rndtechnosoft.com</string>
+    <string name="about_us_email_text">company@xyz.com</string>
     <string name="about_us_website">Website</string>
-    <string name="about_us_website_text">www.rndtechnosoft.com</string>
+    <string name="about_us_website_text">www.yourcompany.com</string>
     <string name="about_us_contact">Contact</string>
-    <string name="about_us_contact_text">+91 7304945823</string>
+    <string name="about_us_contact_text">+91 xxxxxxxxxx</string>
     <string name="about_us_about">About</string>
 
     <!--Profile-->

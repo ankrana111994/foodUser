@@ -147,7 +147,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:background="@drawable/login_button"
-        android:backgroundTint="@color/colorGreen"
+        android:backgroundTint="@color/colorGreyDark"
         android:layout_centerHorizontal="true"
         android:paddingLeft="@dimen/_50sdp"
         android:paddingRight="@dimen/_50sdp"

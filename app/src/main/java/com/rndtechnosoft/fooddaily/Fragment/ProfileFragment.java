@@ -129,21 +129,30 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        GradientDrawable gd = new GradientDrawable();
-        if (SharedPref.getDASHED(getActivity()).equalsIgnoreCase("1")) {
-            gd.setColor(getResources().getColor(R.color.colorWhite));
-            gd.setCornerRadius(25);
-            gd.setStroke(4, getResources().getColor(R.color.colorGrey1), 12, 16);
-        }else{
-            gd.setColor(getResources().getColor(R.color.colorWhite));
-            gd.setCornerRadius(25);
-            gd.setStroke(4, getResources().getColor(R.color.colorGrey1));
-        }
-        reward_layout.setBackground(gd);
-        editprofile_lay.setBackground(gd);
-        address_lay.setBackground(gd);
-        email_layout.setBackground(gd);
-        phone_layout.setBackground(gd);
+//        GradientDrawable gd = new GradientDrawable();
+//        if (SharedPref.getDASHED(getActivity()).equalsIgnoreCase("1")) {
+//            gd.setColor(getResources().getColor(R.color.colorWhite));
+//            gd.setCornerRadius(25);
+//            gd.setShape(GradientDrawable.LINE);
+//gd.setBounds(0,0,50,50);
+//              gd.setStroke(4, getResources().getColor(R.color.colorGrey1), 12, 16);
+//        }else{
+//            gd.setColor(getResources().getColor(R.color.colorWhite));
+//            gd.setCornerRadius(25);
+//            gd.setShape(GradientDrawable.LINE);
+////gd.set;
+//            gd.setStroke(4, getResources().getColor(R.color.colorGrey1));
+//        }
+//        View view = new View(getActivity());
+//        view.setLayoutParams(new LinearLayout.LayoutParams(
+//                ViewGroup.LayoutParams.MATCH_PARENT,2
+//        ));
+//        view.setBackgroundColor(getResources().getColor(R.color.colorGrey1));
+//        reward_layout.addView(view);
+//        editprofile_lay.setBackground(gd);
+//        address_lay.setBackground(gd);
+//        email_layout.setBackground(gd);
+//        phone_layout.setBackground(gd);
         if (Method.haveNetworkConnection(getActivity())) {
             getData();
         } else {

@@ -21,7 +21,6 @@
         android:layout_below="@id/toolbar_webview"
         android:layout_centerInParent="true"
         android:foreground="?android:attr/selectableItemBackground"
-        app:cardCornerRadius="4dp"
         card_view:cardElevation="0sp"
         card_view:cardUseCompatPadding="true">
 

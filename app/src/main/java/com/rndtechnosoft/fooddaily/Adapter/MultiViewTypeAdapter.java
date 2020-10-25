@@ -121,18 +121,24 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<RecyclerView.View
                          //   activity.startActivity(new Intent(activity, CategoryDetailActivity.class));
                         }
                     });
-                    if (object.getCat_list().equalsIgnoreCase("HORIZONTAL")){
-                        ((CategoryViewHolder) holder).recyclerView.setLayoutManager(new LinearLayoutManager(activity,RecyclerView.HORIZONTAL,false));
-                    }else if (object.getCat_list().equalsIgnoreCase("VERTICAL")){
-                        ((CategoryViewHolder) holder).recyclerView.setLayoutManager(new GridLayoutManager(activity, 2));
-                    }else{
-                        ((CategoryViewHolder) holder).recyclerView.setLayoutManager(new GridLayoutManager(activity, 2));
+                    if (object.getCategoryLists().size()>0) {
+                        if (object.getCat_list().equalsIgnoreCase("HORIZONTAL")) {
+                            ((CategoryViewHolder) holder).recyclerView.setLayoutManager(new LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false));
+                        } else if (object.getCat_list().equalsIgnoreCase("VERTICAL")) {
+                            ((CategoryViewHolder) holder).recyclerView.setLayoutManager(new GridLayoutManager(activity, 2));
+                        } else {
+                            ((CategoryViewHolder) holder).recyclerView.setLayoutManager(new GridLayoutManager(activity, 2));
+                        }
+                        ((CategoryViewHolder) holder).recyclerView.setAdapter(new HomeCategoryAdapter(activity, object.getCategoryLists()));
                     }
-                    ((CategoryViewHolder) holder).recyclerView.setAdapter(new HomeCategoryAdapter(activity,object.getCategoryLists()));
+                    else {
+                        ((CategoryViewHolder) holder).tvTitle.setVisibility(View.GONE);
+                    }
                     break;
 
                 case Model.HOME_MENU:
-                    ((MenuViewHolder) holder).tvTitle.setText(object.getTitle());
+                    if (object.getMenuLists().size()>0) {
+                        ((MenuViewHolder) holder).tvTitle.setText(object.getTitle());
                     ((MenuViewHolder) holder).recyclerView.setLayoutManager(new LinearLayoutManager(activity,RecyclerView.HORIZONTAL,false));
                     ((MenuViewHolder) holder).recyclerView.setAdapter(new HomeMenuAdapter(activity,object.getMenuLists(),object.getLink(),fragment));
                     ((MenuViewHolder) holder).viewall.setOnClickListener(new View.OnClickListener() {
@@ -144,6 +150,10 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<RecyclerView.View
                             activity.startActivity(intent);
                         }
                     });
+                    }
+                    else {
+                        ((MenuViewHolder) holder).tvTitle.setVisibility(View.GONE);
+                    }
                     break;
                 case Model.HOME_STRIP:
                     ((StripViewHolder) holder).tvTitle.setText(object.getTitle());
@@ -151,12 +161,12 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<RecyclerView.View
                     GradientDrawable gd = new GradientDrawable();
                     if (SharedPref.getDASHED(activity).equalsIgnoreCase("1")) {
                         gd.setColor(Color.WHITE);
-                        gd.setCornerRadius(50);
+                      //  gd.setCornerRadius(50);
 //        gd.setStroke(2, Color.RED);
                       //  gd.setStroke(4, Color.parseColor(object.getBorder_color()), 12, 16);
                     }else{
                         gd.setColor(Color.WHITE);
-                        gd.setCornerRadius(50);
+                     //   gd.setCornerRadius(50);
                       //  gd.setStroke(4, Color.parseColor(object.getBorder_color()));
                     }
                    // ((StripViewHolder) holder).rel_layout.setBackgroundDrawable(gd);

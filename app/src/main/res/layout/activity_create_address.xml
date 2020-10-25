@@ -94,12 +94,13 @@
                 android:id="@+id/edtcity"
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/_50sdp"
+                android:layout_below="@+id/edtlandmark"
+                android:layout_marginTop="-276dp"
                 android:layout_marginBottom="10dp"
+                android:background="@drawable/login_edittext_background"
                 android:hint="@string/city"
                 android:inputType="textCapWords"
-                android:layout_below="@+id/edtlandmark"
-                android:background="@drawable/login_edittext_background"
-                android:padding="10dp"/>
+                android:padding="10dp" />
 
             <Spinner
                 android:id="@+id/spinner_area"

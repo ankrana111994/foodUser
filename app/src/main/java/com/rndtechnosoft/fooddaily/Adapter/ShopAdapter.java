@@ -53,12 +53,13 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder> {
         GradientDrawable gd = new GradientDrawable();
         if (SharedPref.getDASHED(activity).equalsIgnoreCase("1")) {
             gd.setColor(Color.WHITE);
-            gd.setCornerRadius(50);
+            gd.setCornerRadius(10);
+
 //        gd.setStroke(2, Color.RED);
             //  gd.setStroke(4, Color.parseColor(homeCategoryLists.get(position).getColor_code()), 12, 16);
         }else{
             gd.setColor(Color.WHITE);
-            gd.setCornerRadius(50);
+            gd.setCornerRadius(10);
             // gd.setStroke(4, Color.parseColor(homeCategoryLists.get(position).getColor_code()));
         }
         holder.cat_lay.setBackground(gd);

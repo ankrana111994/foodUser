@@ -12,7 +12,7 @@
         android:layout_toStartOf="@id/viewall"
         android:textSize="@dimen/_16ssp"
         android:textStyle="bold"
-        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_5sdp"
         android:textColor="@color/colorBlack"/>
 
 
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipToPadding="false"
-        android:paddingLeft="@dimen/_15sdp"
+        android:paddingLeft="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_5sdp"/>
 
 <!--    <androidx.recyclerview.widget.RecyclerView-->

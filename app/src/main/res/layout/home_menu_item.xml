@@ -2,10 +2,10 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/cat_lay"
-    android:layout_width="@dimen/_100sdp"
+    android:layout_width="@dimen/_150sdp"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="@dimen/_2sdp"
     android:layout_margin="@dimen/_5sdp"
+    app:cardCornerRadius="@dimen/_5sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -16,12 +16,12 @@
         android:id="@+id/imgCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/_5sdp">
+       >
 
         <ImageView
             android:id="@+id/imgCategory"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_95sdp"
             android:scaleType="centerCrop"
             android:layout_centerHorizontal="true"/>
 
@@ -56,7 +56,7 @@
             android:layout_weight="0.8"
             android:layout_marginLeft="@dimen/_5sdp"
             android:layout_marginBottom="@dimen/_5sdp"
-            android:textColor="@color/colorGreen"/>
+            android:textColor="@color/colorGreyDark"/>
 
         <TextView
             android:id="@+id/tvPlus"

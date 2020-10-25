@@ -86,12 +86,12 @@ public class HomeMenuAdapter extends RecyclerView.Adapter<HomeMenuAdapter.ViewHo
         GradientDrawable gd = new GradientDrawable();
         if (SharedPref.getDASHED(activity).equalsIgnoreCase("1")) {
             gd.setColor(Color.WHITE);
-            gd.setCornerRadius(25);
+         //   gd.setCornerRadius(25);
 //        gd.setStroke(2, Color.RED);
            // gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1), 12, 16);
         }else{
             gd.setColor(Color.WHITE);
-            gd.setCornerRadius(25);
+          //  gd.setCornerRadius(25);
           //  gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1));
         }
         holder.cat_lay.setBackground(gd);

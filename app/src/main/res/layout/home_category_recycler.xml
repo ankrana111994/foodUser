@@ -11,8 +11,9 @@
         android:text="Select Menu Item"
         android:layout_toStartOf="@id/viewall"
         android:textSize="@dimen/_16ssp"
+
         android:textStyle="bold"
-        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_5sdp"
         android:textColor="@color/colorBlack"/>
 
     <TextView
@@ -20,6 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="View All"
+        android:visibility="gone"
         android:layout_alignParentEnd="true"
         android:textSize="@dimen/_10ssp"
         android:textColor="@color/colorGreyDark"
@@ -33,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipToPadding="false"
-        android:paddingLeft="@dimen/_15sdp"
+        android:paddingLeft="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_5sdp"/>
 
 </RelativeLayout>

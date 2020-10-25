@@ -46,7 +46,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_margin="@dimen/_5sdp"
                     android:background="@drawable/ic_circle"
-                    android:backgroundTint="@color/colorPink"/>
+                    android:backgroundTint="@color/colorBtnSelect"/>
 
             </RelativeLayout>
 
@@ -75,7 +75,7 @@
                     android:textSize="@dimen/_10ssp"
                     android:textColor="@color/colorWhite"
                     android:background="@drawable/ic_circle"
-                    android:backgroundTint="@color/colorPink"/>
+                    android:backgroundTint="@color/colorBtnSelect"/>
             </RelativeLayout>
         </RelativeLayout>
 
