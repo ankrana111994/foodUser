@@ -1,5 +1,6 @@
 package com.rndtechnosoft.fooddaily.Activity;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -21,6 +23,7 @@ import com.rndtechnosoft.fooddaily.Util.Constants;
 import com.rndtechnosoft.fooddaily.Util.Method;
 import com.rndtechnosoft.fooddaily.Util.SharedPref;
 
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,6 +36,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
 
         getConfig();
 
@@ -77,6 +81,8 @@ public class SplashActivity extends AppCompatActivity {
 
         }
     }
+
+
 
     private void getConfig() {
         final RequestQueue requestQueue = Volley.newRequestQueue(SplashActivity.this);

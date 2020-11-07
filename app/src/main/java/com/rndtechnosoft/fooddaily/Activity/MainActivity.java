@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        checkPer();
+      //  checkPer();
 //        Places.initialize(getApplicationContext(), Constants.APIKEY);
         initView();
 
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         permissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
         permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
         permissions.add(Manifest.permission.CAMERA);
-        permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
+       // permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
         permissionsToRequest = findUnAskedPermissions(permissions);
 
         // check permissions
@@ -421,6 +421,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             tvCartCount.setVisibility(View.GONE);
         }
         Method.sendRegistrationToServer(MainActivity.this, FirebaseInstanceId.getInstance().getToken(),Method.getAndroidID(MainActivity.this));
+
+      if (SharedPref.getAppLaunchStatus(MainActivity.this).equalsIgnoreCase("true"))
+          startActivity(new Intent(this,CreateAddressActivity.class).putExtra("type","add"));
+
     }
 
     private void getAreaList() {

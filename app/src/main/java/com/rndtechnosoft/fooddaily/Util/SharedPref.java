@@ -24,6 +24,7 @@ public class SharedPref {
 	public static String PAYPAL = "paypal";
 	public static String DASHED = "dashed";
 	public static String APP_STATUS = "app_status";
+	public static String FIRST_LAUNCH = "first_launch";
 
     public static void clearAllPreferences(Activity activity) {
 		shPreferences = activity.getSharedPreferences(strPrefName,
@@ -52,6 +53,12 @@ public class SharedPref {
 			return true;
 		}
 		return false;
+	}
+	public static String getAppLaunchStatus(Context activity) {
+
+		shPreferences = activity.getSharedPreferences(strPrefName,
+				Context.MODE_PRIVATE);
+		return shPreferences.getString(FIRST_LAUNCH, "true");
 	}
 
     public static String getUserName(Context activity) {

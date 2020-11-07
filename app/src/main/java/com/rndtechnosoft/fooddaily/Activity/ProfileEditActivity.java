@@ -1,17 +1,23 @@
 package com.rndtechnosoft.fooddaily.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.FragmentManager;
 
+import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -60,6 +66,8 @@ import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static com.rndtechnosoft.fooddaily.Activity.MainActivity.ALL_PERMISSIONS_RESULT;
+
 public class ProfileEditActivity extends AppCompatActivity implements PostImageChooseDialog.AlertPositiveListener{
 
     private static String APP_TEMP_FOLDER="";
@@ -76,7 +84,12 @@ public class ProfileEditActivity extends AppCompatActivity implements PostImageC
     public static final int CREATE_POST_IMG = 5;
     private int mYear, mMonth, mDay;
     Spinner spingender;
-
+    ArrayList<String> permissions = new ArrayList<>();
+    ArrayList<String> permissionsToRequest;
+    final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 101;
+    public final static int ALL_PERMISSIONS_RESULT = 102;
+    ArrayList<String> permissionsRejected = new ArrayList<>();
+    boolean canGetLocation = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -180,6 +193,107 @@ public class ProfileEditActivity extends AppCompatActivity implements PostImageC
 
         getProfile();
 
+    }
+
+    public void checkPer() {
+        permissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+        permissions.add(Manifest.permission.CAMERA);
+        // permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
+        permissionsToRequest = findUnAskedPermissions(permissions);
+
+        // check permissions
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (permissionsToRequest.size() > 0) {
+                requestPermissions(permissionsToRequest.toArray(new String[permissionsToRequest.size()]),
+                        ALL_PERMISSIONS_RESULT);
+                //Log.d(TAG, "Permission requests");
+                canGetLocation = false;
+            }
+        }
+    }
+
+    private ArrayList findUnAskedPermissions(ArrayList<String> wanted) {
+        ArrayList result = new ArrayList();
+
+        for (String perm : wanted) {
+            if (!hasPermission(perm)) {
+                result.add(perm);
+            }
+        }
+
+        return result;
+    }
+
+    private boolean hasPermission(String permission) {
+        if (canAskPermission()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                return (checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED);
+            }
+        }
+        return true;
+    }
+
+    private boolean canAskPermission() {
+        return (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        boolean canUseExternalStorage = false;
+
+        switch (requestCode) {
+            case ALL_PERMISSIONS_RESULT:
+                try {
+                    //Log.d(TAG, "onRequestPermissionsResult");
+                    for (String perms : permissionsToRequest) {
+                        if (!hasPermission(perms)) {
+                            permissionsRejected.add(perms);
+                        }
+                    }
+
+                    if (permissionsRejected.size() > 0) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            if (shouldShowRequestPermissionRationale(permissionsRejected.get(0))) {
+                                showMessageOKCancel("These permissions are mandatory for the application. Please allow access.",
+                                        new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                                    requestPermissions(permissionsRejected.toArray(
+                                                            new String[permissionsRejected.size()]), ALL_PERMISSIONS_RESULT);
+                                                }
+                                            }
+                                        });
+                                return;
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+
+                }
+                break;
+//            case MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION: {
+//                if (grantResults.length > 0
+//                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//                    canUseExternalStorage = true;
+//                }
+//                if (!canUseExternalStorage) {
+//                    Toast.makeText(ProfileEditActivity.this, getResources().getString(R.string.cannot_use_save_permission), Toast.LENGTH_SHORT).show();
+//                }
+//            }
+        }
+    }
+
+    private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
+        new AlertDialog.Builder(ProfileEditActivity.this)
+                .setMessage(message)
+                .setPositiveButton("OK", okListener)
+                .setNegativeButton("cancel", null)
+                .create()
+                .show();
     }
 
     private void datePicker(final EditText date) {
