@@ -51,11 +51,11 @@ public class PaymentAdapter extends RecyclerView.Adapter<PaymentAdapter.ViewHold
         if (SharedPref.getDASHED(activity).equalsIgnoreCase("1")) {
             gd.setColor(activity.getResources().getColor(R.color.colorWhite));
             gd.setCornerRadius(25);
-            gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1), 12, 16);
+          //  gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1), 12, 16);
         }else{
             gd.setColor(activity.getResources().getColor(R.color.colorWhite));
             gd.setCornerRadius(25);
-            gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1));
+          //  gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1));
         }
         holder.rel_layout.setBackgroundDrawable(gd);
 
@@ -66,11 +66,11 @@ public class PaymentAdapter extends RecyclerView.Adapter<PaymentAdapter.ViewHold
                 if (SharedPref.getDASHED(activity).equalsIgnoreCase("1")) {
                     gd.setColor(activity.getResources().getColor(R.color.colorAccentLightLight));
                     gd.setCornerRadius(25);
-                    gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1), 12, 16);
+                  //  gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1), 12, 16);
                 }else{
                     gd.setColor(activity.getResources().getColor(R.color.colorAccentLightLight));
                     gd.setCornerRadius(25);
-                    gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1));
+                  //  gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1));
                 }
                 holder.rel_layout.setBackgroundDrawable(gd);
             }

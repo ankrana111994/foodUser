@@ -70,11 +70,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             gd.setColor(activity.getResources().getColor(R.color.colorGrey));
             gd.setCornerRadius(25);
 //        gd.setStroke(2, Color.RED);
-            gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1), 12, 16);
+          //  gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1), 12, 16);
         }else{
             gd.setColor(activity.getResources().getColor(R.color.colorGrey));
             gd.setCornerRadius(25);
-            gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1));
+           // gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1));
         }
         holder.rel_layout.setBackground(gd);
 

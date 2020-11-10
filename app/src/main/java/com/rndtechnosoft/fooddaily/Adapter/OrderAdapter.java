@@ -68,11 +68,11 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         if (SharedPref.getDASHED(activity).equalsIgnoreCase("1")) {
             gd.setColor(activity.getResources().getColor(R.color.colorWhite));
             gd.setCornerRadius(25);
-            gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1), 12, 16);
+         //   gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1), 12, 16);
         }else{
             gd.setColor(activity.getResources().getColor(R.color.colorWhite));
             gd.setCornerRadius(25);
-            gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1));
+         //   gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1));
         }
         holder.rel_layout.setBackground(gd);
 

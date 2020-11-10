@@ -4,7 +4,11 @@
     android:id="@+id/slider_Card"
     android:background="@color/transparent"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_160sdp"
+    android:layout_height="wrap_content"
+    android:maxHeight="@dimen/_160sdp"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:layout_marginRight="@dimen/_10sdp"
+android:layout_marginLeft="@dimen/_10sdp"
     android:elevation="0dp"
     >
 
@@ -12,8 +16,7 @@
         android:id="@+id/recycler_banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/_10sdp"
-        android:clipToPadding="false"/>
+        />
 
     <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/progress_banner"

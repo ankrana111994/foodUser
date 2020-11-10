@@ -89,11 +89,11 @@ public class LoginActivity extends AppCompatActivity {
             gd.setColor(getResources().getColor(R.color.colorGrey));
             gd.setCornerRadius(25);
 //        gd.setStroke(2, Color.RED);
-            gd.setStroke(4, getResources().getColor(R.color.colorGrey1), 12, 16);
+         //   gd.setStroke(4, getResources().getColor(R.color.colorGrey1), 12, 16);
         }else{
             gd.setColor(getResources().getColor(R.color.colorGrey));
             gd.setCornerRadius(25);
-            gd.setStroke(4, getResources().getColor(R.color.colorGrey1));
+          //  gd.setStroke(4, getResources().getColor(R.color.colorGrey1));
         }
         tvmobile.setBackground(gd);
         tvpassword.setBackground(gd);

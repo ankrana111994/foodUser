@@ -48,10 +48,11 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.ViewHolder
 //        RelativeLayout Rl = holder.rel_layout;
 if (bannerList.size()==1) {
     RelativeLayout.LayoutParams layout_description = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
-            (int) activity.getResources().getDimension(R.dimen._160sdp));
-
+           RelativeLayout.LayoutParams.WRAP_CONTENT);
+layout_description.setMargins((int)activity.getResources().getDimension(R.dimen._1sdp),(int)activity.getResources().getDimension(R.dimen._5sdp),(int)activity.getResources().getDimension(R.dimen._1sdp),0);
     holder.rel_layout.setLayoutParams(layout_description);
 }
+
         holder.rel_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

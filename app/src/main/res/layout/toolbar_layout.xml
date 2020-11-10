@@ -19,7 +19,7 @@
                 android:layout_centerVertical="true"
                 android:id="@+id/tvToolbarTitle"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_20ssp"
+                android:textSize="@dimen/_18ssp"
                 android:textStyle="bold"
                 android:layout_toStartOf="@id/noti_lay"
                 android:text="title"/>
@@ -27,8 +27,8 @@
             <RelativeLayout
                 android:id="@+id/noti_lay"
                 android:layout_toLeftOf="@+id/rel_cart"
-                android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_25sdp"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_centerVertical="true"
                 android:layout_alignParentBottom="true"
                 android:gravity="center"
@@ -36,13 +36,13 @@
 
                 <ImageView
                     android:id="@+id/imgNotification"
-                    android:layout_width="@dimen/_25sdp"
-                    android:layout_height="@dimen/_25sdp"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
                     android:src="@drawable/ic_notification" />
 
                 <TextView
-                    android:layout_width="@dimen/_5sdp"
-                    android:layout_height="@dimen/_5sdp"
+                    android:layout_width="@dimen/_4sdp"
+                    android:layout_height="@dimen/_4sdp"
                     android:layout_alignParentEnd="true"
                     android:layout_margin="@dimen/_5sdp"
                     android:background="@drawable/ic_circle"
@@ -52,8 +52,8 @@
 
             <RelativeLayout
                 android:id="@+id/rel_cart"
-                android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_25sdp"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_alignParentBottom="true"
@@ -61,14 +61,14 @@
                 android:layout_marginBottom="@dimen/_10sdp">
                 <ImageView
                     android:id="@+id/imgCart"
-                    android:layout_width="@dimen/_25sdp"
-                    android:layout_height="@dimen/_25sdp"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
                     android:src="@drawable/ic_cart"/>
 
                 <TextView
                     android:id="@+id/tvCartCount"
-                    android:layout_width="@dimen/_14sdp"
-                    android:layout_height="@dimen/_14sdp"
+                    android:layout_width="@dimen/_12sdp"
+                    android:layout_height="@dimen/_12sdp"
                     android:layout_alignParentEnd="true"
                     android:text="6"
                     android:gravity="center"

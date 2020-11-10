@@ -2,7 +2,9 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/_10sdp">
+    android:layout_marginTop="@dimen/_5sdp"
+
+    >
 
     <TextView
         android:id="@+id/tvCategory"
@@ -12,8 +14,9 @@
         android:layout_toStartOf="@id/viewall"
         android:textSize="@dimen/_16ssp"
 
+
         android:textStyle="bold"
-        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_10sdp"
         android:textColor="@color/colorBlack"/>
 
     <TextView
@@ -35,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipToPadding="false"
-        android:paddingLeft="@dimen/_5sdp"
-        android:layout_marginBottom="@dimen/_5sdp"/>
+        android:paddingLeft="@dimen/_10sdp"
+      />
 
 </RelativeLayout>

@@ -95,11 +95,10 @@ android:clickable="false"
                     android:inputType="number"
                     android:maxLength="10"
                     android:layout_above="@id/tvpassword"
-                    android:layout_marginLeft="@dimen/_5sdp"
                     android:drawablePadding="@dimen/_10sdp"
                     android:drawableLeft="@drawable/ic_phone_sign"
                     android:padding="@dimen/_10sdp"
-                    android:layout_weight="3"/>
+                    />
 
             </LinearLayout>
 

@@ -3,15 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/cat_lay"
     android:layout_width="@dimen/_150sdp"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_5sdp"
-    app:cardCornerRadius="@dimen/_5sdp"
+    android:layout_height="@dimen/_140sdp"
+    app:cardCornerRadius="@dimen/_10sdp"
+    android:layout_marginBottom="@dimen/_2sdp"
+    android:layout_marginEnd="@dimen/_8sdp"
+    android:layout_marginTop="@dimen/_8sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
    >
-
     <androidx.cardview.widget.CardView
         android:id="@+id/imgCard"
         android:layout_width="wrap_content"
@@ -21,7 +22,7 @@
         <ImageView
             android:id="@+id/imgCategory"
             android:layout_width="@dimen/_150sdp"
-            android:layout_height="@dimen/_95sdp"
+            android:layout_height="@dimen/_92sdp"
             android:scaleType="centerCrop"
             android:layout_centerHorizontal="true"/>
 
@@ -34,14 +35,15 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="@dimen/_12ssp"
-        android:maxLines="1"
-        android:layout_marginBottom="@dimen/_5sdp"
+        android:maxLines="2"
         android:textColor="@color/colorBlack"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:paddingBottom="@dimen/_2sdp"
         android:layout_below="@id/tvCategory">
 
         <TextView
@@ -49,13 +51,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="@dimen/_16ssp"
+            android:textSize="@dimen/_13ssp"
             android:textStyle="bold"
             android:paddingLeft="@dimen/_5sdp"
             android:maxLines="1"
             android:layout_weight="0.8"
             android:layout_marginLeft="@dimen/_5sdp"
-            android:layout_marginBottom="@dimen/_5sdp"
             android:textColor="@color/colorGreyDark"/>
 
         <TextView
@@ -67,7 +68,6 @@
             android:layout_alignParentEnd="true"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="@dimen/_5sdp"
-            android:layout_marginBottom="@dimen/_5sdp"
             android:background="@drawable/ic_increment"/>
 
         <TextView
@@ -79,7 +79,6 @@
             android:layout_alignParentEnd="true"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="@dimen/_5sdp"
-            android:layout_marginBottom="@dimen/_5sdp"
             android:background="@drawable/ic_decrement"/>
 
     </RelativeLayout>
