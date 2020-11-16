@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorWhite"
     android:orientation="vertical">
 
@@ -14,11 +15,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_top_third" /-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_200sdp"
+            app:cardCornerRadius="8dp"
+            android:layout_margin="5dp"
+            android:layout_centerInParent="true"
+            android:elevation="10dp">
 
+            <ImageView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_200sdp"
+                android:src="@drawable/logo_here"
+                />
+        </androidx.cardview.widget.CardView>
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="30dp"
+            android:visibility="gone"
             android:src="@drawable/logo_here" />
     </RelativeLayout>
 

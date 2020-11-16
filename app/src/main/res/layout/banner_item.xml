@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/_230sdp"
     android:layout_height="match_parent"
-    android:layout_marginEnd="@dimen/_10sdp"
+    android:layout_marginEnd="@dimen/_5sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="@dimen/_5sdp"
     android:id="@+id/rel_layout">
@@ -11,7 +11,7 @@
         android:id="@+id/cvBanner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/_5sdp">
+        app:cardCornerRadius="@dimen/_2sdp">
 
 
         <ImageView

@@ -6,12 +6,18 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     tools:context=".Activity.SplashActivity">
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_200sdp"
+        app:cardCornerRadius="8dp"
+        android:layout_margin="5dp"
+        android:layout_centerInParent="true"
+        android:elevation="10dp">
 
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/logo_here"
-        android:layout_centerInParent="true"/>
-
+        <ImageView
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_200sdp"
+            android:src="@drawable/logo_here"
+            />
+    </androidx.cardview.widget.CardView>
 </RelativeLayout>

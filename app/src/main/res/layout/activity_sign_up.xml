@@ -7,31 +7,41 @@
     android:background="@color/colorWhite"
     tools:context=".Activity.LoginActivity">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/splash_back"
-        android:alpha="0.2"/>
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@drawable/splash_back"-->
+<!--        android:alpha="0.2"/>-->
 
     <ScrollView
         android:id="@+id/scroll_form"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:layout_height="match_parent"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
+            android:layout_gravity="center"
             android:gravity="center">
 
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="match_parent"
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_120sdp"
                 android:layout_height="@dimen/_120sdp"
-                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="8dp"
+                android:layout_margin="5dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/logo_here"/>
+                android:layout_centerInParent="true"
+                android:elevation="10dp">
+
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_120sdp"
+                    android:src="@drawable/logo_here"/>
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/tvSignup"
@@ -51,26 +61,26 @@
             <EditText
                 android:id="@+id/tvusername"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:hint="@string/username"
                 android:inputType="text"
                 android:layout_above="@id/tvmobile"
                 android:drawablePadding="@dimen/_10sdp"
                 android:drawableLeft="@drawable/ic_user"
+                android:background="@drawable/round_corner_imagebackground"
                 android:padding="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_2sdp"/>
+               />
 
             <LinearLayout
                 android:id="@+id/mobile_layout"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:orientation="horizontal">
 <RelativeLayout
     android:layout_width="wrap_content"
@@ -82,18 +92,18 @@
                     android:layout_width="@dimen/_100sdp"
                     android:layout_height="match_parent"
                     android:gravity="center"
-android:clickable="false"
+                    android:clickable="false"
                     android:visibility="gone"
-
                     android:background="#00000000"/>
 </RelativeLayout>
                 <EditText
                     android:id="@+id/tvmobile"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="@dimen/_40sdp"
                     android:hint="@string/mobileno"
                     android:inputType="number"
                     android:maxLength="10"
+                    android:background="@drawable/round_corner_imagebackground"
                     android:layout_above="@id/tvpassword"
                     android:drawablePadding="@dimen/_10sdp"
                     android:drawableLeft="@drawable/ic_phone_sign"
@@ -105,21 +115,22 @@ android:clickable="false"
             <EditText
                 android:id="@+id/tvpassword"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:drawablePadding="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp"
                 android:drawableLeft="@drawable/ic_password"
                 android:padding="@dimen/_10sdp"
+                android:background="@drawable/round_corner_imagebackground"
                 android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginRight="@dimen/_10sdp"/>
 
             <Button
                 android:id="@+id/btnSignup"
                 android:layout_above="@id/tvLogin"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_40sdp"
                 android:text="@string/signup"
                 android:textColor="@color/colorWhite"
                 android:textStyle="bold"
@@ -127,21 +138,37 @@ android:clickable="false"
                 android:paddingRight="@dimen/_50sdp"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_15sdp"
                 android:background="@drawable/login_button"
                 android:backgroundTint="@color/colorAccent"/>
 
-            <TextView
-                android:id="@+id/tvLogin"
-                android:layout_alignParentBottom="true"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@color/colorGreyDark"
-                android:textSize="@dimen/_16ssp"
-                android:layout_margin="@dimen/_5sdp"
-                android:text="@string/already_user"/>
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:id="@+id/tvLogin"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/colorGreyDark"
+                    android:textSize="@dimen/_16ssp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:text="@string/already_user"/>
+                <TextView
+                    android:id="@+id/login_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_16ssp"
+                    android:text=" Log in"
+                    android:textColor="@color/colorPrimary"
+                    />
+            </LinearLayout>
+
         </LinearLayout>
 
     </ScrollView>

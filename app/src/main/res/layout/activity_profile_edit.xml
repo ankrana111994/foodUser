@@ -63,7 +63,7 @@
         android:id="@+id/tvusername"
         android:layout_below="@id/image_layout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
+        android:layout_height="@dimen/_40sdp"
         android:hint="@string/username"
         android:inputType="text"
         android:drawablePadding="@dimen/_10sdp"
@@ -73,12 +73,12 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_2sdp"/>
+        android:layout_marginBottom="@dimen/_8sdp"/>
 
     <EditText
         android:id="@+id/tvemail"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
+        android:layout_height="@dimen/_40sdp"
         android:hint="@string/enter_email"
         android:inputType="textEmailAddress"
         android:layout_below="@id/tvusername"
@@ -88,8 +88,36 @@
         android:padding="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_2sdp"/>
+        android:layout_marginBottom="@dimen/_8sdp"/>
 
+    <TextView
+        android:id="@+id/tvphone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:inputType="textEmailAddress"
+        android:layout_below="@id/tvemail"
+        android:drawablePadding="@dimen/_10sdp"
+        android:drawableLeft="@drawable/ic_phone_sign"
+        android:background="@drawable/login_edittext_background"
+        android:padding="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_8sdp"/>
+
+    <EditText
+        android:id="@+id/tvradius"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:hint="@string/enter_radius"
+        android:inputType="number"
+        android:layout_below="@id/tvphone"
+        android:drawablePadding="@dimen/_10sdp"
+        android:drawableLeft="@drawable/ic_profile_email"
+        android:background="@drawable/login_edittext_background"
+        android:padding="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_8sdp"/>
     <RelativeLayout
         android:id="@+id/rel_gender"
         android:layout_width="match_parent"
@@ -97,6 +125,7 @@
         android:layout_below="@id/tvemail"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
+        android:visibility="gone"
         android:layout_marginBottom="@dimen/_2sdp">
 
         <Spinner
@@ -109,6 +138,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_50sdp"
             android:hint="@string/enter_gender"
+            android:visibility="gone"
             android:inputType="text"
             android:drawablePadding="@dimen/_10sdp"
             android:focusable="false"
@@ -130,6 +160,7 @@
         android:background="@drawable/login_edittext_background"
         android:padding="@dimen/_10sdp"
         android:focusable="false"
+        android:visibility="gone"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_2sdp"/>
@@ -146,13 +177,14 @@
         android:background="@drawable/login_edittext_background"
         android:padding="@dimen/_10sdp"
         android:focusable="false"
+        android:visibility="gone"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_2sdp"/>
 
     <Button
         android:id="@+id/btnSubmit"
-        android:layout_below="@id/tvdoa"
+        android:layout_below="@id/tvradius"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
