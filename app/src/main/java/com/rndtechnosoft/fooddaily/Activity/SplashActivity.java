@@ -52,6 +52,7 @@ public class SplashActivity extends AppCompatActivity {
                 public void run() {
 
                     SharedPreferences preferences = getSharedPreferences(Constants.MY_PREFS_NAME, MODE_PRIVATE);
+                  //  SharedPref.clearAllPreferences(SplashActivity.this);
                     if(SharedPref.getMobileNumber(SplashActivity.this)!=null & SharedPref.getMobileNumber(SplashActivity.this).equals("")) {
                         Intent i = new Intent(SplashActivity.this, InfoActivity.class);
                         startActivity(i);

@@ -190,7 +190,7 @@ public class PayActivity extends AppCompatActivity implements PaymentResultListe
             public void onResponse(String response) {
                 String[] separated = response.split("end");
 
-                String res= separated[1];
+                String res= separated[0];
                 progress_pay.setVisibility(View.GONE);
                 try {
                     JSONObject jsonObject = new JSONObject(res);

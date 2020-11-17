@@ -125,6 +125,7 @@ public class SignUpActivity extends AppCompatActivity {
                 selected_country_code = ccp.getSelectedCountryCodeWithPlus();
                 //String noWithCode = selected_country_code+mobile;
                 String noWithCode = "+91"+mobile;
+
                 startPhoneNumberVerification(noWithCode);
             }
         });
@@ -182,12 +183,26 @@ public class SignUpActivity extends AppCompatActivity {
         // [END verify_with_code]
         signInWithPhoneAuthCredential(credential);
     }
-
+   void disableSubmitButton(){
+       btnSignup.setClickable(false);
+       btnSignup.setEnabled(false);
+       btnSubmit.setClickable(false);
+       btnSubmit.setEnabled(false);
+}
+void enableSubmitButton(){
+    btnSignup.setClickable(true);
+    btnSignup.setEnabled(true);
+    btnSubmit.setClickable(true);
+    btnSubmit.setEnabled(true);
+}
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+        disableSubmitButton();
+
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
                         if(progress_login.getVisibility() == View.VISIBLE)
                             progress_login.setVisibility(View.GONE);
                         if (task.isSuccessful()) {
@@ -199,6 +214,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                             signup();
                         } else {
+                            enableSubmitButton();
                             // Sign in failed, display a message and update the UI
 //                            Log.w(TAG, "signInWithCredential:failure", task.getException());
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
@@ -278,10 +294,11 @@ public class SignUpActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         //Response
+                        enableSubmitButton();
                         try {
                             JSONObject jsonObject=new JSONObject(response);
                             JSONObject jsonObject1=jsonObject.getJSONObject("USER_REGISTRATION");
-                            if (!jsonObject1.has("error")){
+                            if (jsonObject1.getString("error").equalsIgnoreCase("false")){
                                 String error = jsonObject1.getString("error");
                                 String id = jsonObject1.getString("id");
                                 String name = jsonObject1.getString("name");
@@ -321,6 +338,7 @@ public class SignUpActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        enableSubmitButton();
                         //Error
                         Log.d("SignupError->>",error.toString());
                         progress_login.setVisibility(View.GONE);
