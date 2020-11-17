@@ -7,8 +7,7 @@
     android:layout_height="wrap_content"
     android:maxHeight="@dimen/_160sdp"
     android:layout_marginTop="@dimen/_5sdp"
-    android:layout_marginRight="@dimen/_10sdp"
-android:layout_marginLeft="@dimen/_10sdp"
+    android:layout_marginLeft="@dimen/_10sdp"
     android:elevation="0dp"
     >
 

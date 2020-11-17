@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/_12ssp"
                 android:textColor="@color/colorBlack"
                 android:layout_weight="3"/>
 
@@ -31,8 +31,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textSize="@dimen/_14ssp"
-            android:textColor="@color/colorGreyDark"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/colorBlack"
             android:gravity="end"
             android:layout_weight="1"/>
 

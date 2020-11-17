@@ -3,6 +3,7 @@ package com.rndtechnosoft.fooddaily.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,7 +36,8 @@ import org.json.JSONObject;
 public class LoginActivity extends AppCompatActivity {
 
     EditText tvmobile,tvpassword;
-    TextView tvForgotPwd,btnSignup;
+    TextView tvForgotPwd;
+    LinearLayout btnSignup;
     Button btnLogin,btnMenu;
     private String mobile="";
     private String password="";
@@ -46,6 +49,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         initView();
+
+        
     }
 
     private void initView() {
@@ -57,26 +62,28 @@ public class LoginActivity extends AppCompatActivity {
         btnMenu = findViewById(R.id.btnMenu);
         progress_login = findViewById(R.id.progress_login);
         progress_login.setVisibility(View.GONE);
+        TextView signup_txt = (TextView) findViewById(R.id.signup_txt);
+        signup_txt.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
 
-        SpannableString SpanString = new SpannableString(
-                getResources().getString(R.string.dont_have_account));
+//        SpannableString SpanString = new SpannableString(
+//                getResources().getString(R.string.dont_have_account));
+//
+//        ClickableSpan signup = new ClickableSpan() {
+//            @Override
+//            public void onClick(View textView) {
+//                Intent mIntent = new Intent(LoginActivity.this, SignUpActivity.class);
+//                mIntent.putExtra("signup", true);
+//                startActivity(mIntent);
+//            }
+//        };
 
-        ClickableSpan signup = new ClickableSpan() {
-            @Override
-            public void onClick(View textView) {
-                Intent mIntent = new Intent(LoginActivity.this, SignUpActivity.class);
-                mIntent.putExtra("signup", true);
-                startActivity(mIntent);
-            }
-        };
+//        SpanString.setSpan(signup, 23, 30, 0);
+//        SpanString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.colorBlack)), 23, 30, 0);
+//        SpanString.setSpan(new UnderlineSpan(), 23, 30, 0);
 
-        SpanString.setSpan(signup, 23, 30, 0);
-        SpanString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.colorBlack)), 23, 30, 0);
-        SpanString.setSpan(new UnderlineSpan(), 23, 30, 0);
-
-        btnSignup.setMovementMethod(LinkMovementMethod.getInstance());
-        btnSignup.setText(SpanString, TextView.BufferType.SPANNABLE);
-        btnSignup.setSelected(true);
+//        btnSignup.setMovementMethod(LinkMovementMethod.getInstance());
+//        btnSignup.setText(SpanString, TextView.BufferType.SPANNABLE);
+//        btnSignup.setSelected(true);
 
         clickevents();
     }
@@ -95,8 +102,8 @@ public class LoginActivity extends AppCompatActivity {
             gd.setCornerRadius(25);
           //  gd.setStroke(4, getResources().getColor(R.color.colorGrey1));
         }
-        tvmobile.setBackground(gd);
-        tvpassword.setBackground(gd);
+//        tvmobile.setBackground(gd);
+//        tvpassword.setBackground(gd);
     }
 
     private void clickevents() {

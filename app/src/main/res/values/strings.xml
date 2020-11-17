@@ -81,6 +81,7 @@
     <string name="building">Building Name/Apartment Name</string>
     <string name="landmark">Landmark</string>
     <string name="city">City</string>
+    <string name="state">State</string>
     <string name="pincode">Pincode</string>
     <!--<Address Validation string>-->
 
@@ -119,6 +120,7 @@
 
     <!--Profile-->
     <string name="enter_email">Enter email</string>
+    <string name="enter_radius">Enter radius</string>
     <string name="enter_gender">Enter gender</string>
     <string name="enter_dob">Enter date of birth</string>
     <string name="enter_doa">Enter date of anniversary</string>

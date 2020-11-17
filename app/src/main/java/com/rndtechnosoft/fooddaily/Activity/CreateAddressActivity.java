@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -45,7 +47,7 @@ public class CreateAddressActivity extends AppCompatActivity {
     private Address address;
     private Button btnAdd,btnMap;
     private TextView txtApartment, txtHouse, txtothers;
-    private EditText edtname,edtmbl,edtemail,edtAddress,edtBuilding,edtlandmark,edtcity,edtpincode,edtPlot,edtFloor,edtBlock,edtFlat;
+    private EditText edtname,edtmbl,edtemail,edtAddress,edtBuilding,edtstate,edtlandmark,edtcity,edtpincode,edtPlot,edtFloor,edtBlock,edtFlat;
     private String type;
     private String id,user_id,flat_no,building_name,landmark,city,pincode,name,email,mbl,address_type,area_name;
     String params,url,area_id;
@@ -120,6 +122,7 @@ public class CreateAddressActivity extends AppCompatActivity {
         edtmbl = findViewById(R.id.edtmbl);
         edtemail = findViewById(R.id.edtemail);
         edtAddress = findViewById(R.id.edtAddress);
+        edtstate = findViewById(R.id.edtstate);
         edtBuilding = findViewById(R.id.edtBuilding);
         edtlandmark = findViewById(R.id.edtlandmark);
         edtPlot = findViewById(R.id.edtPlot);
@@ -351,6 +354,14 @@ public class CreateAddressActivity extends AppCompatActivity {
         }
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_openmap, menu);
+        return true;
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -365,13 +376,14 @@ public class CreateAddressActivity extends AppCompatActivity {
                     String state = data.getStringExtra("state");
                     String postalcode = data.getStringExtra("postalcode");
                     String area = data.getStringExtra("area");
-
+                    System.out.println(" address "+address+" city "+city+" state "+state+" postalcode "+postalcode+" area "+area);
 
                     edtcity.setText(city);
                     edtpincode.setText(postalcode);
                     edtAddress.setText(address);
-                    edtBuilding.setText(area);
-                    edtAddress.setText(address);
+                    edtBuilding.setText(address);
+//                    edtBuilding.setText(area);
+                    edtstate.setText(state);
                     Log.e("addrsss=====>",address);
                     // txtAddress.setText("Address: "+address);
                     //  txtLatLong.setText("Lat:"+currentLatitude+"  Long:"+currentLongitude);

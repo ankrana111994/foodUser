@@ -3,12 +3,10 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/cat_lay"
-
     android:layout_width="@dimen/_140sdp"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/_8sdp"
     android:layout_marginRight="@dimen/_8sdp"
-
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <RelativeLayout
     android:layout_width="match_parent"
@@ -33,9 +31,9 @@
         android:layout_below="@id/imgCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/_2sdp"
         android:gravity="center"
         android:textSize="@dimen/_13ssp"
-        android:paddingLeft="@dimen/_5sdp"
         android:textColor="@color/colorBlack"/>
 </RelativeLayout>
         </androidx.cardview.widget.CardView>

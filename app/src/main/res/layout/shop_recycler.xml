@@ -19,7 +19,7 @@
         android:layout_below="@id/tvCategory"
         android:id="@+id/recycler_shop"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_120sdp"
+        android:layout_height="@dimen/_122sdp"
         android:clipToPadding="false"
         android:paddingLeft="@dimen/_10sdp"
       />
