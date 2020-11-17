@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/btnMap"
+        android:icon="@drawable/openmap_icon"
+        android:title="OPEN MAP"
+        app:showAsAction="ifRoom" />
+</menu>

@@ -19,6 +19,9 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -77,7 +80,7 @@ public class LocationPickerActivity extends FragmentActivity implements Location
     private GoogleMap mMap;
     private EditText txtUserAddress;
     private ImageView imgCurrentloc;
-    private TextView txtSelectLocation,textAdd;
+    private TextView txtSelectLocation,textAdd,skiptxt;
     private static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 2;
     private boolean mLocationPermissionGranted;
     private final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 8088;
@@ -99,10 +102,14 @@ public class LocationPickerActivity extends FragmentActivity implements Location
         txtSelectLocation = findViewById(R.id.txtSelectLocation);
         imgSearch =findViewById(R.id.imgSearch);
         textAdd=findViewById(R.id.textAdd);
+        skiptxt = findViewById(R.id.skiptxt);
         if (!userAddress.isEmpty())
         textAdd.setText(userAddress);
         getLocationPermission();
-
+        Paint p = new Paint();
+        p.setColor(ContextCompat.getColor(this,R.color.colorPrimary));
+        p.setFlags(Paint.UNDERLINE_TEXT_FLAG);
+        skiptxt.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
             // Try to obtain the map from the SupportMapFragment.
        // checkAndRequestPermissions();
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -133,7 +140,8 @@ public class LocationPickerActivity extends FragmentActivity implements Location
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.putExtra("address", textAdd.getText().toString().trim());
+                intent.putExtra("address",textAdd.getText().toString().trim().substring(0, textAdd.getText().toString().trim().indexOf(", "+city)));
+//                intent.putExtra("address", textAdd.getText().toString().trim());
 
                 intent.putExtra("city", city);
                 intent.putExtra("state", state);
@@ -171,7 +179,8 @@ public class LocationPickerActivity extends FragmentActivity implements Location
                 MarkerOptions markerOptions;
                 try {
                     mMap.clear();
-                    markerOptions = new MarkerOptions().position(new LatLng(mLatitude, mLongitude)).title(userAddress).icon(BitmapDescriptorFactory.fromResource(R.drawable.placeholder_filled_point));
+                    markerOptions = new MarkerOptions().position(new LatLng(mLatitude, mLongitude)).title(userAddress).icon(BitmapDescriptorFactory.fromBitmap(createStoreMarker()));
+//                    markerOptions = new MarkerOptions().position(new LatLng(mLatitude, mLongitude)).title(userAddress).icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_icon));
                     CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(mLatitude, mLongitude), 14);
                     mMap.animateCamera(cameraUpdate);
                     mMap.addMarker(markerOptions);
@@ -235,7 +244,10 @@ public class LocationPickerActivity extends FragmentActivity implements Location
             mLongitude = location.getLongitude();
             marker = mMap.addMarker(new MarkerOptions()
                     .position(loc)
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.placeholder_filled_point)));
+                    .icon(BitmapDescriptorFactory.fromBitmap(createStoreMarker())));
+//            marker = mMap.addMarker(new MarkerOptions()
+//                    .position(loc)
+//                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_icon)));
             mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
             CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(loc, 14);
             mMap.animateCamera(cameraUpdate);
@@ -249,13 +261,30 @@ public class LocationPickerActivity extends FragmentActivity implements Location
         mLongitude = coordinate.longitude;
         if (mMap != null) {
 
-            mMap.addMarker(new MarkerOptions().position(coordinate).icon(BitmapDescriptorFactory.fromResource(R.drawable.placeholder_filled_point)));
+            mMap.addMarker(new MarkerOptions().position(coordinate).icon(BitmapDescriptorFactory.fromBitmap(createStoreMarker())));
+//            mMap.addMarker(new MarkerOptions().position(coordinate).icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_icon)));
             cameraPosition = new CameraPosition.Builder().target(coordinate).zoom(18).build();
             mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
         }
 
 
+    }
+
+    private Bitmap createStoreMarker() {
+        View markerLayout = getLayoutInflater().inflate(R.layout.marker_layout, null);
+
+        ImageView markerImage = (ImageView) markerLayout.findViewById(R.id.marker_image);
+        TextView markerRating = (TextView) markerLayout.findViewById(R.id.marker_text);
+        markerImage.setImageResource(R.drawable.marker_icon);
+
+        markerLayout.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED), View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+        markerLayout.layout(0, 0, markerLayout.getMeasuredWidth(), markerLayout.getMeasuredHeight());
+
+        final Bitmap bitmap = Bitmap.createBitmap(markerLayout.getMeasuredWidth(), markerLayout.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        markerLayout.draw(canvas);
+        return bitmap;
     }
 
     @Override
@@ -363,14 +392,22 @@ v.setVisibility(View.GONE);
             try {
                 Geocoder geocoder;
                 List<Address> addresses;
+
                 geocoder = new Geocoder(LocationPickerActivity.this, Locale.getDefault());
                 StringBuilder sb = new StringBuilder();
 
                 addresses = geocoder.getFromLocation(latitude, longitude, 1);
 
                 if (addresses != null && addresses.size() > 0) {
-
+//
                     String address = addresses.get(0).getAddressLine(0);
+//                    String city = addresses.get(0).getLocality();
+//                    String state = addresses.get(0).getAdminArea();
+//                    String country = addresses.get(0).getCountryName();
+//                    String postalCode = addresses.get(0).getPostalCode();
+//                    String knownName = addresses.get(0).getFeatureName();
+//                    System.out.println(" address city"+" "+city+" "+state+" "+country+" "+knownName);
+//                    System.out.println(" address "+address.substring(0, address.indexOf(", "+city)));
                     if (address != null)
                         sb.append(address).append(" ");
                     city = addresses.get(0).getLocality();
@@ -414,7 +451,8 @@ v.setVisibility(View.GONE);
                   //  txtUserAddress.setText(""+userAddress);
                     textAdd.setText(userAddress);
 
-                    markerOptions = new MarkerOptions().position(new LatLng(latitude, longitude)).title(userAddress).icon(BitmapDescriptorFactory.fromResource(R.drawable.placeholder_filled_point));
+                    markerOptions = new MarkerOptions().position(new LatLng(latitude, longitude)).title(userAddress).icon(BitmapDescriptorFactory.fromBitmap(createStoreMarker()));
+//                    markerOptions = new MarkerOptions().position(new LatLng(latitude, longitude)).title(userAddress).icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_icon));
                     CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 14);
                     mMap.animateCamera(cameraUpdate);
                     mMap.addMarker(markerOptions);
@@ -461,7 +499,8 @@ v.setVisibility(View.GONE);
                                         runOnUiThread(new Runnable() {
                                             @Override
                                             public void run() {
-                                                markerOptions[0] = new MarkerOptions().position(latLng1).title((userAddress)).icon(BitmapDescriptorFactory.fromResource(R.drawable.placeholder_filled_point));
+                                                markerOptions[0] = new MarkerOptions().position(latLng1).title((userAddress)).icon(BitmapDescriptorFactory.fromBitmap(createStoreMarker()));
+//                                                markerOptions[0] = new MarkerOptions().position(latLng1).title((userAddress)).icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_icon));
                                                 CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng1, 14);
                                                 mMap.animateCamera(cameraUpdate);
                                                 mMap.addMarker(markerOptions[0]);

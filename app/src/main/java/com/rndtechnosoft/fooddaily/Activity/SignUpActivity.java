@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -50,7 +51,8 @@ import java.util.concurrent.TimeUnit;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    TextView tvLogin,tvusername,tvmobile,tvpassword,tvotp;
+    TextView tvusername,tvmobile,tvpassword,tvotp;
+    LinearLayout tvLogin;
     private String name,mobile,password;
     Button btnSignup,btnSubmit;
     AVLoadingIndicatorView progress_login;
@@ -70,7 +72,7 @@ public class SignUpActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         phoneNumberAuthCallbackListener();
 
-        tvLogin = (TextView) findViewById(R.id.tvLogin);
+        tvLogin = (LinearLayout) findViewById(R.id.tvLogin);
         tvusername = (TextView) findViewById(R.id.tvusername);
         tvmobile = (TextView) findViewById(R.id.tvmobile);
         tvpassword = (TextView) findViewById(R.id.tvpassword);
@@ -81,6 +83,8 @@ public class SignUpActivity extends AppCompatActivity {
         otp_layout = findViewById(R.id.otp_layout);
         scrollView = findViewById(R.id.scroll_form);
         ccp = findViewById(R.id.ccp);
+        TextView login_txt = (TextView) findViewById(R.id.login_txt);
+        login_txt.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
 
         GradientDrawable gd = new GradientDrawable();
         if (SharedPref.getDASHED(SignUpActivity.this).equalsIgnoreCase("1")) {
@@ -93,11 +97,11 @@ public class SignUpActivity extends AppCompatActivity {
             gd.setCornerRadius(25);
           //  gd.setStroke(4, getResources().getColor(R.color.colorGrey1));
         }
-        tvusername.setBackground(gd);
-        tvmobile.setBackground(gd);
-        ccp.setBackground(gd);
-        tvpassword.setBackground(gd);
-        tvotp.setBackground(gd);
+//        tvusername.setBackground(gd);
+//        tvmobile.setBackground(gd);
+//        ccp.setBackground(gd);
+//        tvpassword.setBackground(gd);
+//        tvotp.setBackground(gd);
 
         SpannableString SpanString = new SpannableString(
                 getResources().getString(R.string.already_user));
@@ -110,13 +114,13 @@ public class SignUpActivity extends AppCompatActivity {
 
             }
         };
-        SpanString.setSpan(login, 22, 28, 0);
-        SpanString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.colorBlack)), 22, 28, 0);
-        SpanString.setSpan(new UnderlineSpan(), 22, 28, 0);
-
-        tvLogin.setMovementMethod(LinkMovementMethod.getInstance());
-        tvLogin.setText(SpanString, TextView.BufferType.SPANNABLE);
-        tvLogin.setSelected(true);
+//        SpanString.setSpan(login, 22, 28, 0);
+//        SpanString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.colorBlack)), 22, 28, 0);
+//        SpanString.setSpan(new UnderlineSpan(), 22, 28, 0);
+//
+//        tvLogin.setMovementMethod(LinkMovementMethod.getInstance());
+//        tvLogin.setText(SpanString, TextView.BufferType.SPANNABLE);
+//        tvLogin.setSelected(true);
 
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,6 +146,13 @@ public class SignUpActivity extends AppCompatActivity {
                     progress_login.setVisibility(View.VISIBLE);
 
                 verifyPhoneNumberWithCode(mVerificationId, tvotp.getText().toString().trim());
+            }
+        });
+
+        tvLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
             }
         });
 

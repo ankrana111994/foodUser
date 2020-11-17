@@ -218,7 +218,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_hamburger));
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_baseline_dehaze_24));
         bottomNavigationMenu .setItemIconTintList(null);
         bottomNavigationMenu.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigationView.setNavigationItemSelectedListener(this);

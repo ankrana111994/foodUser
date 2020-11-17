@@ -94,8 +94,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             gd.setCornerRadius(25);
            // gd.setStroke(4, getResources().getColor(R.color.colorGrey1));
         }
-        tvmobile.setBackground(gd);
-        ccp.setBackground(gd);
+//        tvmobile.setBackground(gd);
+//        ccp.setBackground(gd);
 
         btnValidate.setOnClickListener(new View.OnClickListener() {
             @Override

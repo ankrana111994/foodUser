@@ -37,40 +37,56 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="7"
             android:orientation="vertical"
-            android:paddingTop="30dp"
-
+            android:layout_weight="7"
+            android:paddingTop="15dp"
             >
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-android:hint="your address"
-                android:textSize="18sp"
-                android:id="@+id/textAdd"
-                android:gravity="center_horizontal"
-                >
+                android:text="Tap to set delivery location"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/delivery_label"/>
 
-            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="your address"
+                android:layout_below="@id/delivery_label"
+                android:textSize="15sp"
+                android:id="@+id/textAdd"
+                android:padding="8dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/round_corner_background"
+                />
             <TextView
                 android:id="@+id/txtSelectLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="15dp"
+                android:layout_above="@id/skiptxt"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/blue_button_rounded_corner"
+                android:background="@drawable/round_btn"
                 android:gravity="center_horizontal"
-                android:paddingBottom="15dp"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:paddingTop="15dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:padding="10dp"
                 android:text="Confirm delivery location"
                 android:textColor="#FFFFFF"
                 android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/skiptxt"
+                android:text="Skip"
+                android:layout_alignParentBottom="true"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:textSize="16sp"
+                android:textColor="#ffc700"/>
 
         </RelativeLayout>
         <RelativeLayout
@@ -116,10 +132,6 @@ android:hint="your address"
                 android:padding="5dp"
                 android:src="@drawable/ic_search_black_24dp" />
         </RelativeLayout>
-
-
-
-
     </LinearLayout>
 
 </LinearLayout>

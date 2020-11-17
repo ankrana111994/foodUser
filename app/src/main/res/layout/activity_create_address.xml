@@ -17,17 +17,18 @@
         android:layout_above="@+id/llend"
         android:layout_below="@+id/toolbar_create"
         android:layout_width="match_parent"
-        android:layout_margin="@dimen/_5sdp"
+        android:layout_margin="@dimen/_8sdp"
         android:layout_height="wrap_content">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
             <EditText
                 android:id="@+id/edtname"
                 android:layout_width="fill_parent"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_marginBottom="10dp"
                 android:hint="@string/name"
                 android:inputType="textCapWords"
@@ -37,7 +38,7 @@
             <EditText
                 android:id="@+id/edtmbl"
                 android:layout_width="fill_parent"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_marginBottom="10dp"
                 android:hint="@string/mobile_no"
                 android:maxLength="10"
@@ -49,7 +50,7 @@
             <EditText
                 android:id="@+id/edtemail"
                 android:layout_width="fill_parent"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_marginBottom="10dp"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
@@ -65,24 +66,73 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/edtemail"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/_10sdp"
                 >
                 <Button
                     android:id="@+id/btnMap"
-                    android:layout_marginBottom="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_40sdp"
                     android:background="@drawable/rounded_btn"
                     android:backgroundTint="@color/colorAccent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:visibility="gone"
                     android:text="Open Map"
                     android:textColor="@color/colorWhite"
                     android:textStyle="bold"
                     tools:ignore="UnusedAttribute" />
             </LinearLayout>
-<RelativeLayout
+
+            <LinearLayout
+                android:id="@+id/lineartype"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mapView"
+                android:gravity="center"
+                android:weightSum="2"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:id="@+id/txtApartment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_gray_border_btn"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Apartment or Gated Society"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txtHouse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_gray_border_btn"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Individual House"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txtothers"
+                    android:layout_width="100dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@drawable/rounded_gray_border_btn"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    android:text="@string/others"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/addressView"
-    android:layout_below="@id/mapView"
+    android:layout_below="@id/lineartype"
     >
 
 <LinearLayout
@@ -92,30 +142,39 @@
     android:orientation="vertical"
     android:visibility="gone"
     >
-    <EditText
-        android:id="@+id/edtPlot"
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/_50sdp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:orientation="horizontal"
         android:layout_marginBottom="10dp"
-        android:hint="House no. / Plot no."
-        android:inputType="textCapWords"
-        android:background="@drawable/login_edittext_background"
-        android:padding="10dp"/>
-    <EditText
-        android:id="@+id/edtFloor"
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/_50sdp"
-        android:layout_marginBottom="10dp"
-        android:hint="Floor"
-        android:inputType="textCapWords"
-        android:background="@drawable/login_edittext_background"
-        android:padding="10dp"/>
+        android:weightSum="2">
+        <EditText
+            android:id="@+id/edtPlot"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:hint="House no./Plot no."
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:inputType="textCapWords"
+            android:background="@drawable/login_edittext_background"
+            android:padding="10dp"/>
+        <EditText
+            android:id="@+id/edtFloor"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_weight="1"
+            android:hint="Floor"
+            android:inputType="textCapWords"
+            android:background="@drawable/login_edittext_background"
+            android:padding="10dp"/>
 
+    </LinearLayout>
     <EditText
         android:id="@+id/edtAddress"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/_50sdp"
+        android:minHeight="@dimen/_40sdp"
         android:layout_marginBottom="10dp"
         android:hint="Address"
         android:scrollHorizontally="false"
@@ -125,7 +184,7 @@
     <EditText
         android:id="@+id/edtlandmark"
         android:layout_width="fill_parent"
-        android:layout_height="@dimen/_50sdp"
+        android:layout_height="@dimen/_40sdp"
         android:layout_marginBottom="10dp"
         android:hint="@string/landmark"
         android:inputType="textCapWords"
@@ -145,7 +204,7 @@
                 <EditText
                     android:id="@+id/edtBuilding"
                     android:layout_width="fill_parent"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:layout_marginBottom="10dp"
                     android:hint="@string/building"
                     android:inputType="textCapWords"
@@ -155,7 +214,7 @@
                 <EditText
                     android:id="@+id/edtBlock"
                     android:layout_width="fill_parent"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:layout_marginBottom="10dp"
                     android:hint="Tower / Block"
                     android:inputType="textCapWords"
@@ -164,7 +223,7 @@
                 <EditText
                     android:id="@+id/edtFlat"
                     android:layout_width="fill_parent"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:layout_marginBottom="10dp"
                     android:hint="Flat / House no."
                     android:inputType="textCapWords"
@@ -191,17 +250,26 @@
             <EditText
                 android:id="@+id/edtcity"
                 android:layout_width="fill_parent"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_marginBottom="10dp"
                 android:hint="@string/city"
                 android:inputType="textCapWords"
                 android:layout_below="@+id/addressView"
                 android:background="@drawable/login_edittext_background"
                 android:padding="10dp"/>
-
+            <EditText
+                android:id="@+id/edtstate"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/state"
+                android:inputType="textCapWords"
+                android:layout_below="@+id/edtcity"
+                android:background="@drawable/login_edittext_background"
+                android:padding="10dp"/>
             <Spinner
                 android:id="@+id/spinner_area"
-                android:layout_below="@id/edtcity"
+                android:layout_below="@id/edtstate"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
                 android:visibility="gone"
@@ -211,7 +279,7 @@
             <EditText
                 android:id="@+id/edtpincode"
                 android:layout_width="fill_parent"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_marginBottom="10dp"
                 android:hint="@string/pincode"
                 android:maxLength="6"
@@ -219,48 +287,6 @@
                 android:layout_below="@+id/spinner_area"
                 android:background="@drawable/login_edittext_background"
                 android:padding="10dp"/>
-
-            <LinearLayout
-                android:id="@+id/lineartype"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/edtpincode"
-                android:gravity="center"
-                android:paddingBottom="10dp">
-
-                <TextView
-                    android:id="@+id/txtApartment"
-                    android:layout_width="@dimen/_130sdp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:background="@drawable/rounded_gray_border_btn"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:text="Apartment or Gated Society"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/txtHouse"
-                    android:layout_width="@dimen/_130sdp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:background="@drawable/rounded_gray_border_btn"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:text="Individual House"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/txtothers"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/rounded_gray_border_btn"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:visibility="gone"
-                    android:text="@string/others"
-                    android:textSize="16sp" />
-            </LinearLayout>
         </RelativeLayout>
     </ScrollView>
 
@@ -285,8 +311,8 @@
             android:layout_marginRight="@dimen/_5sdp"
             android:layout_marginLeft="@dimen/_5sdp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_btn"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/login_button"
             android:backgroundTint="@color/colorAccent"
             android:text="@string/add"
             android:textColor="@color/colorWhite"
