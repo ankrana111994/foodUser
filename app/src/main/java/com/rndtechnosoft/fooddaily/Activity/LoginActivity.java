@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
 
         initView();
 
-        
+
     }
 
     private void initView() {

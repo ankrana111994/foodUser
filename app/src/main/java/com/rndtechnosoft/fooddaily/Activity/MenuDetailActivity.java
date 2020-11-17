@@ -100,7 +100,7 @@
             loader = findViewById(R.id.loader);
             toolbar.setTitleTextColor(getResources().getColor(R.color.colorBlack));
             toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_back));
-            tvToolbarTitle.setText(Html.fromHtml("<b>"+menu_name+"</b>"));
+            tvToolbarTitle.setText(Html.fromHtml("<b>"+"Detail"+"</b>"));
             setSupportActionBar(toolbar);
 
             scroll_lay = findViewById(R.id.scroll_lay);
