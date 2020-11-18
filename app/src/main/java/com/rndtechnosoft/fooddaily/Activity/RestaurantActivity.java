@@ -75,7 +75,8 @@ String catId;
         catId = in.getStringExtra("cat_id");
         getCategory();
 
-        recycler_restaurant.setLayoutManager((new GridLayoutManager(this, 2)));
+        recycler_restaurant.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+//        recycler_restaurant.setLayoutManager((new GridLayoutManager(this, 2)));
          restaurantAdapter= new RestaurantAdapter(mRestaurantCategoryLists,this,catId);
 
         recycler_restaurant.setAdapter(restaurantAdapter);
