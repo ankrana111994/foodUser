@@ -203,7 +203,8 @@ public class CreateAddressActivity extends AppCompatActivity {
                 txtApartment.setTextColor(getResources().getColor(R.color.colorWhite));
                 txtHouse.setTextColor(getResources().getColor(R.color.colorBlack));
                 txtothers.setTextColor(getResources().getColor(R.color.colorBlack));
-                address_type="home";
+                address_type="office";
+
             }
         });
 
@@ -225,7 +226,7 @@ public class CreateAddressActivity extends AppCompatActivity {
                 txtHouse.setTextColor(getResources().getColor(R.color.colorWhite));
                 txtApartment.setTextColor(getResources().getColor(R.color.colorBlack));
                 txtothers.setTextColor(getResources().getColor(R.color.colorBlack));
-                address_type="office";
+                address_type="home";
             }
         });
 
