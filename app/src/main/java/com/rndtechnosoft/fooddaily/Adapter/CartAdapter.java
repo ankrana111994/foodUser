@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -65,18 +66,18 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         holder.tvPrice.setText(SharedPref.getCurrency(activity)+" "+carts.get(position).getVariant_price());
         holder.tvQty.setText(carts.get(position).getVariant_qty());
 
-        GradientDrawable gd = new GradientDrawable();
-        if (SharedPref.getDASHED(activity).equalsIgnoreCase("1")) {
-            gd.setColor(activity.getResources().getColor(R.color.colorGrey));
-            gd.setCornerRadius(25);
-//        gd.setStroke(2, Color.RED);
-          //  gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1), 12, 16);
-        }else{
-            gd.setColor(activity.getResources().getColor(R.color.colorGrey));
-            gd.setCornerRadius(25);
-           // gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1));
-        }
-        holder.rel_layout.setBackground(gd);
+//        GradientDrawable gd = new GradientDrawable();
+//        if (SharedPref.getDASHED(activity).equalsIgnoreCase("1")) {
+////            gd.setColor(activity.getResources().getColor(R.color.colorGrey));
+//            gd.setCornerRadius(5);
+////        gd.setStroke(2, Color.RED);
+//          //  gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1), 12, 16);
+//        }else{
+////            gd.setColor(activity.getResources().getColor(R.color.colorGrey));
+//            gd.setCornerRadius(55);
+//           // gd.setStroke(4, activity.getResources().getColor(R.color.colorGrey1));
+//        }
+//        holder.rel_layout.setBackground(gd);
 
         holder.tvPlus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,16 +110,17 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        CircleImageView imgMenu;
+        ImageView imgMenu;
         TextView tvMenu,tvPrice,tvQty;
         ImageView tvPlus,tvMinus;
         RecyclerView recycler_extra;
-        RelativeLayout extra_layout,rel_layout;
+        RelativeLayout extra_layout;
+        CardView rel_layout;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            imgMenu = (CircleImageView) itemView.findViewById(R.id.imgMenu);
+            imgMenu = (ImageView) itemView.findViewById(R.id.imgMenu);
             tvMenu = (TextView) itemView.findViewById(R.id.tvMenu);
             tvPrice = (TextView) itemView.findViewById(R.id.tvPrice);
             tvQty = (TextView) itemView.findViewById(R.id.tvQty);
@@ -126,7 +128,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             tvMinus = (ImageView) itemView.findViewById(R.id.tvMinus);
             recycler_extra = (RecyclerView) itemView.findViewById(R.id.recycler_extra);
             extra_layout = (RelativeLayout) itemView.findViewById(R.id.extra_layout);
-            rel_layout = (RelativeLayout) itemView.findViewById(R.id.rel_layout);
+            rel_layout = (CardView) itemView.findViewById(R.id.rel_layout);
 
         }
     }

@@ -1,6 +1,7 @@
 package com.rndtechnosoft.fooddaily.Activity;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,6 +14,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.Html;
@@ -204,6 +206,7 @@ public class CartActivity extends AppCompatActivity implements SwipeRefreshLayou
         });
 
         btnCheckout.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
                 //place order
@@ -212,6 +215,8 @@ public class CartActivity extends AppCompatActivity implements SwipeRefreshLayou
                 }
                 mLastClickTime = SystemClock.elapsedRealtime();
                 btnCheckout.setEnabled(false);
+                btnCheckout.setBackgroundTintList(getApplicationContext().getResources().getColorStateList(R.color.colorGreyDark));
+
                 progress_cart.setVisibility(View.VISIBLE);
                 if (address_id!=null && !address_id.equalsIgnoreCase("")) {
                     String tot_val = tvTotal.getText().toString();
@@ -233,6 +238,7 @@ public class CartActivity extends AppCompatActivity implements SwipeRefreshLayou
                 }else{
                     Toast.makeText(CartActivity.this, "Please Select Address", Toast.LENGTH_SHORT).show();
                     btnCheckout.setEnabled(true);
+                    btnCheckout.setBackgroundTintList(getApplicationContext().getResources().getColorStateList(R.color.colorPrimary));
                     progress_cart.hide();
                 }
 //                placeOrder();
@@ -614,6 +620,7 @@ public class CartActivity extends AppCompatActivity implements SwipeRefreshLayou
         main_rel.setVisibility(View.GONE);
         final RequestQueue requestQueue = Volley.newRequestQueue(CartActivity.this);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.cart_list+"&user_id="+ SharedPref.getUserId(CartActivity.this), new Response.Listener<String>() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(String response) {
@@ -662,7 +669,8 @@ public class CartActivity extends AppCompatActivity implements SwipeRefreshLayou
                             }
                         }
                         btnCheckout.setEnabled(true);
-                        tvDelivery.setText(SharedPref.getCurrency(CartActivity.this)+delivery_charges);
+                    btnCheckout.setBackgroundTintList(getApplicationContext().getResources().getColorStateList(R.color.colorPrimary));
+                    tvDelivery.setText(SharedPref.getCurrency(CartActivity.this)+delivery_charges);
                         tvSubPrice.setText(SharedPref.getCurrency(CartActivity.this)+total_price);
 //                    }
 

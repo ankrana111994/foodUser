@@ -138,7 +138,7 @@
     <string name="remove">Remove</string>
     <string name="continue_shopping">Continue Shopping</string>
     <string name="checkout">Checkout</string>
-    <string name="terms_cart">By clicking the checkout button you are agreeing to our terms and conditions. Once the order is received we will notify the customer about the time of delivery via sms or email. Order will only be provided once the payment is done in full...</string>
+    <string name="terms_cart">By clicking the checkout button you are agreeing to our terms and conditions. Once the order is received we will notify the customer about the time of delivery via sms or email. Order will only be provided once the payment is done.</string>
     <string name="confirm">Confirm</string>
     <string name="clear_all_order">Do you want to clear your all orders?</string>
     <string name="no_items_cart">No items in Cart</string>
@@ -166,7 +166,7 @@
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
     <string name="details">Details</string>
     <string name="menu">Menu</string>
-    <string name="shops">Shops</string>
+    <string name="shops">Nearby shops</string>
 
     <string name="total_price">Total Price :</string>
     <string name="select_your_location">Select Location</string>

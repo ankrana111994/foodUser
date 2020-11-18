@@ -223,7 +223,7 @@ public class CategoryDetailActivity extends AppCompatActivity {
             TextView tab_name = (TextView) tab.getTabAt(i).getCustomView().findViewById(R.id.tab_text);
             ImageView tab_img = (ImageView) tab.getTabAt(i).getCustomView().findViewById(R.id.tab_img);
             tab_name.setText(categoryLists.get(i).getCategory_name());
-            Glide.with(CategoryDetailActivity.this).load(categoryLists.get(i).getCategory_image()).thumbnail(Glide.with(this).load(R.drawable.loading)).into(tab_img);
+//            Glide.with(CategoryDetailActivity.this).load(categoryLists.get(i).getCategory_image()).thumbnail(Glide.with(this).load(R.drawable.loading)).into(tab_img);
         }
     }
 

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -115,7 +116,7 @@ public RestaurantAdapter(ArrayList<RestaurantCategoryList> restaurantList, Activ
        // ImageView imgCategory;
         TextView tvShop;
         private ImageView imgShop;
-        CardView cat_lay;
+        LinearLayout cat_lay;
                 //,tvPrice, tvPlus, tvMinus;
        // CardView cat_lay;
 
@@ -125,7 +126,7 @@ public RestaurantAdapter(ArrayList<RestaurantCategoryList> restaurantList, Activ
         //    imgCategory = (ImageView) itemView.findViewById(R.id.imgCategory);
             imgShop = (ImageView) itemView.findViewById(R.id.imgShop);
             tvShop = (TextView) itemView.findViewById(R.id.tvShop);
-            cat_lay = (CardView) itemView.findViewById(R.id.cat_lay);
+            cat_lay = (LinearLayout) itemView.findViewById(R.id.cat_lay);
 //            tvPrice = (TextView) itemView.findViewById(R.id.tvPrice);
 //            tvPlus = (TextView) itemView.findViewById(R.id.tvPlus);
 //            tvMinus = (TextView) itemView.findViewById(R.id.tvMinus);
