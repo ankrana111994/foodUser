@@ -50,17 +50,17 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
         holder.tvCategory.setText(homeCategoryLists.get(position).getName());
 //        holder.cat_lay.getBackground().setColorFilter(Color.parseColor("#ff3300"), PorterDuff.Mode.SRC_OVER);
         GradientDrawable gd = new GradientDrawable();
-        if (SharedPref.getDASHED(activity).equalsIgnoreCase("1")) {
-            gd.setColor(Color.WHITE);
-           gd.setCornerRadius(10);
-//        gd.setStroke(2, Color.RED);
-          //  gd.setStroke(4, Color.parseColor(homeCategoryLists.get(position).getColor_code()), 12, 16);
-        }else{
-            gd.setColor(Color.WHITE);
-            gd.setCornerRadius(10);
-           // gd.setStroke(4, Color.parseColor(homeCategoryLists.get(position).getColor_code()));
-        }
-        holder.cat_lay.setBackground(gd);
+//        if (SharedPref.getDASHED(activity).equalsIgnoreCase("1")) {
+//            gd.setColor(Color.WHITE);
+//           gd.setCornerRadius(10);
+////        gd.setStroke(2, Color.RED);
+//          //  gd.setStroke(4, Color.parseColor(homeCategoryLists.get(position).getColor_code()), 12, 16);
+//        }else{
+//            gd.setColor(Color.WHITE);
+//            gd.setCornerRadius(10);
+//           // gd.setStroke(4, Color.parseColor(homeCategoryLists.get(position).getColor_code()));
+//        }
+//        holder.cat_lay.setBackground(gd);
         holder.cat_lay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
