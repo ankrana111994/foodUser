@@ -19,13 +19,16 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -40,6 +43,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -100,6 +104,7 @@ public class LocationPickerActivity extends FragmentActivity implements Location
         txtUserAddress = findViewById(R.id.txtUserAddress);
         imgCurrentloc = findViewById(R.id.imgCurrentloc);
         txtSelectLocation = findViewById(R.id.txtSelectLocation);
+        skiptxt = findViewById(R.id.skiptxt);
         imgSearch =findViewById(R.id.imgSearch);
         textAdd=findViewById(R.id.textAdd);
         skiptxt = findViewById(R.id.skiptxt);
@@ -139,30 +144,68 @@ public class LocationPickerActivity extends FragmentActivity implements Location
         txtSelectLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.putExtra("address",textAdd.getText().toString().trim().substring(0, textAdd.getText().toString().trim().indexOf(", "+city)));
+                if(checkLocationPermission()){
+                    Intent intent = new Intent();
+                    intent.putExtra("address",textAdd.getText().toString().trim().substring(0, textAdd.getText().toString().trim().indexOf(", "+city)));
 //                intent.putExtra("address", textAdd.getText().toString().trim());
 
-                intent.putExtra("city", city);
-                intent.putExtra("state", state);
-                intent.putExtra("postalcode", postalCode);
+                    intent.putExtra("city", city);
+                    intent.putExtra("state", state);
+                    intent.putExtra("postalcode", postalCode);
 
-                intent.putExtra("lat", mLatitude);
-                intent.putExtra("long", mLongitude);
+                    intent.putExtra("lat", mLatitude);
+                    intent.putExtra("long", mLongitude);
 
-                intent.putExtra("area", area);
+                    intent.putExtra("area", area);
+                    intent.putExtra("removeAddress",1);
+                    setResult(Activity.RESULT_OK, intent);
+                    finish();
+                }
+                else {
+                    Toast.makeText(LocationPickerActivity.this,"unable to fetch location",Toast.LENGTH_LONG).show();
+                }
 
-                setResult(Activity.RESULT_OK, intent);
-                finish();
             }
         });
+        skiptxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.putExtra("removeAddress",2);
+                setResult(Activity.RESULT_OK, intent);
+                finish();
 
+            }
+        });
         imgCurrentloc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 CurrentLocation();
             }
         });
+        if (!checkLocationPermission()){
+            Drawable buttonDrawable = txtSelectLocation.getBackground();
+            buttonDrawable = DrawableCompat.wrap(buttonDrawable);
+            //the color is a direct color int and not a color resource
+            DrawableCompat.setTint(buttonDrawable, getResources().getColor(R.color.grayColour));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                txtSelectLocation.setBackground(buttonDrawable);
+            }
+           // txtSelectLocation.setEnabled(false);
+           // txtSelectLocation.setClickable(false);
+        }
+        else {
+            Drawable buttonDrawable = txtSelectLocation.getBackground();
+            buttonDrawable = DrawableCompat.wrap(buttonDrawable);
+            //the color is a direct color int and not a color resource
+            DrawableCompat.setTint(buttonDrawable, getResources().getColor(R.color.colorPrimary));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                txtSelectLocation.setBackground(buttonDrawable);
+            }
+           // txtSelectLocation.setEnabled(true);
+           // txtSelectLocation.setClickable(true);
+        }
+
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -538,6 +581,28 @@ v.setVisibility(View.GONE);
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     mLocationPermissionGranted = true;
+                    if (!checkLocationPermission()){
+                        Drawable buttonDrawable = txtSelectLocation.getBackground();
+                        buttonDrawable = DrawableCompat.wrap(buttonDrawable);
+                        //the color is a direct color int and not a color resource
+                        DrawableCompat.setTint(buttonDrawable, getResources().getColor(R.color.grayColour));
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                            txtSelectLocation.setBackground(buttonDrawable);
+                        }
+                        // txtSelectLocation.setEnabled(false);
+                        // txtSelectLocation.setClickable(false);
+                    }
+                    else {
+                        Drawable buttonDrawable = txtSelectLocation.getBackground();
+                        buttonDrawable = DrawableCompat.wrap(buttonDrawable);
+                        //the color is a direct color int and not a color resource
+                        DrawableCompat.setTint(buttonDrawable, getResources().getColor(R.color.colorPrimary));
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                            txtSelectLocation.setBackground(buttonDrawable);
+                        }
+                        // txtSelectLocation.setEnabled(true);
+                        // txtSelectLocation.setClickable(true);
+                    }
                     locationProvider = new LocationProvider(LocationPickerActivity.this, LocationPickerActivity.this);
                     locationProvider.connect();
                 }

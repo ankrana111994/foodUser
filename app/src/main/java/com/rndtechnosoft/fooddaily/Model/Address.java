@@ -9,6 +9,7 @@ public class Address {
     String building_name;
     String landmark;
     String city;
+    String state;
     String pincode;
     String name;
     String email;
@@ -20,7 +21,9 @@ public class Address {
     String placeId;
     String area_name;
     String delivery;
-
+    String blockNo;
+    String floor;
+    String addressComplete;
 
     public String getPlaceId() {
         return placeId;
@@ -157,4 +160,36 @@ public class Address {
     public void setDelivery(String delivery) {
         this.delivery = delivery;
     }
+    public String getBlockNo() {
+        return blockNo;
+    }
+
+    public void setBlockNo(String blockNo) {
+        this.blockNo = blockNo;
+    }
+
+    public String getFloor() {
+        return floor;
+    }
+
+    public void setFloor(String floor) {
+        this.floor = floor;
+    }
+
+    public String getAddressComplete() {
+        return addressComplete;
+    }
+
+    public void setAddressComplete(String addressComplete) {
+        this.addressComplete = addressComplete;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
 }

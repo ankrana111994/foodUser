@@ -33,6 +33,8 @@ import com.wang.avi.AVLoadingIndicatorView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import static com.rndtechnosoft.fooddaily.Util.SharedPref.FIRST_LAUNCH;
+
 public class LoginActivity extends AppCompatActivity {
 
     EditText tvmobile,tvpassword;
@@ -178,6 +180,11 @@ public class LoginActivity extends AppCompatActivity {
                     String gender = object.getString("gender");
                     String image = object.getString("image");
                     String wallet = object.getString("wallet");
+                    String searchRadius = object.getString("search_radius");
+
+                  //  String hasAddress = "false";
+
+                   String hasAddress = object.getString("hasAddress");
 
                     SharedPref.setPreference(SharedPref.USER_NAME,name,LoginActivity.this);
                     SharedPref.setPreference(SharedPref.USER_MOBILE,mobile,LoginActivity.this);
@@ -186,6 +193,9 @@ public class LoginActivity extends AppCompatActivity {
                     SharedPref.setPreference(SharedPref.USER_EMAIL,email,LoginActivity.this);
                     SharedPref.setPreference(SharedPref.USER_IMAGE,image,LoginActivity.this);
                     SharedPref.setPreference(SharedPref.WALLET,wallet,LoginActivity.this);
+                    SharedPref.setPreference(SharedPref.SEARCH_RADIUS,searchRadius,LoginActivity.this);
+
+                    SharedPref.setPreference(FIRST_LAUNCH,hasAddress,LoginActivity.this);
 
                     progress_login.setVisibility(View.GONE);
 

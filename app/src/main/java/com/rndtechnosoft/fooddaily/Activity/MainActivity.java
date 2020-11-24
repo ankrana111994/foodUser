@@ -36,6 +36,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.rndtechnosoft.fooddaily.Adapter.ViewPagerAdapter;
 import com.rndtechnosoft.fooddaily.Fragment.HomeFragment;
@@ -61,7 +62,7 @@ import java.util.Objects;
 import static com.rndtechnosoft.fooddaily.Util.Constants.MY_PREFS_NAME;
 import static com.rndtechnosoft.fooddaily.Util.Constants.refresh_flag;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     Toolbar toolbar;
     private DrawerLayout drawer;
@@ -72,21 +73,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navigationView;
     TextView tvToolbarTitle;
     String version;
-    private TextView textView_appDevlopBy,tvCartCount;
-    private ImageView imgNotification,imgCart;
+    private TextView textView_appDevlopBy, tvCartCount;
+    private ImageView imgNotification, imgCart;
     ArrayList<String> permissions = new ArrayList<>();
     ArrayList<String> permissionsToRequest;
     final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 101;
     public final static int ALL_PERMISSIONS_RESULT = 102;
     ArrayList<String> permissionsRejected = new ArrayList<>();
     boolean canGetLocation = true;
-    String type="";
+    String type = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-      //  checkPer();
+        //  checkPer();
 //        Places.initialize(getApplicationContext(), Constants.APIKEY);
         initView();
 
@@ -96,13 +97,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             if (getIntent().getStringExtra(Constants.type).equals(Constants.normal))
                 type = Constants.normal;
         }
+
+        if (SharedPref.getAppLaunchStatus(MainActivity.this).equalsIgnoreCase("false"))
+            startActivity(new Intent(this, CreateAddressActivity.class).putExtra("type", "add"));
     }
 
     public void checkPer() {
         permissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
         permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
         permissions.add(Manifest.permission.CAMERA);
-       // permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
+        // permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
         permissionsToRequest = findUnAskedPermissions(permissions);
 
         // check permissions
@@ -205,7 +209,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         textView_appDevlopBy = (TextView) findViewById(R.id.textView_app_developed_by);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         bottomNavigationMenu = (BottomNavigationView) findViewById(R.id.navigation);
-        viewPager= (ViewPager) findViewById(R.id.view_pager);
+        viewPager = (ViewPager) findViewById(R.id.view_pager);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         imgNotification = (ImageView) findViewById(R.id.imgNotification);
         imgCart = (ImageView) findViewById(R.id.imgCart);
@@ -219,7 +223,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_baseline_dehaze_24));
-        bottomNavigationMenu .setItemIconTintList(null);
+        bottomNavigationMenu.setItemIconTintList(null);
         bottomNavigationMenu.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigationView.setNavigationItemSelectedListener(this);
         setupViewPager(viewPager);
@@ -246,17 +250,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 switch (position) {
                     case 0:
-                        Constants.refresh_flag=false;
+                        Constants.refresh_flag = false;
                         tvToolbarTitle.setText(getResources().getString(R.string.home));
                         Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.home));
                         break;
                     case 1:
-                        Constants.refresh_flag=false;
+                        Constants.refresh_flag = false;
                         tvToolbarTitle.setText(getResources().getString(R.string.myorders));
                         Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.myorders));
                         break;
                     case 2:
-                        Constants.refresh_flag=false;
+                        Constants.refresh_flag = false;
                         tvToolbarTitle.setText(getResources().getString(R.string.profile));
                         Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.profile));
                 }
@@ -272,26 +276,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         imgNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,NotificationActivity.class));
+                startActivity(new Intent(MainActivity.this, NotificationActivity.class));
             }
         });
 
         imgCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,CartActivity.class));
+                startActivity(new Intent(MainActivity.this, CartActivity.class));
             }
         });
 
         if (type.equals("order")) {
             viewPager.setCurrentItem(1);
             getIntent().removeExtra(Constants.type);
-        }
-        else if(type.equals("Normal")) {
+        } else if (type.equals("Normal")) {
             viewPager.setCurrentItem(0);
             getIntent().removeExtra(Constants.type);
-        }
-        else {
+        } else {
             viewPager.setCurrentItem(0);
             getIntent().removeExtra(Constants.type);
         }
@@ -308,17 +310,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray jsonArray = jsonObject.getJSONArray("config");
-                    for(int i = 0; i < jsonArray.length(); i++){
+                    for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                         String currency = jsonObject1.getString("currency");
 //                        String paypal = jsonObject1.getString("paypal");
                         String dashed = jsonObject1.getString("dashed");
                         String app_status = jsonObject1.getString("app_status");
 
-                        SharedPref.setPreference(SharedPref.CURRENCY,currency,MainActivity.this);
+                        SharedPref.setPreference(SharedPref.CURRENCY, currency, MainActivity.this);
 //                        SharedPref.setPreference(SharedPref.PAYPAL,paypal,MainActivity.this);
-                        SharedPref.setPreference(SharedPref.DASHED,dashed,MainActivity.this);
-                        SharedPref.setPreference(SharedPref.APP_STATUS,app_status,MainActivity.this);
+                        SharedPref.setPreference(SharedPref.DASHED, dashed, MainActivity.this);
+                        SharedPref.setPreference(SharedPref.APP_STATUS, app_status, MainActivity.this);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -386,11 +388,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void cartcount() {
-        Method.getCartCount(MainActivity.this,tvCartCount);
-        if (Integer.parseInt(Constants.CART_COUNT)>0){
+        Method.getCartCount(MainActivity.this, tvCartCount);
+        if (Integer.parseInt(Constants.CART_COUNT) > 0) {
             tvCartCount.setVisibility(View.VISIBLE);
             tvCartCount.setText(Constants.CART_COUNT);
-        }else{
+        } else {
             tvCartCount.setVisibility(View.GONE);
         }
     }
@@ -398,54 +400,52 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onResume() {
         super.onResume();
-        Method.getCartCount(MainActivity.this,tvCartCount);
+        Method.getCartCount(MainActivity.this, tvCartCount);
         getConfig();
         getAreaList();
         if (refresh_flag) {
-            refresh_flag=false;
+            refresh_flag = false;
             setupViewPager(viewPager);
             viewPager.setCurrentItem(0);
         }
         try {
             PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
             version = pInfo.versionName;
-            Constants.VERSION=version;
-            Log.e("versioncode",version);
+            Constants.VERSION = version;
+            Log.e("versioncode", version);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-        if (!Constants.CART_COUNT.equals("") && Integer.parseInt(Constants.CART_COUNT)>0){
+        if (!Constants.CART_COUNT.equals("") && Integer.parseInt(Constants.CART_COUNT) > 0) {
             tvCartCount.setVisibility(View.VISIBLE);
             tvCartCount.setText(Constants.CART_COUNT);
-        }else{
+        } else {
             tvCartCount.setVisibility(View.GONE);
         }
-        Method.sendRegistrationToServer(MainActivity.this, FirebaseInstanceId.getInstance().getToken(),Method.getAndroidID(MainActivity.this));
+        Method.sendRegistrationToServer(MainActivity.this, FirebaseInstanceId.getInstance().getToken(), Method.getAndroidID(MainActivity.this));
 
-      if (SharedPref.getAppLaunchStatus(MainActivity.this).equalsIgnoreCase("true"))
-          startActivity(new Intent(this,CreateAddressActivity.class).putExtra("type","add"));
 
     }
 
     private void getAreaList() {
         Constants.areaLists.clear();
-        Constants.areaLists=new ArrayList<>();
+        Constants.areaLists = new ArrayList<>();
         final RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.area_list, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Constants.areaLists.clear();
-                Constants.areaLists=new ArrayList<>();
-                Constants.areaLists.add(new AreaList("0","Select Area","0"));
+                Constants.areaLists = new ArrayList<>();
+                Constants.areaLists.add(new AreaList("0", "Select Area", "0"));
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray jsonArray = jsonObject.getJSONArray("AREA_LIST");
-                    for(int i = 0; i < jsonArray.length(); i++){
+                    for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                         String id = jsonObject1.getString("id");
                         String name = jsonObject1.getString("area_name");
                         String delivery = jsonObject1.getString("delivery_amount");
-                        Constants.areaLists.add(new AreaList(id,name,delivery));
+                        Constants.areaLists.add(new AreaList(id, name, delivery));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -469,9 +469,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         LoginFragment fragmentLogin = new LoginFragment();
         adapter.addFragment(fragmentHome);
         adapter.addFragment(fragmentOrder);
-        if (SharedPref.getUserId(MainActivity.this)!=null && !SharedPref.getUserId(MainActivity.this).equals("")) {
+        if (SharedPref.getUserId(MainActivity.this) != null && !SharedPref.getUserId(MainActivity.this).equals("")) {
             adapter.addFragment(fragmentProfile);
-        }else{
+        } else {
             adapter.addFragment(fragmentLogin);
         }
         viewPager.setOffscreenPageLimit(3);
@@ -494,25 +494,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.home:
                 //Home
-                refresh_flag=false;
+                refresh_flag = false;
                 viewPager.setCurrentItem(0);
                 return true;
 
             case R.id.profile:
                 //Your Profile
-                refresh_flag=false;
+                refresh_flag = false;
                 viewPager.setCurrentItem(2);
                 return true;
 
             case R.id.myorder:
                 //Your order listing
-                refresh_flag=false;
+                refresh_flag = false;
                 viewPager.setCurrentItem(1);
                 return true;
 
             case R.id.contact_us:
                 //Contact the app owner
-                refresh_flag=false;
+                refresh_flag = false;
                 startActivity(new Intent(MainActivity.this, ContactActivity.class));
                 return true;
 
@@ -555,69 +555,89 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.about:
                 //About the app
-                refresh_flag=false;
+                refresh_flag = false;
                 startActivity(new Intent(MainActivity.this, AboutusActivity.class));
                 return true;
 
             case R.id.privacy_policy:
                 //Privacy Policy of the app
-                refresh_flag=false;
+                refresh_flag = false;
                 startActivity(new Intent(MainActivity.this, PrivacyActivity.class));
                 return true;
             case R.id.logout:
                 //Logout Of the app
-                SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-                editor.putString(SharedPref.USER_MOBILE, "");
-                editor.putString(SharedPref.USER_NAME, "");
-                editor.apply();
-                final String token = "0";
-                Method.sendRegistrationToServer(MainActivity.this, token,Method.getAndroidID(MainActivity.this));
-                //      SharedPref.clearAllPreferences(MainActivity.this);
-
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.update_version_fcm,
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                Log.e("token_reg",response);
-                            }
-                        },
-                        new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                //displaying the error in toast if occurrs
-                            }
-                        }) {
-                    @Override
-                    public Map<String, String> getParams() {
-                        Map<String, String> params = new HashMap<String, String>();
-                        params.put("user_id", SharedPref.getUserId(getApplicationContext()));
-                        params.put("token", token);
-                        params.put("mobileid", com.rndtechnosoft.fooddaily.Util.Method.getAndroidID(getApplicationContext()));
-                        params.put("versioncode", Constants.VERSION);
-                        return params;
-                    }
-
-                };
-                //creating a request queue
-                RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-                //adding the string request to request queue
-                requestQueue.add(stringRequest);
-
-
-                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |  Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
-                finish();
+                showAlertDialog();
                 return true;
             default:
                 return true;
         }
 
     }
-void showSoonToast(){
-    Toast.makeText(MainActivity.this,"will be added once app launch",Toast.LENGTH_LONG).show();
+void logout(){
+    SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+    editor.putString(SharedPref.USER_MOBILE, "");
+    editor.putString(SharedPref.USER_NAME, "");
+    editor.apply();
+    final String token = "0";
+    Method.sendRegistrationToServer(MainActivity.this, token, Method.getAndroidID(MainActivity.this));
+    //      SharedPref.clearAllPreferences(MainActivity.this);
 
+    StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.update_version_fcm,
+            new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    Log.e("token_reg", response);
+                }
+            },
+            new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    //displaying the error in toast if occurrs
+                }
+            }) {
+        @Override
+        public Map<String, String> getParams() {
+            Map<String, String> params = new HashMap<String, String>();
+            params.put("user_id", SharedPref.getUserId(getApplicationContext()));
+            params.put("token", token);
+            params.put("mobileid", com.rndtechnosoft.fooddaily.Util.Method.getAndroidID(getApplicationContext()));
+            params.put("versioncode", Constants.VERSION);
+            return params;
+        }
+
+    };
+    //creating a request queue
+    RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+    //adding the string request to request queue
+    requestQueue.add(stringRequest);
+
+
+    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+    startActivity(intent);
+    finish();
 }
+    void showAlertDialog() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+        alert.setMessage("Are you sure?")
+                .setPositiveButton("Logout", new DialogInterface.OnClickListener()                 {
+
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        logout(); // Last step. Logout function
+
+                    }
+                }).setNegativeButton("Cancel", null);
+
+        AlertDialog alert1 = alert.create();
+        alert1.show();
+    }
+
+    void showSoonToast() {
+        Toast.makeText(MainActivity.this, "will be added once app launch", Toast.LENGTH_LONG).show();
+
+    }
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -626,7 +646,7 @@ void showSoonToast(){
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.action_shop:
-                    refresh_flag=false;
+                    refresh_flag = false;
                     viewPager.setCurrentItem(0);
                     try {
                         Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.home));
@@ -635,7 +655,7 @@ void showSoonToast(){
                     }
                     return true;
                 case R.id.action_orders:
-                    refresh_flag=false;
+                    refresh_flag = false;
                     viewPager.setCurrentItem(1);
                     try {
                         Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.myorders));
@@ -644,7 +664,7 @@ void showSoonToast(){
                     }
                     return true;
                 case R.id.action_profile:
-                    refresh_flag=false;
+                    refresh_flag = false;
                     viewPager.setCurrentItem(2);
                     try {
                         Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.profile));
@@ -653,7 +673,7 @@ void showSoonToast(){
                     }
                     return true;
                 default:
-                    refresh_flag=false;
+                    refresh_flag = false;
                     viewPager.setCurrentItem(0);
                     try {
                         Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.home));

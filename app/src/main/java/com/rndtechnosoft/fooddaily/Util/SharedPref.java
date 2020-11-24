@@ -25,6 +25,8 @@ public class SharedPref {
 	public static String DASHED = "dashed";
 	public static String APP_STATUS = "app_status";
 	public static String FIRST_LAUNCH = "first_launch";
+	public static String SEARCH_RADIUS = "search_radius";
+
 
     public static void clearAllPreferences(Activity activity) {
 		shPreferences = activity.getSharedPreferences(strPrefName,
@@ -89,6 +91,15 @@ public class SharedPref {
 				Context.MODE_PRIVATE);
 		return shPreferences.getString(USER_MOBILE, "");
 	}
+
+
+	public static String getSearchRadius(Context activity) {
+
+		shPreferences = activity.getSharedPreferences(strPrefName,
+				Context.MODE_PRIVATE);
+		return shPreferences.getString(SEARCH_RADIUS, "");
+	}
+
 
 	public static String getMinAmt(Context activity) {
 		shPreferences = activity.getSharedPreferences(strPrefName,

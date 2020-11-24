@@ -148,12 +148,17 @@ public class AddressListAdapter extends RecyclerView.Adapter {
                         .putExtra("building_name",arrayList.get(position).getBuilding_name())
                         .putExtra("landmark",arrayList.get(position).getLandmark())
                         .putExtra("city",arrayList.get(position).getCity())
+                        .putExtra("state",arrayList.get(position).getState())
+
                         .putExtra("pincode",arrayList.get(position).getPincode())
                         .putExtra("name",arrayList.get(position).getName())
                         .putExtra("email",arrayList.get(position).getEmail())
                         .putExtra("mbl",arrayList.get(position).getMobile())
                         .putExtra("area_name",arrayList.get(position).getArea_name())
-                        .putExtra("address_type",arrayList.get(position).getAddress_type()));
+                        .putExtra("address_type",arrayList.get(position).getAddress_type())
+                        .putExtra("blockNo",arrayList.get(position).getBlockNo())
+                        .putExtra("floor",arrayList.get(position).getFloor())
+                        .putExtra("addressComplete",arrayList.get(position).getAddressComplete()));
             }
         });
     }

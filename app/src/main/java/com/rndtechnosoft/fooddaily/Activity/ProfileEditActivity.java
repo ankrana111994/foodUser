@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.FragmentManager;
 
@@ -30,6 +31,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.NetworkResponse;
@@ -75,7 +77,8 @@ public class ProfileEditActivity extends AppCompatActivity implements PostImageC
     AVLoadingIndicatorView progressBar;
     String name,email_id,pgender,pimage,pmobile,pwallet,pdob,pdoa,paddress,plocation;
     CircleImageView profile_image,image_edit;
-    EditText tvusername,tvemail,tvgender,tvdob,tvdoa;
+    EditText tvusername,tvemail,tvgender,tvdob,tvdoa,etRadius;
+    TextView tvPhoneNumber;
     Button btnSubmit;
     private String selectedPostImg = "";
     private Uri selectedImage;
@@ -90,6 +93,8 @@ public class ProfileEditActivity extends AppCompatActivity implements PostImageC
     public final static int ALL_PERMISSIONS_RESULT = 102;
     ArrayList<String> permissionsRejected = new ArrayList<>();
     boolean canGetLocation = true;
+    String radius = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,12 +119,14 @@ public class ProfileEditActivity extends AppCompatActivity implements PostImageC
         tvdoa = (EditText) findViewById(R.id.tvdoa);
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
         spingender = (Spinner) findViewById(R.id.spingender);
-
+        tvPhoneNumber= (TextView) findViewById(R.id.tvphone);
+        etRadius= (EditText) findViewById(R.id.etRadius);
         List<String> categories = new ArrayList<String>();
         categories.add("Please select Gender");
         categories.add("Male");
         categories.add("Female");
-
+        tvPhoneNumber.setText(SharedPref.getMobileNumber(ProfileEditActivity.this));
+        etRadius.setText(SharedPref.getSearchRadius(ProfileEditActivity.this));
         // Creating adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
 
@@ -162,8 +169,13 @@ public class ProfileEditActivity extends AppCompatActivity implements PostImageC
         image_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                choiceImage();
-            }
+              //  if (ActivityCompat.checkSelfPermission(ProfileEditActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+
+                choiceImage();}
+
+           // }
+
+
         });
 
         profile_image.setOnClickListener(new View.OnClickListener() {
@@ -327,10 +339,16 @@ public class ProfileEditActivity extends AppCompatActivity implements PostImageC
     }
 
     private void updateProfile() {
+
+        if (etRadius.getText()!=null){
+            radius=  etRadius.getText().toString();
+        }
         final RequestQueue requestQueue = Volley.newRequestQueue(ProfileEditActivity.this);
         VolleyMultipartRequest multipartRequest = new VolleyMultipartRequest(Request.Method.POST, Constants.edit_profile, new Response.Listener<NetworkResponse>() {
             @Override
             public void onResponse(NetworkResponse response) {
+                SharedPref.setPreference(SharedPref.SEARCH_RADIUS,radius,ProfileEditActivity.this);
+
                 String resultResponse = new String(response.data);
                 // parse success output
                 finish();
@@ -349,6 +367,8 @@ public class ProfileEditActivity extends AppCompatActivity implements PostImageC
                 params.put("gender", tvgender.getText().toString());
                 params.put("dob", tvdob.getText().toString());
                 params.put("doa", tvdoa.getText().toString());
+                params.put("search_radius", etRadius.getText().toString());
+
                 params.put("user_id", SharedPref.getUserId(ProfileEditActivity.this));
                 return params;
             }
@@ -441,12 +461,22 @@ public class ProfileEditActivity extends AppCompatActivity implements PostImageC
 
     @Override
     public void onImageFromGallery() {
-        imageFromGallery();
+        if (ActivityCompat.checkSelfPermission(ProfileEditActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            imageFromGallery();
+        }
+        else {
+            checkPer();
+        }
     }
 
     @Override
     public void onImageFromCamera() {
-        imageFromCamera();
+        if (ActivityCompat.checkSelfPermission(ProfileEditActivity.this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+            imageFromCamera();
+        }
+        else {
+            checkPer();
+        }
     }
 
     public void imageFromGallery() {
@@ -486,6 +516,7 @@ public class ProfileEditActivity extends AppCompatActivity implements PostImageC
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == SELECT_POST_IMG && resultCode == RESULT_OK && null != data) {
+            profile_image.setImageURI(null);
 
             selectedImage = data.getData();
 
@@ -495,14 +526,16 @@ public class ProfileEditActivity extends AppCompatActivity implements PostImageC
 
                 selectedPostImg = Environment.getExternalStorageDirectory() + File.separator + APP_TEMP_FOLDER + File.separator + "photo.jpg";
 
-                profile_image.setImageURI(Uri.fromFile(new File(selectedPostImg)));
+               profile_image.setImageURI(Uri.fromFile(new File(selectedPostImg)));
 
             } catch (Exception e) {
+                   profile_image.setImageURI(Uri.fromFile(new File(selectedPostImg)));
 
                 Log.e("OnSelectPostImage", e.getMessage());
             }
 
         } else if (requestCode == CREATE_POST_IMG && resultCode == this.RESULT_OK) {
+            profile_image.setImageURI(null);
 
             try {
 

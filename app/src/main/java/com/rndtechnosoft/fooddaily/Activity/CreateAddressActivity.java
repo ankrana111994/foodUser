@@ -10,6 +10,7 @@ import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,6 +21,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -37,6 +39,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.rndtechnosoft.fooddaily.Util.SharedPref.FIRST_LAUNCH;
 
@@ -48,9 +52,12 @@ public class CreateAddressActivity extends AppCompatActivity {
     private Button btnAdd,btnMap;
     private TextView txtApartment, txtHouse, txtothers;
     private EditText edtname,edtmbl,edtemail,edtAddress,edtBuilding,edtstate,edtlandmark,edtcity,edtpincode,edtPlot,edtFloor,edtBlock,edtFlat;
-    private String type;
-    private String id,user_id,flat_no,building_name,landmark,city,pincode,name,email,mbl,address_type,area_name;
-    String params,url,area_id;
+    private String type="";
+    private String id="",user_id,flat_no="",
+            building_name="",landmark="",city="",state="",
+            pincode="",name="",email="",mbl="",address_type="",
+            area_name="",blockNo="",floor="",addressComplete="";
+    String params,url,area_id="";
     Spinner spinner;
     private String fullname;
     int selected_area;
@@ -77,12 +84,21 @@ public class CreateAddressActivity extends AppCompatActivity {
                 building_name = extras.getString("building_name");
                 landmark = extras.getString("landmark");
                 city = extras.getString("city");
+                state = extras.getString("state");
+
                 pincode = extras.getString("pincode");
                 name = extras.getString("name");
                 email = extras.getString("email");
                 mbl = extras.getString("mbl");
                 area_name = extras.getString("area_name");
                 address_type = extras.getString("address_type");
+                blockNo = extras.getString("blockNo");
+                floor = extras.getString("floor");
+                addressComplete = extras.getString("addressComplete");
+
+                String blockNo;
+                String floor;
+                String addressComplete;
             }
         }
 
@@ -152,27 +168,46 @@ public class CreateAddressActivity extends AppCompatActivity {
             edtname.setText(name);
             edtmbl.setText(mbl);
             edtemail.setText(email);
-            edtAddress.setText(flat_no);
-            edtBuilding.setText(building_name);
-            edtlandmark.setText(landmark);
             edtcity.setText(city);
+            edtstate.setText(state);
             edtpincode.setText(pincode);
+
+           // edtpincode.setText(pincode);
+            edtpincode.setText(pincode);
+
             if (address_type.equals("home")){
-                txtApartment.setBackground(getResources().getDrawable(R.drawable.rounded_btn));
-                txtHouse.setBackground(getResources().getDrawable(R.drawable.rounded_gray_border_btn));
-                txtothers.setBackground(getResources().getDrawable(R.drawable.rounded_gray_border_btn));
-                txtApartment.setTextColor(getResources().getColor(R.color.colorWhite));
-                txtHouse.setTextColor(getResources().getColor(R.color.colorBlack));
-                txtothers.setTextColor(getResources().getColor(R.color.colorBlack));
-                address_type="home";
-            }else if (address_type.equals("office")){
+                // edtAddress.setText(flat_no);
+                edtPlot.setText(flat_no);
+                edtFloor.setText(floor);
+
+                edtAddress.setText(addressComplete);
+                edtlandmark.setText(landmark);
+
                 txtHouse.setBackground(getResources().getDrawable(R.drawable.rounded_btn));
                 txtApartment.setBackground(getResources().getDrawable(R.drawable.rounded_gray_border_btn));
                 txtothers.setBackground(getResources().getDrawable(R.drawable.rounded_gray_border_btn));
                 txtHouse.setTextColor(getResources().getColor(R.color.colorWhite));
                 txtApartment.setTextColor(getResources().getColor(R.color.colorBlack));
                 txtothers.setTextColor(getResources().getColor(R.color.colorBlack));
-                address_type="office";
+                llApartmentView.setVisibility(View.GONE);
+                llIndividualView.setVisibility(View.VISIBLE);
+                address_type="home";
+            }else if (address_type.equals("apartment")){
+                edtBuilding.setText(building_name);
+                edtBlock.setText(blockNo);
+                edtFlat.setText(flat_no);
+
+                txtApartment.setBackground(getResources().getDrawable(R.drawable.rounded_btn));
+                txtHouse.setBackground(getResources().getDrawable(R.drawable.rounded_gray_border_btn));
+                txtothers.setBackground(getResources().getDrawable(R.drawable.rounded_gray_border_btn));
+                txtApartment.setTextColor(getResources().getColor(R.color.colorWhite));
+                txtHouse.setTextColor(getResources().getColor(R.color.colorBlack));
+                txtothers.setTextColor(getResources().getColor(R.color.colorBlack));
+
+
+                llApartmentView.setVisibility(View.VISIBLE);
+                llIndividualView.setVisibility(View.GONE);
+                address_type="apartment";
             }else{
                 txtothers.setBackground(getResources().getDrawable(R.drawable.rounded_btn));
                 txtApartment.setBackground(getResources().getDrawable(R.drawable.rounded_gray_border_btn));
@@ -180,6 +215,8 @@ public class CreateAddressActivity extends AppCompatActivity {
                 txtothers.setTextColor(getResources().getColor(R.color.colorWhite));
                 txtApartment.setTextColor(getResources().getColor(R.color.colorBlack));
                 txtHouse.setTextColor(getResources().getColor(R.color.colorBlack));
+                llApartmentView.setVisibility(View.VISIBLE);
+                llIndividualView.setVisibility(View.GONE);
                 address_type="others";
             }
             btnAdd.setText("Update Address");
@@ -203,7 +240,7 @@ public class CreateAddressActivity extends AppCompatActivity {
                 txtApartment.setTextColor(getResources().getColor(R.color.colorWhite));
                 txtHouse.setTextColor(getResources().getColor(R.color.colorBlack));
                 txtothers.setTextColor(getResources().getColor(R.color.colorBlack));
-                address_type="office";
+                address_type="apartment";
 
             }
         });
@@ -251,6 +288,9 @@ public class CreateAddressActivity extends AppCompatActivity {
                 String email = edtemail.getText().toString();
                 String landmark = edtlandmark.getText().toString();
                 String city = edtcity.getText().toString();
+                String state = edtstate.getText().toString();
+
+
                 String pincode = edtpincode.getText().toString();
 
                 String address = edtAddress.getText().toString();
@@ -331,7 +371,9 @@ public class CreateAddressActivity extends AppCompatActivity {
 
 
                 else {
-                    newAddress(name, mbl, email, house_number, apartmentName,blockNo,floor,String.valueOf(currentLatitude),String.valueOf(currentLongitude),address,landmark, city, pincode);
+                    newAddress(name, mbl, email, house_number, apartmentName,blockNo,floor,
+                            String.valueOf(currentLatitude),String.valueOf(currentLongitude),address,landmark,
+                            city,state, pincode);
                 }
             }
         });
@@ -348,10 +390,10 @@ public class CreateAddressActivity extends AppCompatActivity {
             }
         });
 
-        if (SharedPref.getAppLaunchStatus(CreateAddressActivity.this).equalsIgnoreCase("true")){
+        if (SharedPref.getAppLaunchStatus(CreateAddressActivity.this).equalsIgnoreCase("false")){
             Intent intent = new Intent(CreateAddressActivity.this, LocationPickerActivity.class);
             startActivityForResult(intent, 102);
-            SharedPref.setPreference(FIRST_LAUNCH,"false",CreateAddressActivity.this);
+        //    SharedPref.setPreference(FIRST_LAUNCH,"false",CreateAddressActivity.this);
         }
 
     }
@@ -360,7 +402,17 @@ public class CreateAddressActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_openmap, menu);
+
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+if(item.getTitle().equals("OPEN MAP")) {
+    Intent intent = new Intent(CreateAddressActivity.this, LocationPickerActivity.class);
+    startActivityForResult(intent, 102);
+}
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -369,7 +421,12 @@ public class CreateAddressActivity extends AppCompatActivity {
 
         if (requestCode == 102) {
             try {
-                if (data != null && data.getStringExtra("address") != null) {
+                if (data != null ){
+                    if (data.getIntExtra("removeAddress",0)==1){
+
+
+
+                if (data.getStringExtra("address") != null) {
                     String address = data.getStringExtra("address");
                      currentLatitude = data.getDoubleExtra("lat", 0.0);
                      currentLongitude = data.getDoubleExtra("long", 0.0);
@@ -389,6 +446,12 @@ public class CreateAddressActivity extends AppCompatActivity {
                     // txtAddress.setText("Address: "+address);
                     //  txtLatLong.setText("Lat:"+currentLatitude+"  Long:"+currentLongitude);
 
+                }
+                    }
+                    else {
+
+                        finish();
+                    }
                 }
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -533,18 +596,25 @@ public class CreateAddressActivity extends AppCompatActivity {
         return true;
     }
 
-    public void newAddress(String name, String mbl, String email, String flat, String building,String blockNo,String floor,String lati,String longi,String addressComplete, String landmark, String city, String pincode) {
+    public void newAddress(String name, String mbl, String email, String flat, String building,String blockNo,
+                           String floor,String lati,String longi,String addressComplete, String landmark,
+                           String city,String state, String pincode) {
         progress.show();
+        String replaced="";
         if (type!=null && type.equals("edit")) {
-            params = "&id=" + id + "&user_id=" + SharedPref.getUserId(CreateAddressActivity.this) + "&area=" + area_id + "&flat_no=" + flat + "&building_name=" + building + "&floor=" + floor+ "&blockNo=" + blockNo+ "&landmark=" + landmark + "&city=" + city + "&pincode=" + pincode + "&latitude=" + lati +  "&longitude=" + longi +  "&addressComplete=" + addressComplete +"&name=" + name + "&email=" + email + "&mobile=" + mbl + "&address_type=" + address_type;
+
             url= Constants.edit_address;
         }
         else {
-            params = "&user_id=" + SharedPref.getUserId(CreateAddressActivity.this) + "&area=" + area_id + "&flat_no=" + flat + "&building_name=" + building + "&floor=" + floor+ "&blockNo=" + blockNo+ "&landmark=" + landmark + "&city=" + city + "&pincode=" + pincode + "&lat=" + lati +  "&long=" + longi +  "&addressComplete=" + addressComplete + "&name=" + name + "&email=" + email + "&mobile=" + mbl + "&address_type=" + address_type;
+//            params = "&user_id=" + SharedPref.getUserId(CreateAddressActivity.this) + "&area=" + area_id +
+//                    "&flat_no=" + flat + "&building_name=" + building + "&floor=" + floor+ "&blockNo=" + blockNo+ "&landmark="
+//                    + landmark + "&city=" + city + "&pincode=" + pincode + "&lat=" + lati +  "&long=" + longi +
+//                    "&addressComplete=" + addressComplete + "&name=" + name + "&email=" + email + "&mobile="
+//                    + mbl + "&address_type=" + address_type;
             url=Constants.new_address;
         }
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url +params, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url , new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -562,6 +632,8 @@ public class CreateAddressActivity extends AppCompatActivity {
                         String building_name = jsonObject1.getString("building_name");
                         String landmark = jsonObject1.getString("landmark");
                         String city = jsonObject1.getString("city");
+                        String state = jsonObject1.getString("state");
+
                         String pincode = jsonObject1.getString("pincode");
                         String name = jsonObject1.getString("name");
                         String email = jsonObject1.getString("email");
@@ -574,6 +646,8 @@ public class CreateAddressActivity extends AppCompatActivity {
                         address.setBuilding_name(building_name);
                         address.setLandmark(landmark);
                         address.setCity(city);
+                        address.setCity(state);
+
                         address.setName(name);
                         address.setPincode(pincode);
                         address.setEmail(email);
@@ -582,6 +656,10 @@ public class CreateAddressActivity extends AppCompatActivity {
 
                         progress.hide();
                         addressArrayList.add(address);
+                        if (SharedPref.getAppLaunchStatus(CreateAddressActivity.this).equalsIgnoreCase("false")){
+
+                               SharedPref.setPreference(FIRST_LAUNCH,"true",CreateAddressActivity.this);
+                        }
                         onBackPressed();
                     }else{
                         progress.hide();
@@ -595,11 +673,69 @@ public class CreateAddressActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                //Toast.makeText(VideoDetailActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(CreateAddressActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
                 requestQueue.stop();
                 progress.hide();
             }
-        });
+        })
+        {
+            @Override
+            public Map<String, String> getParams() {
+//                params = "&id=" + id + "&user_id=" + SharedPref.getUserId(CreateAddressActivity.this) + "&area=" + area_id +
+//                        "&flat_no=" + flat + "&building_name=" + building + "&floor=" + floor+ "&blockNo=" + blockNo+
+//                        "&landmark=" + landmark + "&city=" + city + "&pincode=" + pincode +
+//                        "&latitude=" + lati +  "&longitude=" + longi +  "&addressComplete=" + addressComplete +
+//                        "&name=" + name + "&email=" + email + "&mobile=" + mbl + "&address_type=" + address_type;
+//
+//
+//                "&user_id=" + SharedPref.getUserId(CreateAddressActivity.this) + "&area=" + area_id +
+//                        "&flat_no=" + flat + "&building_name=" + building + "&floor=" + floor+ "&blockNo=" + blockNo+ "&landmark="
+//                        + landmark + "&city=" + city + "&pincode=" + pincode + "&lat=" + lati +  "&long=" + longi +
+//                        "&addressComplete=" + addressComplete + "&name=" + name + "&email=" + email + "&mobile="
+//                        + mbl + "&address_type=" + address_type;
+
+                Map<String, String> params = new HashMap<String, String>();
+                if (type!=null && type.equals("edit")){
+                    params.put("id",id);
+                    params.put("latitude", lati);
+                    params.put("longitude", longi);
+                }
+
+                else {
+                    params.put("lat", lati);
+                    params.put("long", longi);
+                }
+                params.put("user_id", SharedPref.getUserId(CreateAddressActivity.this));
+                params.put("area", area_id);
+                params.put("flat_no", flat);
+                params.put("building_name", building);
+                params.put("floor", floor);
+                params.put("blockNo", blockNo);
+                params.put("landmark", landmark);
+                params.put("city", city);
+                params.put("state", state);
+                params.put("pincode",pincode);
+                params.put("addressComplete", addressComplete);
+                params.put("name", name);
+                params.put("email", email);
+                params.put("mobile", mbl);
+                params.put("address_type", address_type);
+//                params.put("operation", operation);
+//                params.put("operation", operation);
+//                params.put("operation", operation);
+//                params.put("operation", operation);
+//                params.put("operation", operation);
+//                params.put("operation", operation);
+//                params.put("operation", operation);
+//                params.put("operation", operation);
+//                params.put("operation", operation);
+//                params.put("operation", operation);
+
+                return params;
+            }
+        };
+                ;;
+
         requestQueue.add(stringRequest);
 
     }

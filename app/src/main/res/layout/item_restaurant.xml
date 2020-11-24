@@ -74,12 +74,12 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvDesc"
+            android:id="@+id/tvAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_3sdp"
             android:maxLines="2"
-            android:text="A-59, Block A, Sector 57, Noida, Uttar Pradesh"
+            android:text="A-59,  57, Noida, Uttar Pradesh"
             android:textSize="@dimen/_10ssp" />
 
         <LinearLayout
@@ -92,7 +92,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tvPrice"
+                android:id="@+id/tvRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4.5"

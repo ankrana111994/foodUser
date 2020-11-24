@@ -94,18 +94,19 @@
         android:id="@+id/tvphone"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
-        android:inputType="textEmailAddress"
+        android:inputType="number"
         android:layout_below="@id/tvemail"
         android:drawablePadding="@dimen/_10sdp"
         android:drawableLeft="@drawable/ic_phone_sign"
         android:background="@drawable/login_edittext_background"
         android:padding="@dimen/_10sdp"
+        android:hint="Phone Number"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_8sdp"/>
 
     <EditText
-        android:id="@+id/tvradius"
+        android:id="@+id/etRadius"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
         android:hint="@string/enter_radius"
@@ -184,7 +185,7 @@
 
     <Button
         android:id="@+id/btnSubmit"
-        android:layout_below="@id/tvradius"
+        android:layout_below="@id/etRadius"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

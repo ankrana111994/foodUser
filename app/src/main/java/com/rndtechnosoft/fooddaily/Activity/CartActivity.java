@@ -614,10 +614,10 @@ public class CartActivity extends AppCompatActivity implements SwipeRefreshLayou
     }
 
     public void getCartList() {
-        progress_cart.setVisibility(View.GONE);
-        loader.setVisibility(View.VISIBLE);
+        progress_cart.setVisibility(View.VISIBLE);
+       // loader.setVisibility(View.VISIBLE);
         tvNodata.setVisibility(View.GONE);
-        main_rel.setVisibility(View.GONE);
+       // main_rel.setVisibility(View.GONE);
         final RequestQueue requestQueue = Volley.newRequestQueue(CartActivity.this);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.cart_list+"&user_id="+ SharedPref.getUserId(CartActivity.this), new Response.Listener<String>() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)

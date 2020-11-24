@@ -173,14 +173,14 @@ public class CategoryDetailActivity extends AppCompatActivity {
                         String category_name = object.getString("category_name");
                         String category_image = object.getString("image");
                         String count = object.getString("count");
-                        if (cat_id!=null) {
-                            if (cat_id.equalsIgnoreCase(id))
-                                categoryLists.add(new CategoryList(id, category_name, category_image, count));
-                        }
-                        else {
+//                        if (cat_id!=null) {
+//                            if (cat_id.equalsIgnoreCase(id))
+//                                categoryLists.add(new CategoryList(id, category_name, category_image, count));
+//                        }
+//                        else {
                             categoryLists.add(new CategoryList(id, category_name, category_image, count));
 
-                        }
+                      //  }
                     }
                     setTab();
                     progress.hide();

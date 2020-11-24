@@ -139,12 +139,16 @@ public class AddressActivity extends AppCompatActivity {
                             String building_name = jsonObject1.getString("building_name");
                             String landmark = jsonObject1.getString("landmark");
                             String city = jsonObject1.getString("city");
+                            String state = jsonObject1.getString("state");
                             String pincode = jsonObject1.getString("pincode");
                             String name = jsonObject1.getString("name");
                             String email = jsonObject1.getString("email");
                             String mobile = jsonObject1.getString("mobile");
                             String add_type = jsonObject1.getString("address_type");
                             String area_name = jsonObject1.getString("area_name");
+                            String blockNo = jsonObject1.getString("blockNo");
+                            String floor = jsonObject1.getString("floor");
+                            String addressComplete = jsonObject1.getString("addressComplete");
                             String delivery_amount = jsonObject1.getString("delivery_amount");
 
                             address.setId(id);
@@ -153,14 +157,17 @@ public class AddressActivity extends AppCompatActivity {
                             address.setBuilding_name(building_name);
                             address.setLandmark(landmark);
                             address.setCity(city);
+                            address.setState(state);
                             address.setName(name);
-
                             address.setPincode(pincode);
                             address.setEmail(email);
                             address.setMobile(mobile);
                             address.setAddress_type(add_type);
                             address.setArea_name(area_name);
                             address.setDelivery(delivery_amount);
+                            address.setBlockNo(blockNo);
+                            address.setFloor(floor);
+                            address.setAddressComplete(addressComplete);
 
                             addressArrayList.add(address);
                         }else{

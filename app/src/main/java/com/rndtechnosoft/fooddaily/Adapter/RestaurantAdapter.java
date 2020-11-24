@@ -59,6 +59,9 @@ public RestaurantAdapter(ArrayList<RestaurantCategoryList> restaurantList, Activ
     public void onBindViewHolder(@NonNull RestaurantAdapter.ViewHolder holder,final int position) {
         Glide.with(activity).load(mRestaurantList.get(position).getRestaurantImage()).centerCrop().thumbnail(Glide.with(activity).load(R.drawable.loading)).into(holder.imgShop);
         holder.tvShop.setText(mRestaurantList.get(position).getRestaurantTitle());
+        holder.tvRating.setText(mRestaurantList.get(position).getRating());
+        holder.tvAddress.setText(mRestaurantList.get(position).getRestaurantAddress());
+
         //  holder.tvBanner.setVisibility(View.GONE);
         GradientDrawable gd = new GradientDrawable();
         if (SharedPref.getDASHED(activity).equalsIgnoreCase("1")) {
@@ -114,7 +117,7 @@ public RestaurantAdapter(ArrayList<RestaurantCategoryList> restaurantList, Activ
     public class ViewHolder extends RecyclerView.ViewHolder {
 
        // ImageView imgCategory;
-        TextView tvShop;
+        TextView tvShop,tvRating,tvAddress;
         private ImageView imgShop;
         LinearLayout cat_lay;
                 //,tvPrice, tvPlus, tvMinus;
@@ -127,6 +130,9 @@ public RestaurantAdapter(ArrayList<RestaurantCategoryList> restaurantList, Activ
             imgShop = (ImageView) itemView.findViewById(R.id.imgShop);
             tvShop = (TextView) itemView.findViewById(R.id.tvShop);
             cat_lay = (LinearLayout) itemView.findViewById(R.id.cat_lay);
+            tvRating = (TextView) itemView.findViewById(R.id.tvRating);
+            tvAddress = (TextView) itemView.findViewById(R.id.tvAddress);
+
 //            tvPrice = (TextView) itemView.findViewById(R.id.tvPrice);
 //            tvPlus = (TextView) itemView.findViewById(R.id.tvPlus);
 //            tvMinus = (TextView) itemView.findViewById(R.id.tvMinus);
