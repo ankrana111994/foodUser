@@ -29,7 +29,8 @@
 
         <activity
             android:name=".Activity.InfoActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".Activity.NotificationDetailActivity"
             android:screenOrientation="portrait" />

@@ -10,7 +10,9 @@
         android:required="true" />
 
     <application>
-        <activity android:name=".LocationPickerActivity"/>
+        <activity android:name=".LocationPickerActivity"
+            android:screenOrientation="portrait"
+            />
     </application>
 
 </manifest>

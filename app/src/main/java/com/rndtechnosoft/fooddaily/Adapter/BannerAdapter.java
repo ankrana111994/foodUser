@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
@@ -49,7 +50,7 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.ViewHolder
 if (bannerList.size()==1) {
     RelativeLayout.LayoutParams layout_description = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
            RelativeLayout.LayoutParams.WRAP_CONTENT);
-layout_description.setMargins((int)activity.getResources().getDimension(R.dimen._1sdp),(int)activity.getResources().getDimension(R.dimen._5sdp),(int)activity.getResources().getDimension(R.dimen._1sdp),0);
+layout_description.setMargins((int)activity.getResources().getDimension(R.dimen._1sdp),(int)activity.getResources().getDimension(R.dimen._5sdp),(int)activity.getResources().getDimension(R.dimen._10sdp),0);
     holder.rel_layout.setLayoutParams(layout_description);
 }
 
