@@ -309,15 +309,15 @@ public class CreateAddressActivity extends AppCompatActivity {
 
                     edtname.requestFocus();
                 }
-                else if (!checkPhone()){
-                    Toast.makeText(CreateAddressActivity.this, "Please check phone number", Toast.LENGTH_SHORT).show();
-
-                    edtmbl.requestFocus();
-                }
-                else if (!email.matches(emailPattern)) {
-                    Toast.makeText(CreateAddressActivity.this, "Please Enter Valid Email", Toast.LENGTH_SHORT).show();
-                    edtemail.requestFocus();
-                }
+//                else if (!checkPhone()){
+//                    Toast.makeText(CreateAddressActivity.this, "Please check phone number", Toast.LENGTH_SHORT).show();
+//
+//                    edtmbl.requestFocus();
+//                }
+//                else if (!email.matches(emailPattern)) {
+//                    Toast.makeText(CreateAddressActivity.this, "Please Enter Valid Email", Toast.LENGTH_SHORT).show();
+//                    edtemail.requestFocus();
+//                }
 
                 ///Apartment
 

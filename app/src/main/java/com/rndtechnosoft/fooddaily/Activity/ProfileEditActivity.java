@@ -77,8 +77,8 @@ public class ProfileEditActivity extends AppCompatActivity implements PostImageC
     AVLoadingIndicatorView progressBar;
     String name,email_id,pgender,pimage,pmobile,pwallet,pdob,pdoa,paddress,plocation;
     CircleImageView profile_image,image_edit;
-    EditText tvusername,tvemail,tvgender,tvdob,tvdoa,etRadius;
-    TextView tvPhoneNumber;
+    EditText tvusername,tvemail,tvgender,tvdob,tvdoa,etRadius,tvPhoneNumber;
+
     Button btnSubmit;
     private String selectedPostImg = "";
     private Uri selectedImage;
@@ -119,7 +119,7 @@ public class ProfileEditActivity extends AppCompatActivity implements PostImageC
         tvdoa = (EditText) findViewById(R.id.tvdoa);
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
         spingender = (Spinner) findViewById(R.id.spingender);
-        tvPhoneNumber= (TextView) findViewById(R.id.tvphone);
+        tvPhoneNumber= (EditText) findViewById(R.id.tvphone);
         etRadius= (EditText) findViewById(R.id.etRadius);
         List<String> categories = new ArrayList<String>();
         categories.add("Please select Gender");

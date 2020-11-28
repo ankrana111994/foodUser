@@ -119,16 +119,16 @@ public class OrderFragment extends Fragment implements SwipeRefreshLayout.OnRefr
                                 String variant_price = jsonMenu.getString("variant_price");
                                 String variant_type = jsonMenu.getString("variant_type");
                                 String variant_qty = jsonMenu.getString("variant_qty");
-//                                JSONArray arrayTopping = jsonMenu.getJSONArray("topping_list");
+                                JSONArray arrayTopping = jsonMenu.getJSONArray("topping_list");
                                 ArrayList<OrderTopping> toppings = new ArrayList<>();
-//                                for (int k = 0; k < arrayTopping.length(); k++) {
-//                                    JSONObject jsonTopping = arrayTopping.getJSONObject(k);
-//                                    if (!jsonTopping.has("message")) {
-//                                        String topping_name = jsonTopping.getString("topping_name");
-//                                        String topping_price = jsonTopping.getString("topping_price");
-//                                        toppings.add(new OrderTopping(topping_name, topping_price));
-//                                    }
-//                                }
+                                for (int k = 0; k < arrayTopping.length(); k++) {
+                                    JSONObject jsonTopping = arrayTopping.getJSONObject(k);
+                                    if (!jsonTopping.has("message")) {
+                                        String topping_name = jsonTopping.getString("topping_name");
+                                        String topping_price = jsonTopping.getString("topping_price");
+                                        toppings.add(new OrderTopping(topping_name, topping_price));
+                                    }
+                                }
                                 menus.add(new OrderMenu(menu_name, variant_price, variant_type, variant_qty, toppings));
                             }
                         }
