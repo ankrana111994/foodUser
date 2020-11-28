@@ -52,6 +52,11 @@ if (bannerList.size()==1) {
            RelativeLayout.LayoutParams.WRAP_CONTENT);
 layout_description.setMargins((int)activity.getResources().getDimension(R.dimen._1sdp),(int)activity.getResources().getDimension(R.dimen._5sdp),(int)activity.getResources().getDimension(R.dimen._10sdp),0);
     holder.rel_layout.setLayoutParams(layout_description);
+}else {
+    RelativeLayout.LayoutParams layout_description = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
+            RelativeLayout.LayoutParams.WRAP_CONTENT);
+    layout_description.setMargins((int)activity.getResources().getDimension(R.dimen._1sdp),(int)activity.getResources().getDimension(R.dimen._5sdp),(int)activity.getResources().getDimension(R.dimen._10sdp),0);
+    holder.rel_layout.setLayoutParams(layout_description);
 }
 
         holder.rel_layout.setOnClickListener(new View.OnClickListener() {

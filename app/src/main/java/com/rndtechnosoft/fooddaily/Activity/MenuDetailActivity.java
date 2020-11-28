@@ -102,6 +102,8 @@
             toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_back));
             tvToolbarTitle.setText(Html.fromHtml("<b>"+"Detail"+"</b>"));
             setSupportActionBar(toolbar);
+            findViewById(R.id.toolbar_logo).setVisibility(View.GONE);
+            tvToolbarTitle.setVisibility(View.VISIBLE);
 
             scroll_lay = findViewById(R.id.scroll_lay);
             itemImage = findViewById(R.id.itemImage);

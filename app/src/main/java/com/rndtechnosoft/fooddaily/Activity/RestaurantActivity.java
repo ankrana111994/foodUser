@@ -66,6 +66,7 @@ String catId;
         toolbar.setTitleTextColor(getResources().getColor(R.color.colorBlack));
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_back));
         tvToolbarTitle.setText(getResources().getString(R.string.shops));
+        tvToolbarTitle.setVisibility(View.VISIBLE);
         setSupportActionBar(toolbar);
 
         imgCart = (ImageView) findViewById(R.id.imgCart);
@@ -74,6 +75,8 @@ String catId;
         selectPosition = in.getIntExtra("position", 0);
         catId = in.getStringExtra("cat_id");
         getCategory();
+        findViewById(R.id.toolbar_logo).setVisibility(View.GONE);
+
 
         recycler_restaurant.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 //        recycler_restaurant.setLayoutManager((new GridLayoutManager(this, 2)));
