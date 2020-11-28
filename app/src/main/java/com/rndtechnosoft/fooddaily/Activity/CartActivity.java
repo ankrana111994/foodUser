@@ -40,6 +40,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.rndtechnosoft.fooddaily.Adapter.CartAdapter;
 import com.rndtechnosoft.fooddaily.Model.Address;
 import com.rndtechnosoft.fooddaily.Model.Cart;
@@ -67,6 +68,7 @@ public class CartActivity extends AppCompatActivity implements SwipeRefreshLayou
     private String address="",address_id="";
     ArrayList<Cart> carts;
     Toolbar toolbar;
+    LinearLayout select_slot_btn;
     RelativeLayout main_rel,address_lay;
     TextView tvTotal,tvDelivery,btnCheckout,btnShopping,txtDiscAmt;
     private long mLastClickTime=0;
@@ -92,6 +94,7 @@ public class CartActivity extends AppCompatActivity implements SwipeRefreshLayou
     View view2,view3,view1,totalView;
     static boolean flag=false;
     private String area_delivery;
+    BottomSheetDialog dialog;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -166,6 +169,7 @@ public class CartActivity extends AppCompatActivity implements SwipeRefreshLayou
         recycler_cart = findViewById(R.id.recycler_cart);
         progress_cart = findViewById(R.id.progress_cart);
         loader = findViewById(R.id.loader);
+        select_slot_btn = findViewById(R.id.select_slot_btn);
 //        swipe_refresh = findViewById(R.id.swipe_refresh);
 //        swipe_refresh.setProgressBackgroundColorSchemeColor(getResources().getColor(R.color.colorWhite));
 //        int col = getResources().getColor(R.color.colorAccent);
@@ -297,6 +301,14 @@ public class CartActivity extends AppCompatActivity implements SwipeRefreshLayou
                 }
             }
         });
+
+        select_slot_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showBottomSheetDialog();
+            }
+        });
+
     }
 
     private void getWallet() {
@@ -746,6 +758,20 @@ public class CartActivity extends AppCompatActivity implements SwipeRefreshLayou
             }
         });
         requestQueue.add(stringRequest);
+    }
+
+    public void showBottomSheetDialog() {
+        View view = getLayoutInflater().inflate(R.layout.delivery_slot_dialog, null);
+        ImageView close_delivery_slot = view.findViewById(R.id.close_delivery_slot);
+        dialog = new BottomSheetDialog(this);
+        dialog.setContentView(view);
+        dialog.show();
+        close_delivery_slot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
     }
 
     @Override

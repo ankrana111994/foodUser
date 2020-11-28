@@ -86,6 +86,8 @@ public class CategoryDetailActivity extends AppCompatActivity {
         loader=findViewById(R.id.loader);
         cart_lay.setVisibility(View.GONE);
         tab.setTabMode(TabLayout.MODE_SCROLLABLE);
+        findViewById(R.id.toolbar_logo).setVisibility(View.GONE);
+        tvToolbarTitle.setVisibility(View.VISIBLE);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(
                 tab));
         tab.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

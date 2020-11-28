@@ -224,6 +224,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         setupViewPager(viewPager);
         viewPager.setCurrentItem(0);
+        findViewById(R.id.toolbar_logo).setVisibility(View.VISIBLE);
+
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
@@ -248,16 +250,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     case 0:
                         Constants.refresh_flag=false;
                         tvToolbarTitle.setText(getResources().getString(R.string.home));
+                        findViewById(R.id.toolbar_logo).setVisibility(View.VISIBLE);
                         Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.home));
                         break;
                     case 1:
                         Constants.refresh_flag=false;
                         tvToolbarTitle.setText(getResources().getString(R.string.myorders));
+                        tvToolbarTitle.setVisibility(View.VISIBLE);
+                        findViewById(R.id.toolbar_logo).setVisibility(View.GONE);
                         Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.myorders));
                         break;
                     case 2:
                         Constants.refresh_flag=false;
                         tvToolbarTitle.setText(getResources().getString(R.string.profile));
+                        tvToolbarTitle.setVisibility(View.VISIBLE);
+                        findViewById(R.id.toolbar_logo).setVisibility(View.GONE);
                         Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.profile));
                 }
 
