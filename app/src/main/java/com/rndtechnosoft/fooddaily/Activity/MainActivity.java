@@ -216,7 +216,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         tvCartCount = (TextView) findViewById(R.id.tvCartCount);
         toolbar.setTitleTextColor(getResources().getColor(R.color.colorBlack));
         setSupportActionBar(toolbar);
-        tvToolbarTitle.setText(getResources().getString(R.string.home));
+      //  tvToolbarTitle.setText(getResources().getString(R.string.home));
+        tvToolbarTitle.setText("");
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -253,7 +254,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 switch (position) {
                     case 0:
                         Constants.refresh_flag = false;
-                        tvToolbarTitle.setText(getResources().getString(R.string.home));
+                      //  tvToolbarTitle.setText(getResources().getString(R.string.home));
+                        tvToolbarTitle.setText("");
+
                         findViewById(R.id.toolbar_logo).setVisibility(View.VISIBLE);
                         Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.home));
                         break;

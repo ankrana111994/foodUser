@@ -271,7 +271,7 @@
                                     android:id="@+id/slot_text"
                                     android:textColor="@color/colorPrimary"
                                     android:textSize="@dimen/_15sdp"
-                                    android:padding="@dimen/_10sdp"
+                                    android:padding="@dimen/_9sdp"
                                     />
                                 <ImageView
                                     android:layout_width="wrap_content"
