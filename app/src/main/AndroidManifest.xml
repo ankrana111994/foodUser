@@ -23,7 +23,10 @@
         android:theme="@style/AppTheme">
         <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBzFgM8bBCoDYP3ZbO1NcUk9qu2HndD7cc"/>
 
-        <activity android:name=".Activity.RestaurantActivity"></activity>
+        <activity android:name=".Activity.RestaurantActivity"
+            android:screenOrientation="portrait"
+
+            ></activity>
 
 
 

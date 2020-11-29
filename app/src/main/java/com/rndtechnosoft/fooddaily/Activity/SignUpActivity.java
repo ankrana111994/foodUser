@@ -221,7 +221,7 @@ void enableSubmitButton(){
 //                            Log.d(TAG, "signInWithCredential:success");
 
                             tvotp.setText("");
-                            Toast.makeText(SignUpActivity.this,"Verified successfully",Toast.LENGTH_LONG).show();
+                           // Toast.makeText(SignUpActivity.this,"Verified successfully",Toast.LENGTH_LONG).show();
 
                             signup();
                         } else {
@@ -334,10 +334,12 @@ void enableSubmitButton(){
                                     startActivity(intent);
                                     finish();
                                 }else
-                                    Toast.makeText(SignUpActivity.this, jsonObject1.getString("message"), Toast.LENGTH_SHORT).show();
+                                    finish();
+                                    Toast.makeText(SignUpActivity.this, jsonObject1.getString("message"), Toast.LENGTH_LONG).show();
                             }
                             else {
-                                Toast.makeText(SignUpActivity.this, jsonObject1.getString("message"), Toast.LENGTH_SHORT).show();
+                                finish();
+                                Toast.makeText(SignUpActivity.this, jsonObject1.getString("message"), Toast.LENGTH_LONG).show();
 
                             }
                         } catch (JSONException e) {
