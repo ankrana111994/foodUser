@@ -32,6 +32,13 @@
         android:layout_height="wrap_content"
         android:background="@color/colorGrey"/>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/tabs"
+        android:background="@color/colorGrey"
+        />
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loader"
         android:layout_width="@dimen/_80sdp"
@@ -62,6 +69,7 @@
         android:textSize="@dimen/_16sdp"
         android:visibility="gone"
         android:gravity="center_vertical|center_horizontal"/>
+
 
     <RelativeLayout
         android:id="@+id/cart_lay"

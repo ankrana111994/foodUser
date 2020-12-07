@@ -96,10 +96,10 @@
                 <TextView
                     android:id="@+id/txtApartment"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_50sdp"
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/rounded_gray_border_btn"
+                    android:background="@drawable/login_edittext_background"
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="Apartment or Gated Society"
@@ -108,9 +108,9 @@
                 <TextView
                     android:id="@+id/txtHouse"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_50sdp"
                     android:layout_weight="1"
-                    android:background="@drawable/rounded_gray_border_btn"
+                    android:background="@drawable/login_edittext_background"
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="Individual House"
@@ -149,6 +149,16 @@
                         android:layout_marginBottom="10dp"
                         android:weightSum="2">
                         <EditText
+                            android:id="@+id/edtFloor"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_weight="1"
+                            android:hint="Floor"
+                            android:inputType="textCapWords"
+                            android:background="@drawable/login_edittext_background"
+                            android:padding="10dp"/>
+
+                        <EditText
                             android:id="@+id/edtPlot"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_40sdp"
@@ -159,16 +169,6 @@
                             android:inputType="textCapWords"
                             android:background="@drawable/login_edittext_background"
                             android:padding="10dp"/>
-                        <EditText
-                            android:id="@+id/edtFloor"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_40sdp"
-                            android:layout_weight="1"
-                            android:hint="Floor"
-                            android:inputType="textCapWords"
-                            android:background="@drawable/login_edittext_background"
-                            android:padding="10dp"/>
-
                     </LinearLayout>
                     <EditText
                         android:id="@+id/edtAddress"
@@ -199,16 +199,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:visibility="visible"
-
                     >
                     <EditText
-                        android:id="@+id/edtBuilding"
+                        android:id="@+id/edtFlat"
                         android:layout_width="fill_parent"
                         android:layout_height="@dimen/_40sdp"
                         android:layout_marginBottom="10dp"
-                        android:hint="@string/building"
+                        android:hint="Flat / House no."
                         android:inputType="textCapWords"
-                        android:layout_below="@id/llIndividualView"
                         android:background="@drawable/login_edittext_background"
                         android:padding="10dp"/>
                     <EditText
@@ -221,15 +219,15 @@
                         android:background="@drawable/login_edittext_background"
                         android:padding="10dp"/>
                     <EditText
-                        android:id="@+id/edtFlat"
+                        android:id="@+id/edtBuilding"
                         android:layout_width="fill_parent"
                         android:layout_height="@dimen/_40sdp"
                         android:layout_marginBottom="10dp"
-                        android:hint="Flat / House no."
+                        android:hint="@string/building"
                         android:inputType="textCapWords"
+                        android:layout_below="@id/llIndividualView"
                         android:background="@drawable/login_edittext_background"
                         android:padding="10dp"/>
-
                 </LinearLayout>
             </RelativeLayout>
 
