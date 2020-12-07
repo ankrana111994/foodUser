@@ -53,13 +53,14 @@ public class InfoActivity extends AppCompatActivity {
                 selectPage = position;
                 if (position == 0) {
                     btnNext.setText("Next");
-                } else if (position == 1) {
-                    btnNext.setText("Next");
-
-                } else if (position == 2) {
-                    btnNext.setText("Finish");
-
                 }
+//                else if (position == 1) {
+//                    btnNext.setText("Next");
+//
+//                } else if (position == 2) {
+//                    btnNext.setText("Finish");
+//
+//                }
             }
 
             @Override
@@ -73,12 +74,15 @@ public class InfoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (selectPage == 0) {
                     vpPager.setCurrentItem(1);
-                } else if (selectPage == 1) {
-                    vpPager.setCurrentItem(2);
-                } else if (selectPage == 2) {
                     startActivity(new Intent(InfoActivity.this, LoginActivity.class));
                     finish();
                 }
+//                else if (selectPage == 1) {
+//                    vpPager.setCurrentItem(2);
+//                } else if (selectPage == 2) {
+//                    startActivity(new Intent(InfoActivity.this, LoginActivity.class));
+//                    finish();
+//                }
             }
         });
 
@@ -92,7 +96,7 @@ public class InfoActivity extends AppCompatActivity {
     }
 
     public class MyPagerAdapter extends FragmentPagerAdapter {
-        private int NUM_ITEMS = 3;
+        private int NUM_ITEMS = 1;
 
         public MyPagerAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
@@ -111,10 +115,10 @@ public class InfoActivity extends AppCompatActivity {
             switch (position) {
                 case 0: // Fragment # 0 - This will show FirstFragment
                     return Info1Fragment.newInstance("0", "Next");
-                case 1: // Fragment # 0 - This will show FirstFragment different title
-                    return Info2Fragment.newInstance("1", "Next");
-                case 2: // Fragment # 1 - This will show SecondFragment
-                    return Info3Fragment.newInstance("2", "Finish");
+//                case 1: // Fragment # 0 - This will show FirstFragment different title
+//                    return Info2Fragment.newInstance("1", "Next");
+//                case 2: // Fragment # 1 - This will show SecondFragment
+//                    return Info3Fragment.newInstance("2", "Finish");
                 default:
                     return null;
             }

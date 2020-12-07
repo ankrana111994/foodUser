@@ -4,20 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
+    android:background="@color/colorPrimary"
+    android:layout_gravity="center"
+    android:gravity="center"
     tools:context=".Activity.SplashActivity">
-    <androidx.cardview.widget.CardView
-        android:layout_width="@dimen/_200sdp"
-        android:layout_height="@dimen/_200sdp"
-        app:cardCornerRadius="8dp"
-        android:layout_margin="5dp"
-        android:layout_centerInParent="true"
-        android:elevation="10dp">
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:layout_width="@dimen/_200sdp"-->
+<!--        android:layout_height="@dimen/_200sdp"-->
+<!--        app:cardCornerRadius="8dp"-->
+<!--        android:layout_margin="5dp"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:elevation="10dp">-->
 
         <ImageView
             android:layout_width="@dimen/_200sdp"
             android:layout_height="@dimen/_200sdp"
-            android:src="@drawable/logo_here"
+            android:src="@drawable/wedelis_logo"
             />
-    </androidx.cardview.widget.CardView>
+<!--    </androidx.cardview.widget.CardView>-->
 </RelativeLayout>

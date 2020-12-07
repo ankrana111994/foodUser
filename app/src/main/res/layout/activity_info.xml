@@ -35,6 +35,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/login_button"
             android:backgroundTint="@color/colorAccent"
+            android:visibility="gone"
             android:elevation="10dp"
             android:gravity="center">
 
@@ -56,7 +57,7 @@
             android:layout_marginRight="30dp"
             android:layout_marginBottom="30dp"
             android:background="@drawable/login_button"
-            android:backgroundTint="@color/colorGrey1"
+            android:backgroundTint="@color/colorPrimary"
             android:elevation="10dp"
             android:gravity="center">
 
@@ -64,9 +65,9 @@
                 android:id="@+id/btn_skip"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
-                android:text="Skip"
+                android:text="Next"
                 android:gravity="center"
-                android:textColor="@color/colorBlack"
+                android:textColor="@color/colorWhite"
                 android:textSize="16dp"
                 android:textStyle="bold" />
         </LinearLayout>
